@@ -35,27 +35,27 @@
         </button>
     </header>
 
-    <main>
+<main>
         <!-- PAGE BANNER -->
         <section class="page-banner">
-            <h2>CONTACT US</h2>
+            <h1>CONTACT US</h1>
             <p>We'd Love to Hear From You</p>
         </section>
 
         <!-- GET IN TOUCH SECTION (Map + Details) -->
         <section class="get-in-touch-section">
             <h2>GET IN TOUCH</h2>
-            <div class="contact-grid" style="display: flex; gap: 30px; flex-wrap: wrap;">
+            <div class="contact-grid">
                 
                 <!-- Map Area -->
-                <div class="map-box" style="flex: 1; min-width: 280px; border: 1px solid #ccc; padding: 20px; text-align: center;">
-                    <div class="map-placeholder" style="background: #eee; height: 250px; display: flex; align-items: center; justify-content: center;">
+                <div class="map-box">
+                    <div class="map-placeholder">
                         <p><em>[ MAP - Alexandra Heritage Precinct & Alex Mall Locations ]</em></p>
                     </div>
                 </div>
 
                 <!-- Contact Information Area -->
-                <div class="contact-info-box" style="flex: 1; min-width: 280px;">
+                <div class="contact-info-box">
                     <h3>ADDRESS</h3>
                     <p>Alexandra, Johannesburg</p>
 
@@ -67,7 +67,7 @@
 
                     <h3>SOCIAL MEDIA</h3>
                     <div class="social-icons">
-                        <a href="#">[Facebook Icon]</a> <a href="#">[X Icon]</a> <a href="#">[Instagram Icon]</a>
+                        <a href="#">[Facebook Icon]</a> | <a href="#">[X Icon]</a> | <a href="#">[Instagram Icon]</a>
                     </div>
                 </div>
 
@@ -75,43 +75,116 @@
         </section>
 
         <!-- SEND US A MESSAGE SECTION -->
-        <section class="contact-form-section" style="margin-top: 40px;">
+        <section class="contact-form-section">
             <h2>SEND US A MESSAGE</h2>
             <form action="#" method="POST" class="contact-form">
                 
-                <div class="form-group" style="display: block; margin-bottom: 20px;">
-                    <label for="fullname" style="display: block; margin-bottom: 5px; font-weight: bold;">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" style="display: block; width: 100%; max-width: 280px; padding: 8px;" required>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
                 </div>
 
-                <div class="form-group" style="display: block; margin-bottom: 20px;">
-                    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
-                    <input type="email" id="email" name="email" style="display: block; width: 100%; max-width: 280px; padding: 8px;" required>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
 
-                <div class="form-group" style="display: block; margin-bottom: 20px;">
-                    <label for="subject" style="display: block; margin-bottom: 5px; font-weight: bold;">Subject</label>
-                    <input type="text" id="subject" name="subject" style="display: block; width: 100%; max-width: 280px; padding: 8px;" required>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
                 </div>
 
-                <div class="form-group" style="display: block; margin-bottom: 20px;">
-                    <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
-                    <textarea id="message" name="message" rows="5" style="display: block; width: 100%; max-width: 320px; padding: 8px;" required></textarea>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
 
-                <button type="submit" class="btn" style="display: block; padding: 10px 20px;">SEND MESSAGE</button>
+                <button type="submit" class="btn send-btn">SEND MESSAGE</button>
             </form>
         </section>
     </main>
-
-    <!-- FOOTER SECTION -->
+    
+     <!-- ==================== FOOTER SECTION ==================== -->
+    <!-- Contains additional navigation, contact information and social media links -->
     <footer>
-        <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 20px 0;">
-            <div class="footer-links">
-                <p><a href="index.html">Quick Links</a> | <a href="contact.html">Contact</a> | <a href="#">Social Media</a> | <a href="#">Privacy Policy</a></p>
+
+        <!-- Main container organising the different footer sections -->
+        <div class="footer-container">
+
+
+            <!-- ==================== FOOTER LOGO ==================== -->
+            <!-- Displays a smaller version of the website logo -->
+            <div class="footer-logo">
+
+                <!-- Small logo displayed in the footer -->
+                <img src="images/logo-small.png" alt="Logo">
+
             </div>
+
+
+            <!-- ==================== FOOTER NAVIGATION ==================== -->
+            <!-- Provides quick links to important website pages -->
+            <div class="footer-links">
+
+                <!-- Heading for the quick links section -->
+                <h4>Quick Links</h4>
+
+                <!-- List containing the footer navigation links -->
+                <ul>
+
+                    <!-- Link to the homepage -->
+                    <li><a href="index.html">Home</a></li>
+
+                    <!-- Link to the About Us page -->
+                    <li><a href="about.html">About Us</a></li>
+
+                    <!-- Link to the Contents page -->
+                    <li><a href="contents.html">Contents</a></li>
+
+                    <!-- Link to the Enquiry page -->
+                    <li><a href="enquiry.html">Enquiry</a></li>
+                    
+                    <!-- Link to the Contact page -->
+                    <li><a href="contact.html">Contact</a></li>                    
+
+
+                </ul>
+            </div>
+
+
+            <!-- ==================== CONTACT INFORMATION ==================== -->
+            <!-- Displays the organisation's contact details -->
+            <div class="footer-contact">
+
+                <!-- Heading for the contact section -->
+                <h4>Contact Information</h4>
+
+                <!-- Organisation email address -->
+                <p>Email: info@myalexandra.co.za</p>
+
+                <!-- Organisation telephone number -->
+                <p>Phone: 011 555 1912</p>
+
+            </div>
+
+
+            <!-- ==================== SOCIAL MEDIA ==================== -->
+            <!-- Provides links to the organisation's social media platforms -->
+            <div class="footer-social">
+
+                <!-- Heading for the social media section -->
+                <h4>Social Media</h4>
+
+                <!-- Links to the organisation's Facebook and X social media pages -->
+                <a href="#">Facebook</a> | <a href="#">X</a>
+
+            </div>
+
         </div>
+
+        <!-- Displays the copyright notice at the bottom of the webpage -->
         <p>&copy; 2026 Alexandra Digital History Archives</p>
+
     </footer>
 
     <script src="js/main.js"></script>
