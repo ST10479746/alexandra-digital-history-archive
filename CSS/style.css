@@ -1,0 +1,51 @@
+/* ==================== BASE STYLES & RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== HEADER & NAVIGATION ==================== */
+header {
+    display: flex;
+    justify-content: center; /* Pushes logo left, nav right */
+    align-items: center; /* Vertically centers them */
+    padding: 20px 5%; /* Adds breathing room around the edges */
+}
+
+/* Add this new rule for the nav to center the links */
+nav {
+    flex-grow: 1; /* Tells the nav box to fill all remaining horizontal space */
+    display: flex;
+    justify-content: center; /* Pushes the links to the middle of that space */
+}
+
+/* Restricts the logo size */
+.logo-container img {
+    height: 60px; /* Changed the size of the logo */
+    width: auto;
+}
+
+/* Makes the navigation links horizontal */
+nav ul {
+    display: flex; 
+    justify-content: center;  /* Centers the links in the middle of the screen */
+    list-style: none; /* Removes bullet points */
+    gap: 30px; /* Space between the links */
+}
+
+/* ==================== SEARCH BUTTON ==================== */
+.search-btn {
+    background: transparent; /* Removes default button background */
+    border: none; /* Removes default button outline */
+    cursor: pointer;
+    color: black; /* The 'currentColor' in the SVG inherits this */
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Gives a slightly larger clickable area */
+}
+
+/* Structural hover indicator */
+.search-btn:hover {
+    opacity: 0.6; 
+}

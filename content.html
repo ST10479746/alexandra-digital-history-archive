@@ -1,0 +1,397 @@
+<!-- ==================== REFERENCES ==================== -->
+<!--
+    Reference:
+    Gemini., 2026. Converting images to PDFs (Gemini 3.7) [Artificial Intelligence]
+    Available at: <https://share.gemini.google/BXmaGFC6eDky>
+    [Accessed 01 September 2026]
+-->
+
+<!-- Defines this document as an HTML5 document -->
+<!DOCTYPE html>
+
+<!-- Root element of the webpage. The lang attribute specifies that the content is in English. -->
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding used by the webpage -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive on different screen sizes and devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title displayed in the browser tab -->
+    <title>Alexandra Digital History Archive - Content</title>
+
+    <!-- Links the HTML page to the external CSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+    <!--
+        The header contains the website branding and navigation menu.
+        It is displayed at the top of the webpage.
+    -->
+    <header>
+
+        <!-- Groups the website logo and website name together -->
+        <div class="logo-container">
+
+            <!-- Displays the main website logo -->
+            <img src="images/logo.png" alt="Alexandra Digital History Archive Logo">
+
+            <!-- Displays the name of the digital history archive -->
+            <h1>ALEXANDRA DIGITAL HISTORY ARCHIVE</h1>
+
+        </div>
+
+
+        <!-- ==================== NAVIGATION MENU ==================== -->
+        <!--
+            The navigation element contains links that allow users
+            to move between the different pages of the website.
+        -->
+        <nav>
+
+            <!-- Unordered list used to organise the navigation links -->
+            <ul>
+
+                <!-- Link to the homepage -->
+                <li><a href="index.html">Home</a></li>
+
+                <!-- Link to the About Us page -->
+                <li><a href="about.html">About Us</a></li>
+
+                <!-- Link to the Content page -->
+                <li><a href="content.html">Content</a></li>
+
+                <!-- Link to the Enquiry page -->
+                <li><a href="enquiry.html">Enquiry</a></li>
+
+                <!-- Link to the Contact page -->
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <!--
+        The main element contains the primary content of the page.
+        The content is divided into different sections for easier
+        organisation and navigation.
+    -->
+    <main>
+
+
+        <!-- ==================== PAGE BANNER ==================== -->
+        <!--
+            The page banner introduces the Content page
+            and explains what users can explore.
+        -->
+        <section class="page-banner">
+
+            <!-- Main heading identifying the current page -->
+            <h2>CONTENT</h2>
+
+            <!-- Short description explaining what the archive contains -->
+            <p>Explore the History, People, Places and Events of Alexandra</p>
+
+        </section>
+
+
+        <!-- ==================== SEARCH THE ARCHIVES ==================== -->
+        <!--
+            This section provides users with a search form
+            for finding historical content.
+        -->
+        <section class="search-section">
+
+            <!-- Heading for the search feature -->
+            <h2>SEARCH THE ARCHIVES</h2>
+
+            <!--
+                Creates a search form.
+                method="GET" sends the search information through the URL.
+                action="#" currently keeps the form on the same page.
+            -->
+            <form action="#" method="GET" class="search-form">
+
+                <!--
+                    Text input where the user enters a search term.
+                    The placeholder provides an example of what to enter.
+                    name="search" identifies the input when the form is submitted.
+                    required prevents the form from being submitted empty.
+                -->
+                <input
+                    type="text"
+                    placeholder="Search historical content..."
+                    name="search"
+                    required
+                >
+
+                <!-- Submit button used to perform the search -->
+                <button type="submit" class="btn">SEARCH</button>
+
+            </form>
+        </section>
+
+
+        <!-- ==================== EXPLORE CONTENT GRID ==================== -->
+        <!--
+            Displays the different categories of historical content
+            available within the digital archive.
+        -->
+        <section class="explore-content">
+
+            <!-- Heading introducing the content categories -->
+            <h2>EXPLORE CONTENT</h2>
+
+            <!--
+                Container used to organise the content cards
+                into a grid layout using CSS.
+            -->
+            <div class="card-grid">
+
+
+                <!-- ==================== HISTORICAL COLLECTIONS CARD ==================== -->
+                <!-- Card containing information about historical collections -->
+                <div class="card">
+
+                    <!-- Image representing the historical collections -->
+                    <img src="images/collections.jpg" alt="Historical Collections">
+
+                    <!-- Title of the content category -->
+                    <h3>Historical Collections</h3>
+
+                    <!-- Button intended to take the user to the collections -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+
+                <!-- ==================== HISTORICAL TIMELINE CARD ==================== -->
+                <!--
+                    Card containing the historical timeline.
+                    The id allows other links to jump directly to this card.
+                -->
+                <div class="card" id="timeline">
+
+                    <!-- Image representing the historical timeline -->
+                    <img src="images/timeline.jpg" alt="Historical Timeline">
+
+                    <!-- Title of the content category -->
+                    <h3>Historical Timeline</h3>
+
+                    <!-- Button intended to take the user to more timeline information -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+
+                <!-- ==================== HISTORICAL EVENTS CARD ==================== -->
+                <!-- Card containing information about important historical events -->
+                <div class="card">
+
+                    <!-- Image representing historical events -->
+                    <img src="images/events.jpg" alt="Historical Events">
+
+                    <!-- Title of the content category -->
+                    <h3>Historical Events</h3>
+
+                    <!-- Button intended to display more information about events -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+
+                <!-- ==================== THE LEGENDS CARD ==================== -->
+                <!-- Card highlighting important people and legends -->
+                <div class="card">
+
+                    <!-- Image representing historical legends -->
+                    <img src="images/legends.jpg" alt="The Legends">
+
+                    <!-- Title of the content category -->
+                    <h3>The Legends</h3>
+
+                    <!-- Button intended to display more information about the legends -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+
+                <!-- ==================== DIGITAL MAP CARD ==================== -->
+                <!-- Card providing access to the digital map -->
+                <div class="card">
+
+                    <!-- Image representing the digital map -->
+                    <img src="images/digital-map.jpg" alt="Digital Map">
+
+                    <!-- Title of the content category -->
+                    <h3>Digital Map</h3>
+
+                    <!-- Button intended to open the digital map -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+
+                <!-- ==================== EDUCATIONAL RESOURCES CARD ==================== -->
+                <!-- Card providing educational material about Alexandra -->
+                <div class="card">
+
+                    <!-- Image representing educational resources -->
+                    <img src="images/educational.jpg" alt="Educational Resources">
+
+                    <!-- Title of the content category -->
+                    <h3>Educational Resources</h3>
+
+                    <!-- Button intended to display the available educational resources -->
+                    <a href="#" class="btn">VIEW MORE</a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FEATURED HISTORICAL CONTENT ==================== -->
+        <!--
+            Highlights one important historical article or story
+            to encourage visitors to explore the archive.
+        -->
+        <section class="featured-historical-content">
+
+            <!-- Heading introducing the featured historical content -->
+            <h2>FEATURED HISTORICAL CONTENT</h2>
+
+            <!--
+                Container holding the featured article image,
+                title, description and link.
+            -->
+            <div class="featured-article-card">
+
+                <!-- Image representing the featured historical article -->
+                <img src="images/featured-article.jpg" alt="Featured Article Image">
+
+
+                <!-- Contains the text and button for the featured article -->
+                <div class="featured-article-text">
+
+                    <!-- Title of the featured historical article -->
+                    <h3>Title of Historical Article/Story</h3>
+
+                    <!-- Short description of the featured historical content -->
+                    <p>
+                        Brief description of the historical content detailing significant
+                        milestones and community heritage in Alexandra.
+                    </p>
+
+                    <!-- Button intended to take the user to the complete article -->
+                    <a href="#" class="btn">READ MORE</a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <!--
+        The footer appears at the bottom of the webpage.
+        It contains additional navigation links, contact information,
+        social media links and copyright information.
+    -->
+    <footer>
+
+        <!-- Container used to organise the different footer sections -->
+        <div class="footer-container">
+
+
+            <!-- ==================== FOOTER LOGO ==================== -->
+            <!-- Displays a smaller version of the website logo -->
+            <div class="footer-logo">
+
+                <!-- Displays the small logo -->
+                <img src="images/logo-small.png" alt="Logo">
+
+            </div>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <!-- Provides shortcuts to important website pages -->
+            <div class="footer-links">
+
+                <!-- Heading for the quick links -->
+                <h4>Quick Links</h4>
+
+                <!-- Unordered list containing the footer navigation links -->
+                <ul>
+
+                    <!-- Link to the homepage -->
+                    <li><a href="index.html">Home</a></li>
+
+                    <!-- Link to the About Us page -->
+                    <li><a href="about.html">About Us</a></li>
+
+                    <!-- Link to the Enquiry page -->
+                    <li><a href="enquiry.html">Enquiry</a></li>
+
+                </ul>
+            </div>
+
+
+            <!-- ==================== CONTACT INFORMATION ==================== -->
+            <!-- Displays the organisation's contact details -->
+            <div class="footer-contact">
+
+                <!-- Heading for the contact information -->
+                <h4>Contact Information</h4>
+
+                <!-- Organisation's email address -->
+                <p>Email: info@alexandradigitalhistory.co.za</p>
+
+                <!-- Organisation's telephone number -->
+                <p>Phone: 011 555 1912</p>
+
+            </div>
+
+
+            <!-- ==================== SOCIAL MEDIA ==================== -->
+            <!-- Provides links to the organisation's social media platforms -->
+            <div class="footer-social">
+
+                <!-- Heading for the social media links -->
+                <h4>Social Media</h4>
+
+                <!--
+                    Facebook and X links.
+                    The # is currently a placeholder until the actual
+                    social media URLs are added.
+                -->
+                <a href="#">Facebook</a> | <a href="#">X</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Displays the copyright notice for the website -->
+        <p>&copy; 2026 Alexandra Digital History Archive</p>
+
+    </footer>
+
+
+    <!--
+        Connects the webpage to the external JavaScript file.
+        The script is placed at the bottom of the body so the HTML
+        content can load before JavaScript is executed.
+    -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

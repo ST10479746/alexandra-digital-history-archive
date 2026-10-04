@@ -1,0 +1,507 @@
+<!-- ==================== REFERENCES ==================== -->
+<!--
+    Reference:
+    Gemini., 2026. Converting images to PDFs (Gemini 3.7) [Artificial Intelligence]
+    Available at: <https://share.gemini.google/BXmaGFC6eDky>
+    [Accessed 01 September 2026]
+-->
+
+<!-- Defines this document as an HTML5 document -->
+<!DOCTYPE html>
+
+<!-- Root element of the webpage. The lang attribute specifies that the page is written in English. -->
+<html lang="en">
+
+<head>
+    <!-- Specifies the character encoding used by the webpage -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive on different screen sizes and devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title displayed in the browser tab -->
+    <title>Alexandra Digital History Archive - Enquiry</title>
+
+    <!-- Links the HTML page to the external CSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+    <!--
+        The header contains the website branding and main navigation menu.
+        It appears at the top of the webpage.
+    -->
+    <header>
+
+        <!-- Groups the website logo and website name together -->
+        <div class="logo-container">
+
+            <!-- Displays the main website logo -->
+            <img src="images/logo.png" alt="Alexandra Digital History Archive Logo">
+
+            <!-- Displays the name of the digital history archive -->
+            <h1>ALEXANDRA DIGITAL HISTORY ARCHIVE</h1>
+
+        </div>
+
+
+        <!-- ==================== NAVIGATION MENU ==================== -->
+        <!--
+            The navigation menu allows users to move between
+            the different pages of the website.
+        -->
+        <nav>
+
+            <!-- Unordered list used to organise the navigation links -->
+            <ul>
+
+                <!-- Link to the homepage -->
+                <li><a href="index.html">Home</a></li>
+
+                <!-- Link to the About Us page -->
+                <li><a href="about.html">About Us</a></li>
+
+                <!-- Link to the Content page -->
+                <li><a href="content.html">Content</a></li>
+
+                <!-- Link to the current Enquiry page -->
+                <li><a href="enquiry.html">Enquiry</a></li>
+
+                <!-- Link to the Contact page -->
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <!--
+        The main element contains the primary content of the
+        Enquiry page.
+    -->
+    <main>
+
+
+        <!-- ==================== PAGE BANNER ==================== -->
+        <!--
+            The page banner introduces the purpose of the Enquiry page.
+        -->
+        <section class="page-banner">
+
+            <!-- Main heading identifying the current page -->
+            <h2>ENQUIRIES</h2>
+
+            <!-- Short statement encouraging visitors to participate -->
+            <p>Let's Preserve Alexandra's History Together</p>
+
+        </section>
+
+
+        <!-- ==================== PARTNERSHIPS & COLLABORATIONS SECTION ==================== -->
+        <!--
+            This section explains that the organisation welcomes
+            partnerships and collaboration from different groups.
+        -->
+        <section class="partnerships-section">
+
+            <!-- Container used to organise the image and text -->
+            <div class="partnerships-container">
+
+
+                <!-- ==================== PARTNERSHIP IMAGE ==================== -->
+                <!-- Contains an image representing partnerships -->
+                <div class="partnerships-image">
+
+                    <!-- Displays the partnership icon/image -->
+                    <img src="images/partnership-icon.jpg" alt="Partnership Icon">
+
+                </div>
+
+
+                <!-- ==================== PARTNERSHIP TEXT ==================== -->
+                <!-- Contains information about potential collaborations -->
+                <div class="partnerships-text">
+
+                    <!-- Heading introducing the partnership section -->
+                    <h2>PARTNERSHIPS & COLLABORATIONS</h2>
+
+                    <!-- Explains who is welcome to work with the organisation -->
+                    <p>
+                        We welcome organisations, researchers, institutions and community
+                        members interested in working with us.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SEND AN ENQUIRY FORM ==================== -->
+        <!--
+            This section contains the form that visitors can use
+            to submit an enquiry to the organisation.
+        -->
+        <section class="enquiry-form-section">
+
+            <!-- Heading introducing the enquiry form -->
+            <h2>SEND AN ENQUIRY</h2>
+
+
+            <!--
+                Creates the enquiry form.
+                method="POST" is used to send the form information.
+                action="#" currently keeps the form on the same page
+                because a backend processing location has not been provided.
+            -->
+            <form action="#" method="POST" class="enquiry-form">
+
+
+                <!-- ==================== FULL NAME FIELD ==================== -->
+                <!-- Groups the label and input field for the user's full name -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!--
+                        Label identifies the purpose of the input field.
+                        The "for" attribute connects the label to the input
+                        with the matching id="fullname".
+                    -->
+                    <label for="fullname"
+                           style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Full Name
+                    </label>
+
+                    <!--
+                        Text input used to collect the user's full name.
+                        required means the user must complete this field
+                        before submitting the form.
+                    -->
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ==================== ORGANISATION FIELD ==================== -->
+                <!-- Groups the organisation input field -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!-- Label describing the organisation input -->
+                    <label for="organisation"
+                           style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Organisation
+                    </label>
+
+                    <!--
+                        Text input for the name of the organisation.
+                        This field is optional because it does not contain
+                        the required attribute.
+                    -->
+                    <input
+                        type="text"
+                        id="organisation"
+                        name="organisation"
+                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
+                    >
+
+                </div>
+
+
+                <!-- ==================== EMAIL ADDRESS FIELD ==================== -->
+                <!-- Groups the email input field -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!-- Label describing the email input -->
+                    <label for="email"
+                           style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Email Address
+                    </label>
+
+                    <!--
+                        Email input used to collect the user's email address.
+                        type="email" allows the browser to perform basic
+                        email format validation.
+                        required means the field must be completed.
+                    -->
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ==================== PHONE NUMBER FIELD ==================== -->
+                <!-- Groups the phone number input field -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!-- Label describing the phone number input -->
+                    <label for="phone"
+                           style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Phone Number
+                    </label>
+
+                    <!--
+                        Telephone input allows the user to enter
+                        a phone number.
+                    -->
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
+                    >
+
+                </div>
+
+
+                <!-- ==================== TYPE OF ENQUIRY ==================== -->
+                <!--
+                    This section allows users to identify the reason
+                    for contacting the organisation.
+                -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!-- Label describing the enquiry type options -->
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Type of Enquiry
+                    </label>
+
+
+                    <!--
+                        Unordered list containing the different enquiry options.
+                        CSS removes the normal bullet points and padding.
+                    -->
+                    <ul class="checkbox-list"
+                        style="list-style-type: none; padding-left: 0; margin: 0;">
+
+
+                        <!-- Partnership enquiry option -->
+                        <li style="margin-bottom: 8px;">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="enquiry_type"
+                                    value="partnership"
+                                >
+                                Partnership
+                            </label>
+                        </li>
+
+
+                        <!-- Collaboration enquiry option -->
+                        <li style="margin-bottom: 8px;">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="enquiry_type"
+                                    value="collaboration"
+                                >
+                                Collaboration
+                            </label>
+                        </li>
+
+
+                        <!-- Research enquiry option -->
+                        <li style="margin-bottom: 8px;">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="enquiry_type"
+                                    value="research"
+                                >
+                                Research
+                            </label>
+                        </li>
+
+
+                        <!-- Content contribution enquiry option -->
+                        <li style="margin-bottom: 8px;">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="enquiry_type"
+                                    value="content_contribution"
+                                >
+                                Content Contribution
+                            </label>
+                        </li>
+
+
+                        <!-- Other enquiry option -->
+                        <li style="margin-bottom: 8px;">
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="enquiry_type"
+                                    value="other"
+                                >
+                                Other
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- ==================== MESSAGE FIELD ==================== -->
+                <!--
+                    This section allows users to provide additional
+                    information about their enquiry.
+                -->
+                <div class="form-group"
+                     style="display: block; margin-bottom: 20px;">
+
+                    <!-- Label describing the message field -->
+                    <label for="message"
+                           style="display: block; margin-bottom: 5px; font-weight: bold;">
+                        Your Message
+                    </label>
+
+                    <!--
+                        Textarea provides a larger area for users
+                        to type their enquiry or message.
+                        rows="5" determines the initial height of the field.
+                        required means a message must be provided.
+                    -->
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        style="display: block; width: 100%; max-width: 320px; padding: 8px;"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ==================== SUBMIT BUTTON ==================== -->
+                <!--
+                    Submit button sends the information entered
+                    into the form.
+                -->
+                <button
+                    type="submit"
+                    class="btn"
+                    style="display: block; padding: 10px 20px;"
+                >
+                    SUBMIT ENQUIRY
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <!--
+        The footer is displayed at the bottom of the webpage.
+        It contains navigation links, contact information,
+        social media links and copyright information.
+    -->
+    <footer>
+
+        <!-- Container used to organise the different footer sections -->
+        <div class="footer-container">
+
+
+            <!-- ==================== FOOTER LOGO ==================== -->
+            <!-- Displays a smaller version of the organisation's logo -->
+            <div class="footer-logo">
+
+                <!-- Displays the small logo -->
+                <img src="images/logo-small.png" alt="Logo">
+
+            </div>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <!-- Provides shortcuts to important website pages -->
+            <div class="footer-links">
+
+                <!-- Heading for the quick links section -->
+                <h4>Quick Links</h4>
+
+                <!-- Unordered list containing the footer navigation links -->
+                <ul>
+
+                    <!-- Link to the homepage -->
+                    <li><a href="index.html">Home</a></li>
+
+                    <!-- Link to the About Us page -->
+                    <li><a href="about.html">About Us</a></li>
+
+                    <!-- Link to the Enquiry page -->
+                    <li><a href="enquiry.html">Enquiry</a></li>
+
+                </ul>
+            </div>
+
+
+            <!-- ==================== CONTACT INFORMATION ==================== -->
+            <!-- Displays the organisation's contact details -->
+            <div class="footer-contact">
+
+                <!-- Heading for the contact information -->
+                <h4>Contact Information</h4>
+
+                <!-- Organisation's email address -->
+                <p>Email: info@alexandradigitalhistory.co.za</p>
+
+                <!-- Organisation's telephone number -->
+                <p>Phone: 011 555 1912</p>
+
+            </div>
+
+
+            <!-- ==================== SOCIAL MEDIA ==================== -->
+            <!-- Provides links to the organisation's social media platforms -->
+            <div class="footer-social">
+
+                <!-- Heading for the social media section -->
+                <h4>Social Media</h4>
+
+                <!--
+                    Facebook and X links.
+                    The # is currently used as a placeholder until
+                    the actual social media URLs are added.
+                -->
+                <a href="#">Facebook</a> | <a href="#">X</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Displays the copyright notice for the website -->
+        <p>&copy; 2026 Alexandra Digital History Archive</p>
+
+    </footer>
+
+
+    <!--
+        Connects the webpage to the external JavaScript file.
+        The script is placed at the bottom of the body so that
+        the HTML content can load before JavaScript executes.
+    -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
