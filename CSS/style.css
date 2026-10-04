@@ -49,3 +49,84 @@ nav ul {
 .search-btn:hover {
     opacity: 0.6; 
 }
+
+/* ==================== HERO SECTION ==================== */
+
+/* Restricts the hero image, adds padding, and forces exact centering */
+.hero-section img {
+    display: block; /* Treats the image as a structural block rather than text */
+    margin: 0 auto; /* 0 spacing on top/bottom, perfectly equal spacing on left/right */
+    max-width: 80%; 
+    height: auto;
+    padding: 15px; 
+}
+
+/* Ensures the hero heading and paragraph text are perfectly centered */
+.hero-section h2, 
+.hero-section p {
+    text-align: center;
+}
+
+/* Centers the two buttons side-by-side */
+.hero-buttons {
+    display: flex;
+    justify-content: center; /* This forces the buttons into the exact middle */
+    gap: 15px; /* Keeps the space between the two buttons */
+    margin-top: 10px;
+    width: 100%; /* Ensures the container spans across so it can center properly */
+}
+
+/* ==================== BRIEF INTRODUCTION SECTION ==================== */
+.intro-content {
+    display: flex;
+    flex-direction: column; /* Stacks the image and text vertically */
+    align-items: center; /* Centers the structural boxes */
+    text-align: center; /* Centers the actual text */
+    padding: 40px 5%;
+    gap: 20px;
+}
+
+.intro-content img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* ==================== FEATURED CONTENT SECTION ==================== */
+.featured-content {
+    text-align: center; /* Centers the main FEATURED CONTENT heading */
+    padding: 40px 5%;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Stacks the three cards vertically */
+    align-items: center; /* Centers the cards on the screen */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #333; /* Adds a temporary structural frame so you can see the cards */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Keeps the cards from stretching too wide */
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* ==================== CALL TO ACTION SECTION ==================== */
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 5%;
+    gap: 15px;
+}
