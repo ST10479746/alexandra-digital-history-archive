@@ -1,3 +1,53 @@
+/* ==================== GLOBAL BASE STYLES ==================== */
+body {
+    font-family: "Aptos", Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+/* ==================== RESPONSIVE DESIGN (MEDIA QUERIES) ==================== */
+
+/* Tablet & Mobile Breakpoint */
+@media (max-width: 768px) {
+    
+    /* Navigation Adjustment: Stacks the logo and links vertically */
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column; /* Switches from a row to a stacked column */
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Typography Adjustment: Scales down large headings for small screens */
+    .page-banner h1, 
+    .hero-section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Layout Adjustment: Reduces massive padding on mobile devices */
+    .hero-section, 
+    .intro-section, 
+    .featured-content, 
+    .contact-form-section {
+        padding: 30px 5%;
+    }
+
+    /* Adjusts grids to ensure they stack perfectly */
+    .card-grid, 
+    .contact-grid, 
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 /* ==================== BASE STYLES & RESET ==================== */
 * {
     margin: 0;
@@ -83,6 +133,22 @@ nav ul {
 /* 1. Adds generous space to the top and bottom of the entire section */
 .intro-section {
     padding: 60px 0; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 40px 5%; /* 40px padding on the top and bottom to frame the section */
+    gap: 15px;    
+}
+
+/* Sizes and frames the Hero and Intro images identically */
+.hero-section img,
+.intro-content img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: cover;
+    justify-content: center;
 }
 
 /* 2. Turns the text container into a Flexbox column to space out the h2, p, and button */
@@ -106,28 +172,63 @@ nav ul {
     padding: 40px 5%;
 }
 
+/* 1. Aligns the cards in a horizontal row */
 .card-container {
     display: flex;
-    flex-direction: column; /* Stacks the three cards vertically */
-    align-items: center; /* Centers the cards on the screen */
+    flex-direction: row; /* Forces the cards into a horizontal line */
+    justify-content: center; /* Centers the row on the page */
+    flex-wrap: wrap; /* Ensures the cards drop to the next line safely if the screen gets too small */
     gap: 30px;
     margin-top: 20px;
 }
 
+/* ==================== FEATURED CONTENT CARDS ==================== */
+
+/* 1. The Card Container (Black background) */
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #333; /* Adds a temporary structural frame so you can see the cards */
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%; /* Keeps the cards from stretching too wide */
+    background-color: #000000; /* Makes the card container black */
+    padding: 15px 20px; /* Gives the content some breathing room */
+    border-radius: 12px; /* Smooth rounded corners */
+    width: 100%;
+    max-width: 300px; /* Keeps the cards uniform in size */
+}
+
+/* 2. The Titles (White text) */
+.card h3 {
+    color: #ffffff; /* Makes the heading white */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    width: 100px; 
+    height: 100px;
+    object-fit: cover; 
+    margin-bottom: 20px;
+}
+
+/* ==================== GLOBAL BUTTON STYLING ==================== */
+
+/* 4. The Hyperlinks (Gold background, black text) */
+.btn {
+    background-color: #d4af37; /* Gold background */
+    color: #000000; /* Black text */
+    padding: 10px 25px; /* Creates the structural button shape around the text */
+    text-decoration: none; /* Removes the default hyperlink underline */
+    font-weight: bold;
+    border-radius: 5px; /* Slightly rounded button edges */
+    display: inline-block; /* Allows padding and margins to work correctly on an inline link */
+    text-align: center;
+    transition: background-color 0.3s ease; /* Makes the hover effect smooth */
+}
+
+/* Hover effect for the buttons */
+.btn:hover {
+    background-color: #b8962c; /* Slightly darker gold when hovered */
+    color: #000000;
 }
 
 /* ==================== CALL TO ACTION SECTION ==================== */
