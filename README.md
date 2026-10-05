@@ -92,3 +92,35 @@ The main HTML elements I used are:
 ```
 I have learnt how to create a simple page using HTML and its elements. I can now write paragraphs, add titles and insert images. 
 >>>>>>> b859f0ea40dd6e1cb548259b568d8ec8b8ad9ebf
+
+## Part 2 Details: Designing the Visuals
+
+* **External CSS:** Implemented a centralized `style.css` file linked across all five HTML pages to ensure absolute design consistency and enforce a separation of structure and presentation.
+* **Typography & Base Styles:** Established a base typographic scale using Aptos and sans-serif fallbacks, with customized line heights (`1.6`) to maximize readability for historical text blocks.
+* **Layout Structure:** Utilized CSS Flexbox extensively to create structured horizontal navigation, wrap-enabled multi-column grids for content cards, and meticulously centered form layouts.
+* **Visual Styles:** Applied a cohesive dark terracotta, gold, and silver color scheme to reflect the heritage theme, utilizing interactive `:hover` pseudo-classes to provide visual feedback on interactive buttons and navigation links.
+* **Responsive Design:** Integrated relative units (percentages) and media queries at the `768px` breakpoint to guarantee the navigation, hero section, and grids collapse gracefully into a single-column layout on mobile and tablet devices.
+
+## Changelog
+
+### Part 2 Updates & Part 1 Feedback Corrections
+* **Added:** `style.css` file to manage all visual styling globally across the archive.
+* **Added:** Global base styles defining font family, primary colors, and structural resets (`box-sizing: border-box`).
+* **Added:** Flexbox grid structures to `index.html`, `about.html`, `content.html`, `enquiry.html`, and `contact.html` to align content sections and precisely frame form inputs.
+* **Added:** Media queries (`@media (max-width: 768px)`) to stack navigation links, scale down typography, and convert horizontal grids into single columns for mobile responsiveness.
+* **Changed:** Replaced inline styles from the initial drafts with pure external CSS selectors for cleaner HTML formatting.
+* **Changed:** Upgraded the "Type of Enquiry" form section to utilize a structured dropdown menu and formatted checkbox list to streamline user interaction.
+* **Fixed (Part 1 Correction):** Reverted the previously named `services.html` file and its corresponding navigation links back to `content.html` across all pages to more accurately reflect the historical archival material. 
+
+## Updated References
+
+* Sookha, J., 2026. 01-html-tags-only.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/commits/main/code/html> [Accessed 04 September 2026].
+
+* Sookha, J., 2026. 22-css-float-layout.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/22-css-float-layout.html> [Accessed 04 September 2026].
+
+* Sookha, J., 2026. css-visualize-box-model.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/21-css-visualize-box-model.html> [Accessed 04 September 2026].
+
+* Sookha, J., 2026. css-pseudo-classes1.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/20-css-pseudo-classes1.html> [Accessed 04 September 2026].
+
+* Sookha, J., 2026. 15-css-selector-matching.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html> [Accessed 04 September 2026].
+
