@@ -250,13 +250,14 @@ footer {
     margin-top: 50px; /* Pushes the footer away from the main content */
 }
 
-/* Structuring the 4 columns horizontally */
+/* Structuring the columns horizontally and centering them */
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Spreads the logo, links, contact, and social evenly */
-    align-items: flex-start; /* Aligns all items to the top of their containers */
-    flex-wrap: wrap; /* Allows sections to stack gracefully on smaller screens */
-    gap: 20px;
+    justify-content: center; /* Pushes the remaining columns to the exact center */
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+    gap: 60px; /* Adds generous spacing between the columns */
+    text-align: center; /* Centers the text inside each column for a balanced look */
 }
 
 /* Logo sizing */
@@ -330,11 +331,12 @@ footer > p {
 }
 
 .history-image img {
-    max-width: 80%;
+    width: 100%;
+    max-width: 400px; /* Restricts the image to a clean medium size */
     height: auto;
-    border: 2px solid #333;
+    border: 3px solid #7b2c2a; /* Keeps your terracotta framing */
     border-radius: 8px;
-    padding: 15px; /* Matches the framed look of your index hero image */
+    object-fit: cover;
 }
 
 /* 3. Mission, Vision, and Values Centering */
@@ -362,8 +364,9 @@ footer > p {
 }
 
 .mvg-card img.icon {
-    width: 60px; /* Restricts the size of your M/V/V icons */
-    height: auto;
+    width: 120px; /* Scales the icons up to a medium size */
+    height: 120px; 
+    object-fit: contain; /* Prevents the icons from getting cropped */
     margin-bottom: 15px;
 }
 
@@ -669,4 +672,11 @@ footer > p {
     font-family: sans-serif;
     font-size: 1rem;
     box-sizing: border-box; /* Keeps the input boxes perfectly flush with the labels */
+}
+
+.featured-article-card img {
+    width: 100%;
+    max-width: 350px; /* Restricts the image to a medium size on large screens */
+    height: auto;
+    object-fit: cover; /* Prevents the image from distorting */
 }

@@ -61,331 +61,96 @@
     -->
     <main>
 
-
         <!-- ==================== PAGE BANNER ==================== -->
-        <!--
-            The page banner introduces the purpose of the Enquiry page.
-        -->
         <section class="page-banner">
-
-            <!-- Main heading identifying the current page -->
             <h2>ENQUIRIES</h2>
-
-            <!-- Short statement encouraging visitors to participate -->
             <p>Let's Preserve Alexandra's History Together</p>
-
         </section>
 
-
-        <!-- ==================== PARTNERSHIPS & COLLABORATIONS SECTION ==================== -->
-        <!--
-            This section explains that the organisation welcomes
-            partnerships and collaboration from different groups.
-        -->
+        <!-- ==================== PARTNERSHIPS & COLLABORATIONS ==================== -->
         <section class="partnerships-section">
-
-            <!-- Container used to organise the image and text -->
             <div class="partnerships-container">
-
-
-                <!-- ==================== PARTNERSHIP IMAGE ==================== -->
-                <!-- Contains an image representing partnerships -->
                 <div class="partnerships-image">
-
-                    <!-- Displays the partnership icon/image -->
-                    <img src="images/partnership-icon.jpg" alt="Partnership Icon">
-
+                    <img src="images/Golden Handshake Heritage Medallion.png" alt="Partnership Icon">
                 </div>
-
-
-                <!-- ==================== PARTNERSHIP TEXT ==================== -->
-                <!-- Contains information about potential collaborations -->
                 <div class="partnerships-text">
-
-                    <!-- Heading introducing the partnership section -->
                     <h2>PARTNERSHIPS & COLLABORATIONS</h2>
-
-                    <!-- Explains who is welcome to work with the organisation -->
-                    <p>
-                        We welcome organisations, researchers, institutions and community
-                        members interested in working with us.
-                    </p>
-
+                    <p>WE WELCOME ORGANISATIONS, RESEARCHERS, INSTITUTIONS AND COMMUNITY MEMBERS INTERESTED IN WORKING WITH US</p>
                 </div>
-
             </div>
         </section>
 
-
         <!-- ==================== SEND AN ENQUIRY FORM ==================== -->
-        <!--
-            This section contains the form that visitors can use
-            to submit an enquiry to the organisation.
-        -->
         <section class="enquiry-form-section">
-
-            <!-- Heading introducing the enquiry form -->
             <h2>SEND AN ENQUIRY</h2>
 
-
-            <!--
-                Creates the enquiry form.
-                method="POST" is used to send the form information.
-                action="#" currently keeps the form on the same page
-                because a backend processing location has not been provided.
-            -->
             <form action="#" method="POST" class="enquiry-form">
-
-
-                <!-- ==================== FULL NAME FIELD ==================== -->
-                <!-- Groups the label and input field for the user's full name -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!--
-                        Label identifies the purpose of the input field.
-                        The "for" attribute connects the label to the input
-                        with the matching id="fullname".
-                    -->
-                    <label for="fullname"
-                           style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Full Name
-                    </label>
-
-                    <!--
-                        Text input used to collect the user's full name.
-                        required means the user must complete this field
-                        before submitting the form.
-                    -->
-                    <input
-                        type="text"
-                        id="fullname"
-                        name="fullname"
-                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
-                        required
-                    >
-
+                
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
                 </div>
 
-
-                <!-- ==================== ORGANISATION FIELD ==================== -->
-                <!-- Groups the organisation input field -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!-- Label describing the organisation input -->
-                    <label for="organisation"
-                           style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Organisation
-                    </label>
-
-                    <!--
-                        Text input for the name of the organisation.
-                        This field is optional because it does not contain
-                        the required attribute.
-                    -->
-                    <input
-                        type="text"
-                        id="organisation"
-                        name="organisation"
-                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
-                    >
-
+                <div class="form-group">
+                    <label for="organisation">Organisation</label>
+                    <input type="text" id="organisation" name="organisation">
                 </div>
 
-
-                <!-- ==================== EMAIL ADDRESS FIELD ==================== -->
-                <!-- Groups the email input field -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!-- Label describing the email input -->
-                    <label for="email"
-                           style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Email Address
-                    </label>
-
-                    <!--
-                        Email input used to collect the user's email address.
-                        type="email" allows the browser to perform basic
-                        email format validation.
-                        required means the field must be completed.
-                    -->
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
-                        required
-                    >
-
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
 
-
-                <!-- ==================== PHONE NUMBER FIELD ==================== -->
-                <!-- Groups the phone number input field -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!-- Label describing the phone number input -->
-                    <label for="phone"
-                           style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Phone Number
-                    </label>
-
-                    <!--
-                        Telephone input allows the user to enter
-                        a phone number.
-                    -->
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        style="display: block; width: 100%; max-width: 280px; padding: 8px;"
-                    >
-
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
                 </div>
 
+                <!-- Centered Header for Enquiry Type -->
+                <div class="form-group type-of-enquiry">
+                    <label class="centered-label">TYPE OF ENQUIRY</label>
+                    
+                    <!-- Dropdown List -->
+                    <select name="enquiry_category" class="dropdown-select">
+                        <option value="">[Select an option]</option>
+                        <option value="general">General Information</option>
+                        <option value="partnership">Partnership Proposal</option>
+                        <option value="archival">Archival Access</option>
+                    </select>
+                </div>
 
-                <!-- ==================== TYPE OF ENQUIRY ==================== -->
-                <!--
-                    This section allows users to identify the reason
-                    for contacting the organisation.
-                -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!-- Label describing the enquiry type options -->
-                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Type of Enquiry
-                    </label>
-
-
-                    <!--
-                        Unordered list containing the different enquiry options.
-                        CSS removes the normal bullet points and padding.
-                    -->
-                    <ul class="checkbox-list"
-                        style="list-style-type: none; padding-left: 0; margin: 0;">
-
-
-                        <!-- Partnership enquiry option -->
-                        <li style="margin-bottom: 8px;">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="enquiry_type"
-                                    value="partnership"
-                                >
-                                Partnership
-                            </label>
+                <!-- Checkbox List -->
+                <div class="form-group">
+                    <ul class="checkbox-list">
+                        <li>
+                            <label><input type="checkbox" name="enquiry_type" value="partnership"> Partnership</label>
                         </li>
-
-
-                        <!-- Collaboration enquiry option -->
-                        <li style="margin-bottom: 8px;">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="enquiry_type"
-                                    value="collaboration"
-                                >
-                                Collaboration
-                            </label>
+                        <li>
+                            <label><input type="checkbox" name="enquiry_type" value="collection"> Collection</label>
                         </li>
-
-
-                        <!-- Research enquiry option -->
-                        <li style="margin-bottom: 8px;">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="enquiry_type"
-                                    value="research"
-                                >
-                                Research
-                            </label>
+                        <li>
+                            <label><input type="checkbox" name="enquiry_type" value="research"> Research</label>
                         </li>
-
-
-                        <!-- Content contribution enquiry option -->
-                        <li style="margin-bottom: 8px;">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="enquiry_type"
-                                    value="content_contribution"
-                                >
-                                Content Contribution
-                            </label>
+                        <li>
+                            <label><input type="checkbox" name="enquiry_type" value="content_contribution"> Content Contribution</label>
                         </li>
-
-
-                        <!-- Other enquiry option -->
-                        <li style="margin-bottom: 8px;">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="enquiry_type"
-                                    value="other"
-                                >
-                                Other
-                            </label>
+                        <li>
+                            <label><input type="checkbox" name="enquiry_type" value="other"> Other</label>
                         </li>
-
                     </ul>
                 </div>
 
-
-                <!-- ==================== MESSAGE FIELD ==================== -->
-                <!--
-                    This section allows users to provide additional
-                    information about their enquiry.
-                -->
-                <div class="form-group"
-                     style="display: block; margin-bottom: 20px;">
-
-                    <!-- Label describing the message field -->
-                    <label for="message"
-                           style="display: block; margin-bottom: 5px; font-weight: bold;">
-                        Your Message
-                    </label>
-
-                    <!--
-                        Textarea provides a larger area for users
-                        to type their enquiry or message.
-                        rows="5" determines the initial height of the field.
-                        required means a message must be provided.
-                    -->
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        style="display: block; width: 100%; max-width: 320px; padding: 8px;"
-                        required
-                    ></textarea>
-
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
 
-
-                <!-- ==================== SUBMIT BUTTON ==================== -->
-                <!--
-                    Submit button sends the information entered
-                    into the form.
-                -->
-                <button
-                    type="submit"
-                    class="btn"
-                    style="display: block; padding: 10px 20px;"
-                >
-                    SUBMIT ENQUIRY
-                </button>
+                <button type="submit" class="btn send-btn">SEND INQUIRY</button>
 
             </form>
         </section>
 
     </main>
-
 
     <!-- ==================== FOOTER SECTION ==================== -->
     <!-- Contains additional navigation, contact information and social media links -->
@@ -393,16 +158,6 @@
 
         <!-- Main container organising the different footer sections -->
         <div class="footer-container">
-
-
-            <!-- ==================== FOOTER LOGO ==================== -->
-            <!-- Displays a smaller version of the website logo -->
-            <div class="footer-logo">
-
-                <!-- Small logo displayed in the footer -->
-                <img src="images/logo-small.png" alt="Logo">
-
-            </div>
 
 
             <!-- ==================== FOOTER NAVIGATION ==================== -->
@@ -422,7 +177,7 @@
                     <li><a href="about.html">About Us</a></li>
 
                     <!-- Link to the Contents page -->
-                    <li><a href="contents.html">Contents</a></li>
+                    <li><a href="content.html">Contents</a></li>
 
                     <!-- Link to the Enquiry page -->
                     <li><a href="enquiry.html">Enquiry</a></li>
