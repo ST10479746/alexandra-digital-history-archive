@@ -93,14 +93,14 @@ header {
 }
 
 header nav a {
-    color: #d4af37; /* Applies your gold accent color */
+    color: #d4af37;
     text-decoration: none; /* Removes the default blue underline */
     font-weight: bold; /* Optional: makes the gold stand out more */
 }
 
 /* Adds an interactive color change when a user hovers over the link */
 header nav a:hover {
-    color: #efefef; /* Changes to your terracotta accent on hover */
+    color: #efefef;
 }
 
 /* Add this new rule for the nav to center the links */
@@ -362,8 +362,7 @@ footer > p {
     width: 100%;
     max-width: 400px; /* Restricts the image to a clean medium size */
     height: auto;
-    border: 3px solid #7b2c2a; /* Keeps your terracotta framing */
-    border-radius: 8px;
+    border: 3px solid #7b2c2a;
     object-fit: cover;
 }
 
@@ -421,7 +420,7 @@ footer > p {
 .team-member img {
     width: 150px; 
     height: 150px;
-    border-radius: 50%; /* Transforms your square photos into professional circles */
+    border-radius: 50%;
     object-fit: cover; /* Prevents the faces from squishing if the image isn't perfectly square */
     margin-bottom: 15px;
     border: 3px solid #7b2c2a; /* Adds a terracotta ring around the photos */
