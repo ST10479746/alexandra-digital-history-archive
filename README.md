@@ -110,7 +110,12 @@ I have learnt how to create a simple page using HTML and its elements. I can now
 * **Added:** Media queries (`@media (max-width: 768px)`) to stack navigation links, scale down typography, and convert horizontal grids into single columns for mobile responsiveness.
 * **Changed:** Replaced inline styles from the initial drafts with pure external CSS selectors for cleaner HTML formatting.
 * **Changed:** Upgraded the "Type of Enquiry" form section to utilize a structured dropdown menu and formatted checkbox list to streamline user interaction.
-* **Fixed (Part 1 Correction):** Reverted the previously named `services.html` file and its corresponding navigation links back to `content.html` across all pages to more accurately reflect the historical archival material. 
+* **Fixed (Part 1 Correction):** Reverted the previously named `services.html` file and its corresponding navigation links back to `content.html` across all pages to more accurately reflect the historical archival material.
+
+ ### Part 3 — Part 2 Feedback Corrections
+
+- Renamed the stylesheet folder from `CSS` to `css` to match the `css/style.css` links across all five HTML pages.
+- Corrected the case mismatch identified in lecturer feedback, which could prevent styling from loading on case-sensitive hosting platforms.
 
 ## Updated References
 
