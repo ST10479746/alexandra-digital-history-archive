@@ -74,7 +74,7 @@ const archiveEntries = [
     description:
       "Look at the urban landscape image included in the original project. Its date and creator remain to be verified.",
     keywords: "photograph gallery visual city landscape",
-    href: "index.html#past-present",
+    href: "gallery.html",
     image: "images/historic-alexandra.jpg",
     alt: "Wide urban landscape from the project collection",
     provenance: "Project image · date and creator credit unverified",

@@ -1198,3 +1198,272 @@ figcaption,
     padding-bottom: 48px;
   }
 }
+
+/* Gallery: captions remain visible without hover or JavaScript. */
+.gallery-intro {
+  padding-block: 40px 48px;
+}
+.gallery-page .gallery-breadcrumb {
+  font-size: 14px;
+  margin-bottom: 38px;
+}
+.gallery-page h1 {
+  font-size: clamp(44px, 5.5vw, 78px);
+}
+.gallery-page .gallery-note {
+  font-size: 14px;
+  max-width: 760px;
+  border-left: 2px solid var(--museum-gold);
+  padding-left: 18px;
+}
+.gallery-collection {
+  padding-bottom: 80px;
+}
+.gallery-collection > h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+.gallery-filters {
+  border: 0;
+  padding: 0;
+  margin: 24px 0 16px;
+}
+.gallery-filters legend {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.gallery-filters button {
+  min-height: 44px;
+  border: 1px solid var(--museum-border);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--museum-ivory);
+  padding: 8px 18px;
+  margin: 0 8px 8px 0;
+  cursor: pointer;
+}
+.gallery-filters button[aria-pressed="true"] {
+  background: var(--museum-gold);
+  color: var(--museum-black);
+}
+.gallery-page .gallery-count {
+  font-size: 15px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 28px;
+}
+.gallery-item {
+  margin: 0;
+  border-top: 1px solid var(--museum-border);
+  padding-top: 18px;
+  min-width: 0;
+}
+.gallery-item[hidden],
+#gallery-filters[hidden] {
+  display: none;
+}
+.gallery-open {
+  display: block;
+  position: relative;
+  background: var(--museum-surface);
+}
+.gallery-open img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  padding: 12px;
+}
+.gallery-item[data-category="photo"] img {
+  object-fit: cover;
+  padding: 0;
+}
+.gallery-enlarge {
+  display: block;
+  border-top: 1px solid var(--museum-border);
+  padding: 10px 14px;
+  font-size: 14px;
+  min-height: 44px;
+}
+.gallery-open:hover .gallery-enlarge {
+  background: var(--museum-raised);
+}
+.gallery-item figcaption {
+  margin-top: 20px !important;
+}
+.gallery-item h3 {
+  font-size: 28px;
+  margin: 10px 0 14px;
+}
+.gallery-item figcaption p {
+  font-size: 16px;
+}
+.gallery-item figcaption .eyebrow {
+  font-size: 11px;
+}
+.gallery-item figcaption .gallery-provenance {
+  font-size: 12px;
+  border-left: 1px solid var(--museum-gold);
+  padding-left: 12px;
+}
+.gallery-context {
+  background: var(--museum-surface);
+}
+.gallery-context .text-link {
+  display: block;
+  width: fit-content;
+  margin-top: 16px;
+}
+
+/* Native dialog supplies modal focus containment; its caption area can scroll. */
+.lightbox-active {
+  overflow: hidden;
+}
+.gallery-lightbox {
+  width: min(1100px, calc(100% - 40px));
+  max-height: 92vh;
+  max-height: 92dvh;
+  padding: 0;
+  border: 1px solid var(--museum-border);
+  background: var(--museum-black);
+  color: var(--museum-ivory);
+  overflow: auto;
+}
+.gallery-lightbox:not([open]) {
+  display: none;
+}
+.gallery-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.88);
+}
+.lightbox-shell {
+  padding: 24px;
+}
+.lightbox-toolbar,
+.lightbox-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.lightbox-toolbar p {
+  margin: 0;
+  color: var(--museum-muted);
+}
+.lightbox-control {
+  min-height: 44px;
+  padding: 10px 16px;
+  background: var(--museum-raised);
+  color: var(--museum-ivory);
+  border: 1px solid var(--museum-border);
+  cursor: pointer;
+}
+.lightbox-control:hover {
+  border-color: var(--museum-gold);
+}
+.lightbox-control:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.lightbox-image-wrap {
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 20px;
+  background: var(--museum-surface);
+}
+#lightbox-image {
+  display: block;
+  width: 100%;
+  max-height: 56vh;
+  max-height: 56dvh;
+  object-fit: contain;
+}
+#lightbox-image[hidden],
+#lightbox-error[hidden] {
+  display: none;
+}
+#lightbox-error {
+  padding: 24px;
+}
+.lightbox-caption {
+  padding-top: 24px;
+}
+.lightbox-caption h2 {
+  font: 32px/1.2 var(--museum-serif);
+  margin: 0 0 16px;
+}
+.lightbox-caption p {
+  color: var(--museum-muted);
+}
+#lightbox-provenance {
+  border-left: 2px solid var(--museum-gold);
+  padding-left: 14px;
+}
+#lightbox-credit,
+.lightbox-help {
+  font-size: 13px;
+}
+#lightbox-original {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 10px;
+}
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .gallery-intro {
+    padding-block: 28px 32px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .gallery-open img {
+    height: 260px;
+  }
+  .gallery-collection {
+    padding-bottom: 48px;
+  }
+  .gallery-lightbox {
+    width: calc(100% - 20px);
+  }
+  .lightbox-shell {
+    padding: 16px;
+  }
+  .lightbox-caption h2 {
+    font-size: 27px;
+  }
+}
+
+/* Centres the lightbox despite the global margin reset.
+   Long captions remain accessible through internal scrolling. */
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: min(1100px, calc(100vw - 40px));
+    max-width: calc(100vw - 40px);
+
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Smaller outer margins preserve viewing space on phones. */
+@media (max-width: 600px) {
+    .gallery-lightbox {
+        width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+
+        max-height: calc(100vh - 20px);
+        max-height: calc(100dvh - 20px);
+    }
+}
