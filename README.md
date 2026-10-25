@@ -202,3 +202,66 @@ This submission covers Part 1 of the POE, which includes project initiation, con
 - Linked the archive image entry to the dedicated gallery. Shared navigation integration remains scheduled.
 - Corrected lightbox centring where the original CSS margin reset
   overrode the dialog’s default positioning.
+
+### Part 3 — Enquiry and Contact Forms
+
+- Redesigned enquiry.html and contact.html with consistent museum layouts and persistent field labels.
+- Added shared client-side validation with inline errors, error summaries and first-invalid-field focus.
+- Added six enquiry categories, category-specific guidance and tailored responses covering relevant availability, permission and cost limitations.
+- Compiled contact messages into reviewable text, with copy support and configurable email-draft links.
+- Added configurable JSON POST submission with loading, HTTP/validation-error, timeout and retry handling. Live AJAX endpoint integration remains pending.
+- Kept delivery states explicit: preparing a response or opening a draft does not mean an email was sent.
+- Preserved the gallery centring correction in the supplied stylesheet.
+
+### Part 3 — Form Implementation References
+
+- MDN Web Docs. n.d. Using the Fetch API. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch [Accessed 25 October 2026].
+- MDN Web Docs. n.d. HTMLInputElement: checkValidity() method. Available at: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity [Accessed 25 October 2026].
+
+# About and Research update
+
+Copy `about.html` and `research.html` into the project root. Copy `learning.css` into the existing `css` folder. The HTML files load it after `museum.css`.
+
+This package does not replace `museum.css`, JavaScript, the README or email configuration. Keep the tested form changes and configured recipient.
+
+About is reachable from existing navigation. Its header, footer and page content link to Research. Both new pages link back to the existing exhibitions. Full navigation across the remaining pages will be unified when those pages are complete.
+
+## Local checks
+
+* Open About and follow the Research links.
+* Check the artwork and creator photograph load.
+* Use the section links and expand the editorial/research notes with the keyboard.
+* Check both pages at desktop, tablet and mobile widths; check for horizontal scrolling.
+* Follow a source link and confirm it opens in a new tab.
+* Recheck Contact and Enquiry: this update should leave their layout unchanged.
+
+## Changelog entry to add to README
+
+### 25 October 2026 — About and research reading room
+
+* Redesigned About with the archive purpose, mission, vision, community values and black-and-gold design rationale.
+* Added Research and Resources with four contextualised historical references, mapping credits and a research guide.
+* Added responsive layouts and keyboard-operable native disclosure controls.
+* Identified illustrative artwork and distinguished testimony, recollection and commemorative sources.
+* Preserved the existing form stylesheet and email configuration.
+
+## Reference records
+
+The research page contains links and source-use notes. Retain the corresponding records under the README's References section, merging any duplicates already recorded:
+
+* The Presidency (2012). Address by President Jacob Zuma at the event to mark the Centenary of Alexandra Township. 22 September. https://www.thepresidency.gov.za/address-president-jacob-zuma-event-mark-centenary-alexandra-township
+* Phahle, R. (2019). The 1957 Alexandra Bus Boycott and its unsung heroes. South African History Online. June. https://sahistory.org.za/archive/1957-alexandra-bus-boycott-and-its-unsung-heroes-roseinnes-phahle-june-2019
+* Truth and Reconciliation Commission (1996). Bennet Lekalakala: Alexandra hearing transcript. 29 October. https://www.justice.gov.za/trc/hrvtrans/alex/lekalaka.htm
+* Peter Rich Architects (2018). Alexandra Heritage Centre. https://www.peterricharchitects.com/alexandra-heritage-centre
+* Joburg Tourism Company (n.d.). Alexandra Stadium. https://visit.joburg/things-to-do/alexandra-stadium/ (directory fallback: https://visit.joburg/leisure/things-to-do/).
+* Mapcarta (n.d.). Alexandra Heritage Centre; Mandela's Alexandra home; Alexandra Stadium. https://mapcarta.com/W794712819 ; https://mapcarta.com/W794712820 ; https://mapcarta.com/W1233252354 . Coordinate records, not historical narrative sources.
+* OpenStreetMap contributors (n.d.). Copyright and licence. https://www.openstreetmap.org/copyright
+* Leaflet (n.d.). Leaflet: an open-source JavaScript library for interactive maps. https://leafletjs.com/
+
+Historical pages were consulted on 25 October 2026. The direct tourism listing timed out during this update; its official tourism directory was available. The coordinate and software links carry forward the existing Places page credits.
+
+## Verification performed
+
+Static HTML checks cover unique IDs, internal fragments, local asset destinations, page titles, viewport metadata and source-link safety attributes. CSS brace balance was checked. Browser appearance, viewport behaviour and keyboard operation need the local checks above; no browser rendering is claimed.
+
+
