@@ -1,0 +1,332 @@
+"use strict";
+
+const enquiryGuidance = {
+  research: {
+    title: "Research access",
+    context:
+      "Include a topic, date range or source title so the enquiry can be understood.",
+    response:
+      "Published website pages can be browsed without an account. Access to additional material, reproduction permissions and any costs require confirmation for the specific item. No research booking or source access has been confirmed.",
+  },
+  contribution: {
+    title: "Historical material contribution",
+    context:
+      "Describe the material, its creator, likely date and any permissions or restrictions.",
+    response:
+      "Your enquiry should explain what the material is, who created it and whether you have permission to share it. Keep the original safe. Acceptance and publication require a separate review; this response does not transfer rights.",
+  },
+  volunteer: {
+    title: "Volunteering",
+    context:
+      "Mention relevant interests, skills and the time you would like to offer.",
+    response:
+      "Include your interests, relevant skills and possible availability. There are no confirmed volunteer positions or start dates in this prototype; any opportunity would need a separate discussion.",
+  },
+  partnership: {
+    title: "Partnership",
+    context:
+      "Describe your organisation, proposed collaboration and intended community benefit.",
+    response:
+      "A useful partnership enquiry explains the proposed activity, the organisations involved and its benefit to the community. No partnership, endorsement or commitment has been approved.",
+  },
+  sponsorship: {
+    title: "Sponsorship",
+    context:
+      "Describe the support you are considering and its intended purpose. Do not send payment details.",
+    response:
+      "Describe the proposed financial or in-kind support and what it would support. No sponsorship package, price or payment arrangement is confirmed. Do not transfer funds based on this demonstration response.",
+  },
+  other: {
+    title: "Other enquiry",
+    context:
+      "Explain the question and the kind of information you are looking for.",
+    response:
+      "Your summary is ready for review. Explain the question, the relevant context and what response would help. No availability, cost or outcome has been confirmed.",
+  },
+};
+const contactCategories = {
+  general: "General question",
+  feedback: "Website feedback",
+  correction: "Historical correction",
+  other: "Other",
+};
+
+function validEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value);
+}
+
+// Validation rules are shared by both forms; category values are checked against known options.
+function validateArchiveForm(data, mode) {
+  const errors = {};
+  if (!data.fullname || data.fullname.length > 100)
+    errors.fullname = "Enter your name using no more than 100 characters.";
+  if (!validEmail(data.email) || data.email.length > 254)
+    errors.email = "Enter a valid email address, such as name@example.com.";
+  if (data.phone) {
+    const digits = data.phone.replace(/\D/g, "");
+    if (
+      !/^\+?[0-9 ()-]+$/.test(data.phone) ||
+      digits.length < 7 ||
+      digits.length > 15
+    ) {
+      errors.phone =
+        "Use 7–15 digits, with optional leading +, spaces, brackets or hyphens.";
+    }
+  }
+  const categories = mode === "enquiry" ? enquiryGuidance : contactCategories;
+  if (!Object.hasOwn(categories, data.category))
+    errors.category = "Choose a message or enquiry type.";
+  if (
+    mode === "contact" &&
+    (!data.subject || data.subject.length < 3 || data.subject.length > 120)
+  )
+    errors.subject = "Enter a subject using 3–120 characters.";
+  if (data.organisation && data.organisation.length > 100)
+    errors.organisation = "Use no more than 100 characters.";
+  if (!data.message || data.message.length < 20 || data.message.length > 2500)
+    errors.message = "Write a message using 20–2,500 characters.";
+  if (!data.consent)
+    errors.consent =
+      "Confirm that your contact details may be used to respond.";
+  return errors;
+}
+
+function compileArchiveMessage(data, mode) {
+  const category =
+    mode === "enquiry"
+      ? enquiryGuidance[data.category].title
+      : contactCategories[data.category];
+  const subject =
+    mode === "enquiry" ? `Archive enquiry: ${category}` : data.subject;
+  const body = [
+    `Name: ${data.fullname}`,
+    `Email: ${data.email}`,
+    data.organisation ? `Organisation: ${data.organisation}` : null,
+    data.phone ? `Phone: ${data.phone}` : null,
+    `Type: ${category}`,
+    "",
+    data.message,
+    "",
+    "Consent: contact details may be used to respond to this message.",
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+  return { subject, body };
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    validateArchiveForm,
+    compileArchiveMessage,
+    enquiryGuidance,
+    validEmail,
+  };
+}
+
+if (typeof document !== "undefined") {
+  const form = document.getElementById("museum-form");
+  if (form) {
+    const mode = form.dataset.mode;
+    const config =
+      typeof archiveFormConfig === "undefined" ? {} : archiveFormConfig;
+    const recipient = String(config.recipientEmail || "").trim();
+    const configuredEndpoint = String(config[mode + "Endpoint"] || "").trim();
+    // Only explicit HTTPS delivery endpoints can receive form data.
+    const endpoint = /^https:\/\//i.test(configuredEndpoint)
+      ? configuredEndpoint
+      : "";
+    const fields = document.getElementById("form-fields");
+    const response = document.getElementById("form-response");
+    const title = document.getElementById("response-title");
+    const preview = document.getElementById("message-preview");
+    const draft = document.getElementById("email-draft");
+    const send = document.getElementById("send-online");
+    const status = document.getElementById("delivery-status");
+    let prepared = null;
+    let attempted = false;
+    let pending = false;
+    fields.disabled = false;
+    form.noValidate = true;
+    if (endpoint) form.action = endpoint;
+    else if (validEmail(recipient)) form.action = "mailto:" + recipient;
+
+    function readValues() {
+      const data = {};
+      form.querySelectorAll("input, select, textarea").forEach((control) => {
+        data[control.name] =
+          control.type === "checkbox" ? control.checked : control.value.trim();
+      });
+      return data;
+    }
+
+    function showErrors(data, focus = false) {
+      const errors = validateArchiveForm(data, mode);
+      // Browser email validity provides an additional check alongside the shared rules.
+      if (form.elements.email.validity.typeMismatch)
+        errors.email = "Enter a valid email address.";
+      form.querySelectorAll("input, select, textarea").forEach((control) => {
+        const message = errors[control.name];
+        const element = document.getElementById(control.name + "-error");
+        if (element) {
+          element.textContent = message || "";
+          element.hidden = !message;
+        }
+        if (message) control.setAttribute("aria-invalid", "true");
+        else control.removeAttribute("aria-invalid");
+      });
+      const summary = document.getElementById("form-errors");
+      const count = Object.keys(errors).length;
+      summary.textContent = count
+        ? `Please correct ${count} ${count === 1 ? "field" : "fields"} below.`
+        : "";
+      summary.hidden = !count;
+      if (focus && count) form.elements[Object.keys(errors)[0]].focus();
+      return count === 0;
+    }
+
+    function updateGuidance() {
+      if (mode !== "enquiry") return;
+      const guidance = enquiryGuidance[form.elements.category.value];
+      const panel = document.getElementById("category-context");
+      panel.hidden = !guidance;
+      if (guidance) {
+        document.getElementById("category-context-title").textContent =
+          guidance.title;
+        document.getElementById("category-context-copy").textContent =
+          guidance.context;
+      }
+    }
+
+    // Prepared messages remain on the page until the visitor chooses a delivery action.
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (pending) return;
+      attempted = true;
+      const data = readValues();
+      if (!showErrors(data, true)) {
+        response.hidden = true;
+        return;
+      }
+      const message = compileArchiveMessage(data, mode);
+      prepared = { data, message };
+      title.textContent =
+        mode === "enquiry"
+          ? enquiryGuidance[data.category].title + ": your response"
+          : "Your message is ready to review.";
+      document.getElementById("response-copy").textContent =
+        mode === "enquiry"
+          ? enquiryGuidance[data.category].response
+          : "Check the details below. Opening an email draft does not send it; send the message from your email application.";
+      preview.value = `Subject: ${message.subject}\n\n${message.body}`;
+      draft.hidden = !validEmail(recipient);
+      if (!draft.hidden)
+        draft.href = `mailto:${recipient}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`;
+      send.hidden = !endpoint;
+      send.disabled = false;
+      status.textContent = "";
+      document.getElementById("delivery-note").textContent = validEmail(
+        recipient,
+      )
+        ? `No message has been sent. Email drafts are addressed to ${recipient}.`
+        : "No message has been sent. Email delivery is not available yet; you can copy the prepared message.";
+      response.hidden = false;
+      title.focus();
+    });
+
+    // Editing invalidates the previous review, avoiding accidental delivery of stale details.
+    form.addEventListener("input", () => {
+      if (pending) return;
+      response.hidden = true;
+      prepared = null;
+      if (attempted) showErrors(readValues());
+      updateGuidance();
+    });
+    form.elements.category.addEventListener("change", updateGuidance);
+    form.addEventListener("reset", () => {
+      if (pending) return;
+      attempted = false;
+      prepared = null;
+      response.hidden = true;
+      form
+        .querySelectorAll("[aria-invalid]")
+        .forEach((control) => control.removeAttribute("aria-invalid"));
+      form
+        .querySelectorAll(".field-error, .form-error-summary")
+        .forEach((element) => {
+          element.hidden = true;
+          element.textContent = "";
+        });
+      if (mode === "enquiry")
+        document.getElementById("category-context").hidden = true;
+    });
+
+    document
+      .getElementById("copy-message")
+      .addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(preview.value);
+          status.textContent = "Message copied. No message has been sent.";
+        } catch (error) {
+          preview.focus();
+          preview.select();
+          status.textContent =
+            "Select and copy the prepared text using your device’s copy command. No message has been sent.";
+        }
+      });
+    draft.addEventListener("click", () => {
+      status.textContent =
+        "An email draft has been requested. Complete sending in your email application; this website cannot confirm whether it was sent.";
+    });
+
+    // AJAX uses an explicit configured endpoint; success means service acceptance, not email delivery.
+    send.addEventListener("click", async () => {
+      if (!endpoint || !prepared || pending) return;
+      if (!showErrors(readValues(), true)) return;
+      pending = true;
+      send.disabled = true;
+      fields.disabled = true;
+      response.setAttribute("aria-busy", "true");
+      status.textContent = "Submitting your reviewed message…";
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 15000);
+      try {
+        const result = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...prepared.data,
+            subject: prepared.message.subject,
+            formType: mode,
+          }),
+          signal: controller.signal,
+        });
+        if (!result.ok) throw new Error("Service rejected request");
+        const type = result.headers.get("content-type") || "";
+        if (type.includes("application/json")) {
+          const acknowledgement = await result.json();
+          if (
+            acknowledgement.success === false ||
+            acknowledgement.ok === false ||
+            acknowledgement.error ||
+            acknowledgement.errors
+          )
+            throw new Error("Submission rejected");
+        }
+        status.textContent =
+          "The form service accepted your submission. This is not confirmation that an email was delivered or that the enquiry was approved.";
+      } catch (error) {
+        send.disabled = false;
+        status.textContent =
+          "We could not confirm submission. Your text is still available to copy or prepare as an email. Check your connection before retrying; the service may already have received it.";
+      } finally {
+        window.clearTimeout(timeout);
+        fields.disabled = false;
+        response.removeAttribute("aria-busy");
+        pending = false;
+      }
+    });
+  }
+}

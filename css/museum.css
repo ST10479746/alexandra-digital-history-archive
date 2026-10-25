@@ -1440,30 +1440,257 @@ figcaption,
   }
 }
 
-/* Centres the lightbox despite the global margin reset.
-   Long captions remain accessible through internal scrolling. */
+/* Explicit centring overrides the original universal margin reset for modal dialogs. */
 .gallery-lightbox {
-    position: fixed;
-    inset: 0;
-    margin: auto;
-
-    width: min(1100px, calc(100vw - 40px));
-    max-width: calc(100vw - 40px);
-
-    max-height: calc(100vh - 40px);
-    max-height: calc(100dvh - 40px);
-
-    overflow-y: auto;
-    overflow-x: hidden;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1100px, calc(100vw - 40px));
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+  .gallery-lightbox {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+    max-height: calc(100dvh - 20px);
+  }
 }
 
-/* Smaller outer margins preserve viewing space on phones. */
-@media (max-width: 600px) {
-    .gallery-lightbox {
-        width: calc(100vw - 20px);
-        max-width: calc(100vw - 20px);
+/* Forms use their own class names, avoiding legacy light-form colour rules. */
+.forms-intro {
+  padding-block: 40px 48px;
+}
+.forms-page .forms-breadcrumb {
+  font-size: 14px;
+  margin-bottom: 38px;
+}
+.forms-page h1 {
+  font-size: clamp(44px, 5.5vw, 78px);
+  max-width: 950px;
+}
+.forms-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 72px;
+  padding-bottom: 80px;
+  align-items: start;
+}
+.forms-layout h2 {
+  font-size: clamp(30px, 3vw, 42px);
+}
+.forms-editorial h3 {
+  margin-top: 36px;
+  font-size: 28px;
+}
+.forms-editorial .forms-privacy {
+  font-size: 14px;
+  border-top: 1px solid var(--museum-border);
+  padding-top: 24px;
+  margin-top: 32px;
+}
+.museum-form {
+  margin-top: 28px;
+  color: var(--museum-ivory);
+}
+.museum-form fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+.forms-page .form-required {
+  font-size: 14px;
+}
+.museum-field {
+  margin-bottom: 24px;
+}
+.museum-field label,
+.form-response > label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--museum-ivory);
+}
+.museum-field input,
+.museum-field select,
+.museum-field textarea,
+#message-preview {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--museum-border);
+  border-radius: 0;
+  background: var(--museum-surface);
+  color: var(--museum-ivory);
+  padding: 12px 14px;
+  font: 16px/1.6 var(--museum-sans);
+}
+.museum-field textarea,
+#message-preview {
+  resize: vertical;
+}
+.museum-field [aria-invalid="true"],
+.museum-consent [aria-invalid="true"] {
+  border-color: #f5a397;
+  outline: 1px solid #f5a397;
+}
+.forms-page .field-help {
+  font-size: 13px;
+  color: var(--museum-muted);
+  margin: 8px 0 0;
+}
+.forms-page .field-error,
+.forms-page .form-error-summary {
+  color: #ffb4a8;
+  font-size: 14px;
+  margin: 8px 0 12px;
+}
+.form-error-summary {
+  border-left: 2px solid #ffb4a8;
+  padding: 12px 16px;
+  background: var(--museum-raised);
+}
+.museum-consent {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-block: 28px 8px;
+}
+.museum-consent input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  margin-top: 4px;
+  accent-color: var(--museum-gold);
+}
+.museum-consent label {
+  min-height: 44px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.category-context {
+  padding: 24px;
+  background: var(--museum-raised);
+  border-left: 2px solid var(--museum-gold);
+  margin-bottom: 24px;
+}
+.category-context h3 {
+  font-size: 26px;
+  margin-top: 0;
+}
+.category-context p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.form-response {
+  padding: 36px;
+  background: var(--museum-raised);
+  border: 1px solid var(--museum-border);
+  margin-bottom: 80px;
+  scroll-margin-top: 24px;
+}
+.form-response h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+.forms-page #delivery-note,
+.forms-page #delivery-status {
+  font-size: 14px;
+  margin-top: 20px;
+}
+.form-response .action-row {
+  margin-bottom: 20px;
+}
+.forms-closing {
+  background: var(--museum-surface);
+}
+.forms-closing p {
+  max-width: 650px;
+}
+.forms-page [hidden],
+.museum-form [hidden],
+.form-response [hidden] {
+  display: none !important;
+}
+.museum-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+@media (max-width: 900px) {
+  .forms-layout {
+    gap: 40px;
+  }
+}
+@media (max-width: 700px) {
+  .forms-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .forms-intro {
+    padding-block: 28px 32px;
+  }
+  .form-response {
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+}
 
-        max-height: calc(100vh - 20px);
-        max-height: calc(100dvh - 20px);
+/* Desktop forms use one centred column instead of leaving
+   an empty column beside the longer form. */
+@media (min-width: 901px) {
+    .forms-page .forms-layout {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(760px, calc(100% - 112px));
+        margin-inline: auto;
+        gap: 32px;
+        padding-bottom: 80px;
+    }
+
+    /* Short guidance sits directly above the form. */
+    .forms-page .forms-editorial {
+        width: 100%;
+        max-width: 640px;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .forms-page .forms-editorial > p {
+        margin-bottom: 20px;
+    }
+
+    /* Internal padding separates the fields from the panel border. */
+    .forms-page .forms-panel {
+        width: 100%;
+        min-width: 0;
+        padding: 44px;
+        background: var(--museum-surface);
+        border: 1px solid var(--museum-border);
+    }
+
+    .forms-page #form-heading {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .forms-page .form-required,
+    .forms-page .form-panel-note {
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    .forms-page .museum-form {
+        width: 100%;
+        margin-top: 32px;
+    }
+
+    /* The prepared response follows the same centred width. */
+    .forms-page .form-response {
+        width: min(760px, calc(100% - 112px));
+        margin-inline: auto;
     }
 }
