@@ -48,7 +48,7 @@ const archiveEntries = [
     description:
       "Follow the connections between streets, homes, landmarks and the people who give them meaning.",
     keywords: "map heritage buildings locations",
-    href: "index.html#places",
+    href: "places.html",
     image: "images/Alexandra heritage map emblem.png",
     alt: "Decorative gold heritage-map emblem",
     provenance: "Illustrative artwork · not a geographic map",

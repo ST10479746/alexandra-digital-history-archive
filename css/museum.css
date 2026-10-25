@@ -994,3 +994,207 @@ figcaption,
     padding: 18px;
   }
 }
+
+/* Places exhibition: the location list remains independent of map availability. */
+.places-intro {
+  padding-block: 40px 48px;
+}
+.places-page .places-breadcrumb {
+  font-size: 14px;
+  margin-bottom: 38px;
+}
+.places-page h1 {
+  font-size: clamp(44px, 5.5vw, 78px);
+}
+.places-page .places-note {
+  font-size: 14px;
+  max-width: 760px;
+  border-left: 2px solid var(--museum-gold);
+  padding-left: 18px;
+}
+.places-exhibition {
+  padding-bottom: 80px;
+}
+.places-exhibition > h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+#places-controls[hidden],
+.select-place[hidden],
+#places-reset[hidden],
+.place-card[hidden],
+#places-empty[hidden],
+.place-detail[hidden] {
+  display: none;
+}
+#places-search label {
+  display: block;
+  margin-bottom: 10px;
+}
+.places-search-row {
+  display: flex;
+  gap: 12px;
+}
+.places-search-row input {
+  min-width: 0;
+  flex: 1;
+  padding: 14px 18px;
+  color: var(--museum-ivory);
+  background: var(--museum-surface);
+  border: 1px solid var(--museum-border);
+  border-radius: 0;
+}
+.places-search-row input::placeholder {
+  color: var(--museum-muted);
+}
+.place-filters {
+  padding: 0;
+  border: 0;
+  margin: 24px 0;
+}
+.place-filters legend {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.place-filters button {
+  background: transparent;
+  color: var(--museum-ivory);
+  border: 1px solid var(--museum-border);
+  border-radius: 30px;
+  min-height: 44px;
+  padding: 8px 18px;
+  margin: 0 8px 8px 0;
+  cursor: pointer;
+}
+.place-filters button[aria-pressed="true"] {
+  background: var(--museum-gold);
+  color: var(--museum-black);
+}
+.places-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+#places-map {
+  height: 520px;
+  width: 100%;
+  background: #d8d6cf;
+  color: #171513;
+  z-index: 0;
+}
+.places-map-column > .text-link {
+  margin-bottom: 16px;
+}
+.places-page #map-status,
+.places-page #map-help {
+  font-size: 14px;
+  margin-top: 14px;
+}
+.places-page .places-count {
+  font-size: 15px;
+}
+.place-card {
+  border: 1px solid var(--museum-border);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.place-card h3 {
+  font-size: 28px;
+}
+.place-card p,
+.place-static-details {
+  font-size: 16px;
+}
+.place-card .eyebrow {
+  font-size: 11px;
+}
+.place-static-details {
+  margin-top: 18px;
+}
+.place-static-details summary {
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--museum-gold);
+}
+.place-static-details a,
+.place-detail-links a {
+  overflow-wrap: anywhere;
+  text-underline-offset: 4px;
+}
+.place-card .museum-button[aria-pressed="true"] {
+  background: var(--museum-gold);
+  color: var(--museum-black);
+}
+.place-detail {
+  margin-top: 40px;
+  padding: 36px;
+  background: var(--museum-raised);
+  border: 1px solid var(--museum-border);
+  scroll-margin-top: 24px;
+}
+.place-detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-bottom: 20px;
+}
+.place-detail-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.places-source-section {
+  background: var(--museum-surface);
+}
+.places-source-section li {
+  color: var(--museum-muted);
+  padding-bottom: 16px;
+}
+/* Leaflet popups use a light surface with dark text for reliable contrast. */
+.places-page .leaflet-popup-content {
+  font-family: var(--museum-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #171513;
+}
+.places-page .leaflet-popup-content p {
+  font-size: 14px;
+  color: #171513;
+  margin: 12px 0;
+}
+.places-page .leaflet-control-attribution a {
+  color: #174e74;
+}
+@media (max-width: 900px) {
+  .places-layout {
+    grid-template-columns: 1fr;
+  }
+  #places-map {
+    height: 420px;
+  }
+}
+@media (max-width: 600px) {
+  .places-intro {
+    padding-block: 28px 32px;
+  }
+  .places-search-row {
+    flex-direction: column;
+  }
+  .places-search-row .museum-button {
+    align-self: flex-start;
+  }
+  #places-map {
+    height: 340px;
+  }
+  .place-card,
+  .place-detail {
+    padding: 22px;
+  }
+  .place-detail-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .places-exhibition {
+    padding-bottom: 48px;
+  }
+}
