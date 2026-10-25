@@ -44,38 +44,24 @@
 
     <!-- Links the HTML page to the external CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/museum.css">
 </head>
 
-<body>
+<body id="top">
 
     <!--
         The header contains the website branding and the main navigation menu.
         It appears at the top of the webpage.
     -->
 <!-- ==================== HEADER SECTION ==================== -->
-    <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Alexandra Digital History Archives Logo">
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="content.html">Content</a></li>
-                <li><a href="enquiry.html">Enquiry</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- ==================== SEARCH BUTTON ==================== -->
-        <button class="search-btn" aria-label="Search Archives">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-        </button>
-    </header>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="museum-header"><div class="museum-wrap header-inner">
+<a class="wordmark" href="index.html" aria-label="Alexandra Digital History Archive home"><span>ADHA</span><small>Alexandra Digital<br>History Archive</small></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="museum-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+<nav id="museum-navigation" class="museum-nav" aria-label="Main navigation">
+<a href="index.html">Home</a><details class="nav-group"><summary>Explore</summary><div class="nav-panel"><a href="content.html">Archive directory</a><a href="index.html#through-time">Through time</a><a href="index.html#past-present">Past and present</a><a href="index.html#people">People and community</a><a href="index.html#places">Places and landmarks</a></div></details>
+<a href="about.html">About</a><details class="nav-group"><summary>Get involved</summary><div class="nav-panel"><a href="enquiry.html">Enquiries and contributions</a><a href="contact.html">Contact</a></div></details>
+<a class="nav-archive" href="content.html">Enter the archive <span aria-hidden="true">↗</span></a></nav></div></header>
 
 
     <!-- ==================== MAIN CONTENT ==================== -->
@@ -83,7 +69,7 @@
         The main element contains the primary content of the About Us page.
         It is divided into several sections.
     -->
-    <main>
+    <main id="main-content">
 
 
         <!-- ==================== PAGE BANNER ==================== -->
@@ -268,83 +254,15 @@
 
     <!-- ==================== FOOTER SECTION ==================== -->
     <!-- Contains additional navigation, contact information and social media links -->
-    <footer>
-
-        <!-- Main container organising the different footer sections -->
-        <div class="footer-container">
-
-
-            <!-- ==================== FOOTER NAVIGATION ==================== -->
-            <!-- Provides quick links to important website pages -->
-            <div class="footer-links">
-
-                <!-- Heading for the quick links section -->
-                <h4>Quick Links</h4>
-
-                <!-- List containing the footer navigation links -->
-                <ul>
-
-                    <!-- Link to the homepage -->
-                    <li><a href="index.html">Home</a></li>
-
-                    <!-- Link to the About Us page -->
-                    <li><a href="about.html">About Us</a></li>
-
-                    <!-- Link to the Contents page -->
-                    <li><a href="content.html">Contents</a></li>
-
-                    <!-- Link to the Enquiry page -->
-                    <li><a href="enquiry.html">Enquiry</a></li>
-                    
-                    <!-- Link to the Contact page -->
-                    <li><a href="contact.html">Contact</a></li>                    
-
-
-                </ul>
-            </div>
-
-
-            <!-- ==================== CONTACT INFORMATION ==================== -->
-            <!-- Displays the organisation's contact details -->
-            <div class="footer-contact">
-
-                <!-- Heading for the contact section -->
-                <h4>Contact Information</h4>
-
-                <!-- Organisation email address -->
-                <p>Email: info@myalexandra.co.za</p>
-
-                <!-- Organisation telephone number -->
-                <p>Phone: 011 555 1912</p>
-
-            </div>
-
-
-            <!-- ==================== SOCIAL MEDIA ==================== -->
-            <!-- Provides links to the organisation's social media platforms -->
-            <div class="footer-social">
-
-                <!-- Heading for the social media section -->
-                <h4>Social Media</h4>
-
-                <!-- Links to the organisation's Facebook and X social media pages -->
-                <a href="#">Facebook</a> | <a href="#">X</a>
-
-            </div>
-
-        </div>
-
-        <!-- Displays the copyright notice at the bottom of the webpage -->
-        <p>&copy; 2026 Alexandra Digital History Archives</p>
-
-    </footer>
+    <footer class="museum-footer"><div class="museum-wrap"><div class="footer-grid"><div><a class="wordmark" href="index.html"><span>ADHA</span></a><h2>Alexandra Digital<br>History Archive</h2><p>A place for Alexandra’s past and present,<br>told through its people.</p></div><div><h3>Explore</h3><a href="index.html">Home</a><a href="content.html">Archive directory</a><a href="index.html#through-time">Through time</a><a href="index.html#past-present">Past and present</a><a href="index.html#people">People and community</a><a href="index.html#places">Places and landmarks</a></div><div><h3>Learn &amp; contribute</h3><a href="about.html">About the archive</a><a href="enquiry.html">Enquiries and contributions</a><a href="contact.html">Contact</a><a href="#top">Back to top ↑</a></div></div><p class="footer-note">Educational website project by Mkateki Mashimbye. Illustrative material is identified where used. Image dates and credits remain subject to verification.</p><p class="footer-note">© 2026 Alexandra Digital History Archive</p></div></footer>
 
 
     <!--
         Links the webpage to the external JavaScript file.
         Placing the script at the bottom allows the HTML content to load first.
     -->
-    <script src="js/main.js"></script>
+    
 
+<script src="js/main.js" defer></script>
 </body>
 </html>
