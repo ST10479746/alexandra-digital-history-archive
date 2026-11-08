@@ -1,0 +1,72 @@
+/* These rules extend the shared museum design for the About page and reading room. */
+.learning-page .learning-intro { padding-block: 36px 72px; }
+.learning-page .learning-breadcrumb { font-size: 14px; margin: 0 0 48px; }
+.learning-page .learning-breadcrumb a { text-decoration: none; }
+.learning-page .learning-intro h1 { max-width: 1050px; margin: 20px 0 28px; }
+.learning-page .learning-lead { max-width: 760px; font-size: 21px; line-height: 1.7; }
+.learning-page .learning-small { font-size: 14px; line-height: 1.7; }
+.learning-jump { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 32px 0 24px; padding: 20px 0; border-block: 1px solid var(--museum-border); }
+.learning-jump a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.learning-jump a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.learning-band { background: var(--museum-surface); }
+.learning-art { margin: 0; padding: 28px; border: 1px solid var(--museum-border); background: var(--museum-black); }
+.learning-art img { display: block; width: 100%; max-width: 400px; aspect-ratio: 1; object-fit: contain; margin-inline: auto; }
+.learning-art figcaption { margin: 20px 0 0; }
+.learning-principles { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 40px; margin-top: 44px; }
+.learning-principles article { padding-top: 28px; border-top: 1px solid var(--museum-border); }
+.learning-page .learning-number { font: 32px/1.2 var(--museum-serif); color: var(--museum-gold); margin-bottom: 24px; }
+.learning-principles h3 { margin: 0 0 20px; }
+.learning-reading { max-width: 960px; }
+.learning-details { border-top: 1px solid var(--museum-border); }
+.learning-details:last-child { border-bottom: 1px solid var(--museum-border); }
+.learning-details summary { position: relative; padding: 24px 40px 24px 0; font: 24px/1.35 var(--museum-serif); color: var(--museum-ivory); cursor: pointer; list-style: none; }
+.learning-details summary::-webkit-details-marker { display: none; }
+.learning-details summary::after { content: "+"; position: absolute; right: 8px; color: var(--museum-gold); }
+.learning-details[open] > summary::after { content: "−"; }
+.learning-details summary:hover { color: var(--museum-gold); }
+.learning-details > div { padding: 0 0 28px; max-width: 760px; }
+.learning-details > div > :last-child { margin-bottom: 0; }
+.learning-creator { display: grid; grid-template-columns: 240px minmax(0,1fr); gap: 64px; align-items: center; max-width: 1040px; }
+.learning-creator > img { display: block; width: 240px; height: 300px; object-fit: cover; object-position: center top; border: 1px solid var(--museum-border); }
+.learning-page .learning-role { color: var(--museum-gold); font-size: 15px; margin-top: -8px; }
+.learning-source-list { padding-top: 20px; }
+.learning-section-lead { max-width: 720px; }
+.learning-resource { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 32px; padding-block: 40px; border-top: 1px solid var(--museum-border); }
+.learning-resource:first-of-type { margin-top: 40px; }
+.learning-resource:last-child { border-bottom: 1px solid var(--museum-border); }
+.learning-resource-index { font: 34px/1.3 var(--museum-serif); color: var(--museum-gold); }
+.learning-resource > div:last-child { max-width: 870px; min-width: 0; }
+.learning-resource .eyebrow { margin-bottom: 14px; }
+.learning-resource h3 { font-size: clamp(28px,3vw,38px); margin: 0 0 16px; }
+.learning-page .learning-resource-author { color: var(--museum-gold); font-size: 15px; margin-bottom: 24px; }
+.learning-resource .learning-details summary { font: 17px/1.5 var(--museum-sans); padding-block: 18px; }
+.learning-resource .learning-details p { font-size: 16px; }
+.learning-resource-links { display: flex; flex-wrap: wrap; gap: 16px 28px; padding-top: 20px; }
+.learning-resource a, .learning-map-grid a { overflow-wrap: anywhere; }
+.learning-map-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 64px; margin: 36px 0; }
+.learning-map-grid h3 { margin-bottom: 24px; }
+.learning-list { padding-left: 24px; margin: 20px 0; }
+.learning-list li { padding: 8px 0; color: var(--museum-muted); }
+.learning-list a { display: inline-block; min-height: 36px; }
+/* Tablet widths keep resource text readable while reducing decorative gaps. */
+@media (max-width: 900px) {
+  .learning-principles { gap: 24px; }
+  .learning-creator { grid-template-columns: 180px minmax(0,1fr); gap: 36px; }
+  .learning-creator > img { width: 180px; height: 240px; }
+  .learning-map-grid { gap: 36px; }
+}
+/* Mobile layouts stack content and retain comfortable touch targets. */
+@media (max-width: 600px) {
+  .learning-page .learning-intro { padding-block: 28px 48px; }
+  .learning-page .learning-breadcrumb { margin-bottom: 32px; font-size: 13px; }
+  .learning-page .learning-intro h1 { font-size: clamp(40px,10vw,54px); }
+  .learning-page .learning-lead { font-size: 18px; }
+  .learning-jump { gap: 8px 22px; margin-top: 24px; }
+  .learning-principles, .learning-map-grid, .learning-creator { grid-template-columns: 1fr; gap: 32px; }
+  .learning-art { padding: 20px; }
+  .learning-resource { grid-template-columns: 1fr; gap: 18px; padding-block: 32px; }
+  .learning-resource-index { font-size: 28px; }
+  .learning-resource-links { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .learning-details summary { font-size: 22px; }
+  .learning-creator > img { width: 180px; height: 225px; }
+}
