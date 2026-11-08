@@ -16,7 +16,7 @@ The mission is to share carefully referenced historical context. The long-term v
 
 - Repository: <https://github.com/EMGPSD/wede5020-2026-part-3-st10479746>
 - Development branch last confirmed in the supplied workflow: `redesign/museum-foundation`.
-- Planned GitHub Pages address: <https://emgpsd.github.io/wede5020-2026-part-3-st10479746/>. This address has not yet been verified as live.
+- Planned GitHub Pages address: <https://st10479746.github.io/alexandra-digital-history-archive/>. This address has not yet been verified as live.
 - The November updates were prepared as replacement-file packages. Installation, final local verification, committing, pushing and deployment must be confirmed against the current repository before submission.
 
 ## Pages and information architecture

@@ -6,7 +6,7 @@ Prepared: 8 November 2026.
 
 Strategy and promotion drafts are prepared. No external publication, outreach, backlink acquisition or visitor-growth result is claimed. No message has been sent on behalf of the creator. Implementation evidence must be added after the website is deployed and the relevant activity actually occurs.
 
-Planned website: https://emgpsd.github.io/wede5020-2026-part-3-st10479746/
+Planned website: https://st10479746.github.io/alexandra-digital-history-archive/
 
 Repository: https://github.com/EMGPSD/wede5020-2026-part-3-st10479746
 

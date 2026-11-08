@@ -32,7 +32,7 @@ Secondary local phrases: Alexandra township, Johannesburg, Gauteng, South Africa
 
 ## Planned hosting address
 
-https://emgpsd.github.io/wede5020-2026-part-3-st10479746/
+https://st10479746.github.io/alexandra-digital-history-archive/
 
 This is the intended conventional GitHub Pages address for the existing repository, not a verified live deployment. Verify its exact address and successful responses during deployment. If the host or path changes, update canonical URLs, Open Graph URLs/image URL, sitemap.xml and the sitemap line in robots.txt together before publishing.
 
