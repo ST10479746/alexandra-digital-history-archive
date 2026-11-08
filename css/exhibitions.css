@@ -1,0 +1,44 @@
+/* Exhibition layouts extend the shared museum and learning-page typography. */
+.exhibition-page .learning-intro h1 { max-width: 1100px; }
+.exhibit-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; margin-top: 40px; }
+.exhibit-panel { padding: 36px; background: var(--museum-black); border: 1px solid var(--museum-border); }
+.exhibit-panel h3 { margin: 18px 0 24px; }
+.exhibit-label { display: inline-block; color: var(--museum-gold); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.exhibit-reflection { background: var(--museum-raised); }
+.exhibition-page .exhibit-status { max-width: 840px; padding: 22px 0 0; margin-top: 30px; border-top: 1px solid var(--museum-border); font-size: 14px; }
+.exhibition-page .exhibit-source-note { margin-top: 20px; }
+.exhibit-three { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 40px; margin-top: 40px; }
+.exhibit-three > article { padding-top: 24px; border-top: 1px solid var(--museum-border); }
+.exhibition-page .exhibit-index { color: var(--museum-gold); font: 30px/1.2 var(--museum-serif); margin-bottom: 24px; }
+.exhibit-profiles { padding-top: 20px; }
+.exhibit-profile { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 48px; padding-block: 48px; border-bottom: 1px solid var(--museum-border); }
+.exhibit-profile:first-of-type { margin-top: 40px; border-top: 1px solid var(--museum-border); }
+.exhibit-profile > div:last-child { max-width: 800px; min-width: 0; }
+.exhibit-profile-mark { display: grid; place-items: center; width: 120px; height: 120px; border: 1px solid var(--museum-border); border-radius: 50%; background: var(--museum-surface); color: var(--museum-gold); font: 48px/1 var(--museum-serif); }
+.exhibit-profile .eyebrow { margin-bottom: 14px; }
+.exhibit-profile h3 { font-size: clamp(32px,4vw,48px); margin: 0 0 24px; }
+.exhibit-link-row { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
+.exhibit-listening { max-width: 900px; margin-inline: auto; padding: 48px; border: 1px solid var(--museum-border); background: var(--museum-surface); text-align: center; }
+.exhibit-listening > p { max-width: 690px; margin-inline: auto; }
+/* The static sound motif is decorative and does not suggest playable media. */
+.exhibit-sound-mark { display: flex; justify-content: center; align-items: center; gap: 8px; height: 80px; margin-bottom: 30px; }
+.exhibit-sound-mark span { display: block; width: 4px; height: 28px; background: var(--museum-gold); border-radius: 2px; }
+.exhibit-sound-mark span:nth-child(2), .exhibit-sound-mark span:nth-child(6) { height: 44px; }
+.exhibit-sound-mark span:nth-child(3), .exhibit-sound-mark span:nth-child(5) { height: 60px; }
+.exhibit-sound-mark span:nth-child(4) { height: 76px; }
+.exhibit-prompts { min-width: 0; }
+.exhibit-prompts .learning-details > div { padding-top: 8px; }
+@media (max-width: 900px) {
+  .exhibit-three { gap: 24px; }
+  .exhibit-panel { padding: 28px; }
+  .exhibit-profile { grid-template-columns: 90px minmax(0,1fr); gap: 32px; }
+  .exhibit-profile-mark { width: 90px; height: 90px; font-size: 36px; }
+}
+@media (max-width: 600px) {
+  .exhibit-pair, .exhibit-three, .exhibit-profile { grid-template-columns: 1fr; gap: 28px; }
+  .exhibit-panel { padding: 26px 22px; }
+  .exhibit-profile { padding-block: 32px; }
+  .exhibit-profile-mark { width: 72px; height: 72px; font-size: 30px; }
+  .exhibit-listening { padding: 32px 22px; }
+  .exhibit-link-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

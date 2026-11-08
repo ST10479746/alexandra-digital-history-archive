@@ -4,20 +4,20 @@ const galleryItems = [
   {
     id: "urban-view",
     title: "A view across the urban landscape",
-    category: "photo",
-    src: "images/historic-alexandra.jpg",
-    alt: "A wide urban view showing rooftops, roads and parked vehicles",
+    category: "art",
+    src: "images/viewpoint.png",
+    alt: "An elevated view of Alexandra-inspired rooftops and parked vehicles in golden evening light",
     caption:
-      "Image supplied with the original project. Its date, creator and exact viewpoint remain unverified.",
-    credit: "Project-supplied image · creator credit pending",
+      "An AI-generated interpretation of an elevated view across Alexandra, with rooftops and parked vehicles in golden evening light.",
+    credit: "AI-generated project artwork",
     provenance:
-      "Undated project image · not presented as a verified historical photograph",
+      "AI-generated illustration · not documentary evidence",
   },
   {
     id: "community",
     title: "A community connected",
     category: "art",
-    src: "images/community.png",
+    src: "images/Alexandra community heritage medallion.png",
     alt: "Gold illustration representing people and community heritage",
     caption:
       "An illustrative interpretation of community connection. It does not depict identified historical residents.",
@@ -40,9 +40,9 @@ const galleryItems = [
     title: "Time and memory",
     category: "art",
     src: "images/timeline.png",
-    alt: "Gold timeline-themed illustration with architectural motifs",
+    alt: "An unpaved street blending into a paved road between homes, with muted tones on the left and golden evening light on the right",
     caption:
-      "A decorative timeline emblem. Any dates or scenes inside the artwork are part of the illustration, not a historical source.",
+      "An imagined transition from an unpaved street to a paved road, suggesting changes in infrastructure over time (OpenAI, 2026).",
     credit: "Existing project artwork",
     provenance: "AI-generated illustration · not historical evidence",
   },

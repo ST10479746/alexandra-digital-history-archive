@@ -1,11 +1,11 @@
 "use strict";
 
-// The recipient address is public website configuration, not a password or API key.
-// An empty recipient keeps email delivery unavailable while message copying still works.
+// Email drafts and direct online submissions use the same intended recipient.
+// Notification delivery is managed by each form's settings in Formspree.
 const archiveFormConfig = {
-  recipientEmail: "ST10479746@MYEMERIS.EDU.ZA",
-  // HTTPS endpoints must accept JSON POST requests and allow this site's origin.
-  // Empty endpoints disable online delivery; no message is claimed to have been sent.
-  enquiryEndpoint: "",
-  contactEndpoint: "",
+  recipientEmail: "mkatekimashimbye@gmail.com",
+
+  // These public HTTPS endpoints accept the reviewed enquiry and contact messages.
+  enquiryEndpoint: "https://formspree.io/f/xzeeeeba",
+  contactEndpoint: "https://formspree.io/f/xgaaaaer",
 };

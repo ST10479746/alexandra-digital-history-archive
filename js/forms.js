@@ -145,6 +145,21 @@ if (typeof document !== "undefined") {
     let prepared = null;
     let attempted = false;
     let pending = false;
+    let submitted = false;
+
+    // Loading lasts only while a request is pending; a completed button has a normal cursor.
+    function setSendState(state) {
+      const sending = state === "sending";
+      send.disabled = sending || state === "submitted";
+      send.textContent = sending
+        ? "Sending…"
+        : state === "submitted"
+          ? "Submitted to Formspree"
+          : "Send online";
+      send.style.cursor = sending ? "wait" : state === "submitted" ? "default" : "pointer";
+      if (sending) send.setAttribute("aria-busy", "true");
+      else send.removeAttribute("aria-busy");
+    }
     fields.disabled = false;
     form.noValidate = true;
     if (endpoint) form.action = endpoint;
@@ -222,7 +237,8 @@ if (typeof document !== "undefined") {
       if (!draft.hidden)
         draft.href = `mailto:${recipient}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`;
       send.hidden = !endpoint;
-      send.disabled = false;
+      submitted = false;
+      setSendState("ready");
       status.textContent = "";
       document.getElementById("delivery-note").textContent = validEmail(
         recipient,
@@ -265,12 +281,16 @@ if (typeof document !== "undefined") {
       .addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(preview.value);
-          status.textContent = "Message copied. No message has been sent.";
+          status.textContent = submitted
+            ? "Message copied. This message was already accepted by Formspree."
+            : "Message copied. No message has been sent.";
         } catch (error) {
           preview.focus();
           preview.select();
           status.textContent =
-            "Select and copy the prepared text using your device’s copy command. No message has been sent.";
+            submitted
+              ? "Select and copy the prepared text. This message was already accepted by Formspree."
+              : "Select and copy the prepared text using your device’s copy command. No message has been sent.";
         }
       });
     draft.addEventListener("click", () => {
@@ -280,10 +300,10 @@ if (typeof document !== "undefined") {
 
     // AJAX uses an explicit configured endpoint; success means service acceptance, not email delivery.
     send.addEventListener("click", async () => {
-      if (!endpoint || !prepared || pending) return;
+      if (!endpoint || !prepared || pending || submitted) return;
       if (!showErrors(readValues(), true)) return;
       pending = true;
-      send.disabled = true;
+      setSendState("sending");
       fields.disabled = true;
       response.setAttribute("aria-busy", "true");
       status.textContent = "Submitting your reviewed message…";
@@ -315,10 +335,14 @@ if (typeof document !== "undefined") {
           )
             throw new Error("Submission rejected");
         }
+        submitted = true;
+        setSendState("submitted");
+        document.getElementById("delivery-note").textContent =
+          "Your message has been accepted by Formspree. Email notification delivery is separate.";
         status.textContent =
-          "The form service accepted your submission. This is not confirmation that an email was delivered or that the enquiry was approved.";
+          "Your message was submitted successfully to Formspree. This confirms receipt by the form service, not arrival in the recipient’s inbox or approval of the enquiry.";
       } catch (error) {
-        send.disabled = false;
+        setSendState("ready");
         status.textContent =
           "We could not confirm submission. Your text is still available to copy or prepare as an email. Check your connection before retrying; the service may already have received it.";
       } finally {

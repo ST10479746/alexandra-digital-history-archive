@@ -1,267 +1,237 @@
 # Alexandra Digital History Archive
 
-**Module:** WEDE5020 — Web Development (Introduction)  
+**Module:** WEDE5020 — Web Development (Introduction)
 **Student:** Mkateki Mashimbye — ST10479746
+**Submission:** Part 3 — Enhancing Functionality and SEO
 
-## Purpose
+## Purpose and design
 
-MyAlexandra.co.za aims to document the historical events that happened in Alexandra since its founding in 1912 until as of currently. We want to tell a compelling story that captures the history of Alexandra in full lense.
+ADHA is an educational digital museum exploring Alexandra’s past and present through its people, places and community memory. Its black-and-gold design connects the dignity of Black history with the richness of Alexandra’s heritage and its relationship to Johannesburg’s gold-mining history. The intended experience encourages reflection, belonging and pride.
 
-## Mission
+The project aims to make history accessible while distinguishing historical sources, retrospective accounts, witness testimony and generated illustrations. It is a student website, not an official museum, tourism service or authenticated archival collection. MyAlexandra.co.za was an early project name; no ownership of that domain is claimed.
 
-To showcase Alexandra’s rich history by providing information that is reliable, credible and accurate.
+The mission is to share carefully referenced historical context. The long-term vision includes contributed material and multimedia; those ambitions are separate from features implemented for this submission. Community Voices currently contains written material and prompts, with no recorded oral-history collection, audio player or video collection.
 
-## Vision
+## Repository and publishing status
 
-MyAlexandra.co.za aims to grow and become a continental website which showcase Africa history through a visual, textual and auditory lense.
+- Repository: <https://github.com/EMGPSD/wede5020-2026-part-3-st10479746>
+- Development branch last confirmed in the supplied workflow: `redesign/museum-foundation`.
+- Planned GitHub Pages address: <https://emgpsd.github.io/wede5020-2026-part-3-st10479746/>. This address has not yet been verified as live.
+- The November updates were prepared as replacement-file packages. Installation, final local verification, committing, pushing and deployment must be confirmed against the current repository before submission.
 
-## Values
+## Pages and information architecture
 
-Our biggest values are our people and their history. The organisation places importance in ensuring that the people of Alexandra and their stories are well documented.
+| Page | File | Purpose |
+|---|---|---|
+| Home | `index.html` | Welcome, past/present introduction and exhibition routes |
+| Archive directory | `content.html` | Search, theme filters, sorting and eight exhibition entries |
+| Alexandra through time | `timeline.html` | Sourced milestones and expandable historical context |
+| Alexandra today | `alexandra-today.html` | Connections between historical context and present-day reflection |
+| People of Alexandra | `people.html` | Referenced figures and everyday community contributions |
+| Places that hold memory | `places.html` | Interactive map and searchable landmark directory |
+| Community voices | `community-voices.html` | Written accounts, memory prompts and oral-history guidance |
+| Alexandra in view | `gallery.html` | Illustrative collection and accessible image lightbox |
+| About | `about.html` | Purpose, values, design rationale and creator |
+| Research and resources | `research.html` | Historical reading room and source-use notes |
+| Enquiries and contributions | `enquiry.html` | Research, partnership and contribution enquiries |
+| Contact | `contact.html` | General messages |
 
-## Our Team
+All twelve pages share header and footer routes. Explore contains seven exhibition routes; About links to project information and Research; Get involved links to Enquiry and Contact. The footer provides direct links to all pages.
 
-Mkateki Mashimbye - CEO
+## Implemented functionality
 
+- Responsive navigation with native disclosure menus, current-page indicators, mobile menu controls and Escape-key handling.
+- JavaScript-generated archive entries with keyword search, theme filtering, alphabetical sorting, result counts, reset and no-results feedback. A static fallback is available without JavaScript.
+- Expandable timeline context and source panels using native `details` elements.
+- Leaflet 1.9.4 map with three landmark records, marker popups, search, category filters and a synchronised detail panel. Coordinates indicate approximate feature centres. The text directory remains useful if map tiles fail.
+- Native-dialog gallery lightbox with previous/next controls, arrow-key navigation, image-error feedback and focus return. Static image links remain available without JavaScript.
+- Distinct Enquiry and Contact forms with persistent labels, validation errors, error summaries, message review, copying, email-draft links and JSON POST submission to Formspree. Enquiries provide category-specific responses about relevant permissions, availability and cost limitations.
+- Existing CSS hover transitions plus subtle JavaScript heading entrances. Later headings animate once; reduced-motion settings disable the effect. Content remains visible without animation support.
 
+## Form configuration and delivery
 
-## Website Goals
+`js/forms-config.js` contains public configuration, not credentials:
 
-* Display historical information through recorded interviews, documentaries, and photos.
-* Provide access to journal articles, reports, books, diaries, and letters.
-* Design an interactive yet functional website that offers numerous content.
-* Provide a platform for user connection and feedback
-* Digitally map out Alexandra's history through streets, roads, and buildings.
-* Develop a timeline that shows Alexandra's from founding year to present date.
+| Form | Online endpoint |
+|---|---|
+| Enquiry | `https://formspree.io/f/xzeeeeba` |
+| Contact | `https://formspree.io/f/xgaaaaer` |
 
-## Website Objectives
+The configured email-draft recipient is `mkatekimashimbye@gmail.com`. Online notification recipients are managed in Formspree. On 26 October 2026, the student confirmed submissions in Formspree and notification emails in Gmail for both forms. Emeris inbox delivery was not established. No new live submission was sent during the November static audit.
 
-* Develop test and successfully run the following features in website:
-* 
+A service acceptance message reports acceptance by Formspree, not guaranteed email delivery or approval of an enquiry. Sending, success, timeout, failure and retry states are handled in the client. Client-side validation improves the interface; the external service remains responsible for receiving and processing submissions.
 
-  * Videoplay in website
-* 
+## Styling and accessibility
 
-  * Digital map of Alexandra
-* Sort and categorise data by:
-* 
+`css/style.css` retains the Part 2 foundation. `css/museum.css` supplies shared museum styling, navigation, forms, archive rows, map and gallery layouts. `css/learning.css` supports About and Research; `css/exhibitions.css` supports the additional exhibitions. These files remain separate; stylesheet consolidation has not been claimed complete.
 
-  * Significant events:
-* 
+The shared palette uses black `#0b0b0b`, gold `#c9a45c`, ivory `#f4efe5` and muted `#c5bdaf`. Georgia/Times and Segoe UI/Arial provide local font fallbacks. Responsive rules include 900px and 600px adaptations, alongside earlier component breakpoints.
 
-  * 1912 - Formation of Alexandra
-* 
+Accessibility provisions include skip links, visible focus indicators, semantic headings, labelled controls, live result feedback and keyboard-operable native controls. The approved desktop form spacing and corrected dialog centring are retained. Archive thumbnails keep compact dimensions, fill their boxes using the existing CSS, and have no individual captions.
 
-  * 1948 - Start of Apartheid
-* 
+## SEO, performance and security
 
-  * 1976 - June 16 Uprising
-* 
+Each page has a distinct title, description, canonical URL, viewport and robots metadata, plus Open Graph metadata. `sitemap.xml` lists the twelve planned public URLs. `robots.txt` is included, but a GitHub Pages project-path robots file is not authoritative for the entire `emgpsd.github.io` host; see `docs/SEO.md`. Verify the final host and update absolute URLs if the publishing location changes.
 
-  * 1994 - New Dawn of South Africa
-* 
+Keyword choices and page mapping are qualitative and documented in `docs/SEO.md`; no search-volume research or ranking results are claimed. Off-page SEO strategy, draft posts and an evidence register are prepared in `docs/OFF-PAGE-SEO.md`, `docs/PROMOTION-DRAFTS.md` and `docs/off-page-evidence.csv`. Actual public promotion and earned backlinks remain pending verification after deployment.
 
-  * Timeline
-* 
+Fifteen referenced source images have WebP copies in `images/optimised`, with descriptive lowercase names. The distinct full-size set decreased from 37.71 MB to 4.60 MB (87.8%). Eight dedicated archive thumbnails total about 0.40 MB rather than 22.12 MB (98.2% less). These are asset-size comparisons, not measured page speeds. The originals are retained. The hero keeps high fetch priority; existing lazy loading is preserved and decoding hints are added. See `docs/IMAGE-OPTIMISATION.md` and `docs/image-sizes.csv`.
 
-  * Digital Map
-* 
+Generated catalogue text uses DOM text properties rather than interpreting source text as HTML. Form endpoints and map tiles use HTTPS; no private API key is required in the supplied configuration. Leaflet’s licence and OpenStreetMap attribution are retained. Production HTTPS and hosting behaviour must be checked after deployment; no penetration test or security certification is claimed.
 
-  * Regularly track user's activities for improvements and updates
+## Running and checking locally
 
+Open the project folder in VS Code and run it through a local HTTP server, such as Live Server. Start at `index.html`. No build step or package installation is required. Internet access is needed for online form submission and OpenStreetMap tiles.
 
+The supplied-file audit checked page titles, descriptions, viewport metadata, unique IDs, local destinations and fragment links, custom JavaScript syntax, archive selection logic and form helper behaviour. Subsequent package checks covered animation behaviour in a simulated environment, image paths, preserved metadata and layouts, and decoding of all 23 optimised files. These checks do not substitute for browser testing.
 
-## Key Features and Functionality
-
-* Storytelling through documentaries, books, journal articles and photos.
-* Digital mapping and GIS system integration of Alexandra.
-* Data categorized by significant events (e.g., 1912 Formation, 1976 Uprising) and timeline.
-
-## Timeline and Milestones
-
-* 01 August - 01 September 2026: Developing HTML structure for website + Design of sitemap and UI/ UX Design
-* 05 October 2026: Complete CSS styling for Part 2.
-* 09 November 2026: Final JavaScript functionality and deployment for Part 3.
-
-## Part 1 Details
-
-This submission covers Part 1 of the POE, which includes project initiation, content research, file organization, basic HTML structure across 5 interconnected pages, and initial GitHub repository setup. Part 2 and Part 3 will follow in future submissions/edits.
-
-## Sitemap
-
-* Home (index.html)
-* About Us (about.html)
-* Content Archive (content.html)
-* Enquiry (enquiry.html)
-* Contact (contact.html)
+Final local checks: open all twelve pages at desktop and mobile widths; check navigation, keyboard controls, archive search/filter/sort/reset, map controls, all gallery images and form validation. Check online submissions on the deployed origin and confirm notifications separately. Record actual results before claiming acceptance. No current Lighthouse result is available.
 
 ## Changelog
 
-* v1.0.0 (01 September 2026): Initial commit with file structure, basic HTML boilerplate, and navigation links.
-* v1.1.0 (03 October 2026) - Part 1 Feedback Corrections:
+### Part 1 — September 2026
 
-  * Historical entry corrected: this project belongs to WEDE5020, not XHAW5112.
-  * Renamed `content.html` to `services.html` to align strictly with the project brief requirements.
-  * Updated all `<nav>` and `<footer>` hyperlink references across all HTML files to point to `services.html` instead of `content.html`.
-  * Updated the Sitemap in README.md to reflect the new file name.
+- Established project purpose, initial HTML pages, navigation, source collection and GitHub workflow.
+- The earlier README records a temporary `content.html` to `services.html` rename; Part 2 restored `content.html`, which is the current filename.
 
+### Part 2 — October 2026
 
+- Added external CSS, base typography, Flexbox layouts, form controls and responsive media queries across the original five pages.
+- Moved styling into external CSS and refined page alignment and image sizing.
+
+### Part 3 — Part 2 feedback correction
+
+- Renamed `CSS` to `css` to match the stylesheet links and avoid failure on case-sensitive hosting. The correction was committed as `8e7d51a` before subsequent integration.
+- Preserved this feedback correction in the changelog, as required by the POE.
+
+### Part 3 — 25–26 October 2026: museum and functionality
+
+- Rebuilt Home and shared components around the black-and-gold digital museum concept; added responsive layouts, skip links, focus styling, mobile navigation and current-page indicators.
+- Renamed `IMAGES` to `images` and updated references. The final lowercase path supersedes the earlier README note about retaining uppercase `IMAGES`.
+- Added the searchable eight-entry archive directory and sourced timeline with expandable context.
+- Added the interactive Leaflet landmark map, synchronised place directory and source notes.
+- Added the six-item gallery, accessible lightbox and corrected centring after the original margin reset affected the dialog.
+- Redesigned Enquiry and Contact with consistent titles, centred desktop layouts, panel padding, validation, tailored responses and message review.
+- Added About, Research, Alexandra Today, People and Community Voices; unified navigation across twelve pages.
+- Connected the two Formspree endpoints and corrected sending/submitted button states. The student confirmed dashboard receipt and Gmail notifications for both forms on 26 October.
+
+Previously reported pushed milestones include `70a3cd4` (foundation), `e6afaf3` (timeline), `d76dc8e` (map), `c5aa179` (gallery) and `1f80578` (forms). These describe the earlier workflow; they do not prove the later packages have been pushed.
+
+### Part 3 — generated media development
+
+- Replaced archive thumbnail concepts with distinct scenes covering infrastructure, a family album, street dancing, the Heritage Centre, intergenerational conversation, an elevated view, shared photographs and community archiving.
+- Adopted a consistent golden-hour atmosphere while distinguishing generated interpretation from historical evidence.
+- Kept one collection-level AI notice for archive thumbnails rather than adding individual thumbnail captions. Full source records remain part of project documentation.
+
+### 8 November 2026 — prepared completion updates
+
+- Added page-specific SEO metadata, canonical URLs, Open Graph metadata, `robots.txt`, `sitemap.xml` and documented keyword mapping.
+- Prepared an off-page strategy, promotion drafts and an evidence register; actual publication and backlinks remain pending.
+- Added once-only JavaScript heading animation with reduced-motion and unsupported-browser handling, preserving existing navigation code.
+- Reconnected missing community medallion references and replaced the unavailable gallery landscape with the supplied generated view; updated its category and labels.
+- Corrected all eight archive image descriptions and provenance records, Home’s bus/minibus alt text and the gallery timeline wording. Removed incorrect source attribution from the album and elevated-view records.
+- Generated compressed WebP copies and dedicated archive thumbnails, updated references and retained originals and existing layout rules.
+- Consolidated the README into current project information, a single changelog and a reference list. Preserved the earlier README in `docs/README-HISTORY.md` for traceability.
+
+These November changes are prepared deliverables. The final Git commit, push, deployed URL, browser acceptance and promotion evidence must still be recorded from actual results.
+
+## Remaining submission work
+
+- Confirm all prepared files are installed and pass final browser checks.
+- Complete missing generated-media reference details in `docs/MEDIA-REGISTER.csv` using actual generation links and access dates; do not invent bibliographic details.
+- Commit and push the final website to the Part 3 repository, then deploy and verify the public address and HTTPS.
+- Verify the live forms, map, images, metadata, sitemap and responsive layouts; record performance results if measured.
+- Publish approved promotion material and record genuine external links/evidence if required for the off-page criteria.
+- Submit the repository link to the learning management system and retain the verified live URL in this README.
 
 ## References
 
-* South African History Online. 2025, Alexandra, Township in Johannesburg. Available at: https://sahistory.org.za/place/alexandra-township-johannesburg
-* South African Tourism. 2026, Alexandra Heritage Precinct - historic and iconic. Available at: https://www.southafrica.net/za/en/travel/article/alexandra-heritage-precinct-historic-and-iconic
-* Wikipedia. 2026, Alexandra, South Africa. Available at: https://en.wikipedia.org/wiki/Alexandra,\_South\_Africa
-* City of Johannesburg. 2018, Why Alexandra survived apartheid. Available at: https://joburg.org.za/play\_/Pages/Play%20in%20Joburg/Culture%20and%20Heritage/Links/Why-Alexandra-survived-apartheid.aspx
-* Alphabet Inc.(2026). Gemini (Sept 01 version) \[Large language model]. https://share.gemini.google/d2NUPZtkqrWn
-* OpenAI. (2026). Chatgpt (Sept 01 version) \[Large language model]. https://chatgpt.com/share/6a9728af-56c8-83ea-84d2-4549ec4f6a8b
+References below combine the recorded earlier sources and the November implementation sources. A recorded access date is retained where available. Entries marked “access date not recorded” need the student’s actual date before final submission. Historical publication years carried forward from the original README are identified where not independently verified. The archived README preserves the original wording.
 
-## Part 2 Details: Designing the Visuals
+### Historical and geographical sources
 
-* **External CSS:** Implemented a centralized `style.css` file linked across all five HTML pages to ensure absolute design consistency and enforce a separation of structure and presentation.
-* **Typography \& Base Styles:** Established a base typographic scale using Aptos and sans-serif fallbacks, with customized line heights (`1.6`) to maximize readability for historical text blocks.
-* **Layout Structure:** Utilized CSS Flexbox extensively to create structured horizontal navigation, wrap-enabled multi-column grids for content cards, and meticulously centered form layouts.
-* **Visual Styles:** Applied a cohesive dark terracotta, gold, and silver color scheme to reflect the heritage theme, utilizing interactive `:hover` pseudo-classes to provide visual feedback on interactive buttons and navigation links.
-* **Responsive Design:** Integrated relative units (percentages) and media queries at the `768px` breakpoint to guarantee the navigation, hero section, and grids collapse gracefully into a single-column layout on mobile and tablet devices.
+The Presidency, 2012. Address by President Jacob Zuma at the event to mark the Centenary of Alexandra Township. [online] Available at: <https://www.thepresidency.gov.za/address-president-jacob-zuma-event-mark-centenary-alexandra-township> [Accessed 25 October 2026].
 
-## Changelog
+Phahle, R., 2019. The 1957 Alexandra Bus Boycott and its unsung heroes. [online] Available at: <https://sahistory.org.za/archive/1957-alexandra-bus-boycott-and-its-unsung-heroes-roseinnes-phahle-june-2019> [Accessed 25 October 2026].
 
-### Part 2 Updates \& Part 1 Feedback Corrections
+Truth and Reconciliation Commission, 1996. Human Rights Violations hearing: Bennet Lekalakala, Alexandra, 29 October. [online] Available at: <https://www.justice.gov.za/trc/hrvtrans/alex/lekalaka.htm> [Accessed 25 October 2026].
 
-* **Added:** `style.css` file to manage all visual styling globally across the archive.
-* **Added:** Global base styles defining font family, primary colors, and structural resets (`box-sizing: border-box`).
-* **Added:** Flexbox grid structures to `index.html`, `about.html`, `content.html`, `enquiry.html`, and `contact.html` to align content sections and precisely frame form inputs.
-* **Added:** Media queries (`@media (max-width: 768px)`) to stack navigation links, scale down typography, and convert horizontal grids into single columns for mobile responsiveness.
-* **Changed:** Replaced inline styles from the initial drafts with pure external CSS selectors for cleaner HTML formatting.
-* **Changed:** Upgraded the "Type of Enquiry" form section to utilize a structured dropdown menu and formatted checkbox list to streamline user interaction.
-* **Fixed (Part 1 Correction):** Reverted the previously named `services.html` file and its corresponding navigation links back to `content.html` across all pages to more accurately reflect the historical archival material.
+Peter Rich Architects, 2018. Alexandra Heritage Centre. [online] Available at: <https://www.peterricharchitects.com/alexandra-heritage-centre> [Accessed 25 October 2026].
 
-### Part 3 — Part 2 Feedback Corrections
+Joburg Tourism Company, n.d.. Alexandra Stadium. [online] Available at: <https://visit.joburg/things-to-do/alexandra-stadium/> [Accessed 25 October 2026].
 
-* Renamed the stylesheet folder from `CSS` to `css` to match the `css/style.css` links across all five HTML pages.
-* Corrected the case mismatch identified in lecturer feedback, which could prevent styling from loading on case-sensitive hosting platforms.
+Joburg Tourism Company, n.d.. Things to do: official tourism directory. [online] Available at: <https://visit.joburg/leisure/things-to-do/> [Accessed 25 October 2026].
 
-## Updated References
+Mapcarta, n.d.. Alexandra Heritage Centre: coordinate record. [online] Available at: <https://mapcarta.com/W794712819> [Access date not recorded].
 
-* Sookha, J., 2026. 01-html-tags-only.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) \[Source code] Available at: [https://github.com/jesselsookha/WEDE2026/commits/main/code/html](https://github.com/jesselsookha/WEDE2026/commits/main/code/html) \[Accessed 04 September 2026].
-* Sookha, J., 2026. 22-css-float-layout.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) \[Source code] Available at: [https://github.com/jesselsookha/WEDE2026/blob/main/code/css/22-css-float-layout.html](https://github.com/jesselsookha/WEDE2026/blob/main/code/css/22-css-float-layout.html) \[Accessed 04 September 2026].
-* Sookha, J., 2026. css-visualize-box-model.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) \[Source code] Available at: [https://github.com/jesselsookha/WEDE2026/blob/main/code/css/21-css-visualize-box-model.html](https://github.com/jesselsookha/WEDE2026/blob/main/code/css/21-css-visualize-box-model.html) \[Accessed 04 September 2026].
-* Sookha, J., 2026. css-pseudo-classes1.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) \[Source code] Available at: [https://github.com/jesselsookha/WEDE2026/blob/main/code/css/20-css-pseudo-classes1.html](https://github.com/jesselsookha/WEDE2026/blob/main/code/css/20-css-pseudo-classes1.html) \[Accessed 04 September 2026].
-* Sookha, J., 2026. 15-css-selector-matching.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) \[Source code] Available at: [https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html](https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html) \[Accessed 04 September 2026].
+Mapcarta, n.d.. Mandela’s Alexandra home: coordinate record. [online] Available at: <https://mapcarta.com/W794712820> [Access date not recorded].
 
+Mapcarta, n.d.. Alexandra Stadium: coordinate record. [online] Available at: <https://mapcarta.com/W1233252354> [Access date not recorded].
 
+South African History Online, 2025. Alexandra, Township in Johannesburg. [online] Available at: <https://sahistory.org.za/place/alexandra-township-johannesburg> [Access date not recorded].
 
-## Part 3 — Museum foundation (25 October 2026)
+South African Tourism, 2026. Alexandra Heritage Precinct — historic and iconic. [online] Available at: <https://www.southafrica.net/za/en/travel/article/alexandra-heritage-precinct-historic-and-iconic> [Access date not recorded].
 
-* Rebuilt Home with a black-and-gold editorial museum layout, past/present introduction, timeline themes, community previews and contribution routes.
-* Added `css/museum.css` with shared design tokens, responsive Grid layouts, keyboard focus styles and reduced-motion support. Kept `css/style.css` for existing secondary-page layouts during staged migration.
-* Applied shared header/footer to all five existing pages. Added progressively enhanced mobile navigation, native dropdowns, current-page indication and Escape-key dismissal in `js/main.js`.
-* Corrected image references to the actual `IMAGES` folder for case-sensitive hosting.
-* Removed old README conflict markers and unrelated profile-page introduction; corrected the module identification. Preserved prior references and the stylesheet-folder correction entry.
-* Used existing media with explicit provenance limitations; final exhibit images and font assets remain to be supplied. System serif/sans-serif fonts provide a dependable offline foundation.
-* Navigation targets only existing pages and Home sections. The seven additional exhibition pages, archive search, lightbox, map and form processing are scheduled for later stages and are not claimed complete.
+Wikipedia contributors, 2026. Alexandra, South Africa. [online] Available at: <https://en.wikipedia.org/wiki/Alexandra,_South_Africa> [Access date not recorded].
 
-### Part 3 — Archive Directory
+City of Johannesburg, 2018. Why Alexandra survived apartheid. [online] Available at: <https://joburg.org.za/play_/Pages/Play%20in%20Joburg/Culture%20and%20Heritage/Links/Why-Alexandra-survived-apartheid.aspx> [Access date not recorded].
 
-* Redesigned content.html with the museum layout, accessible catalogue controls and responsive result rows.
-* Added eight JavaScript-generated preview entries and working keyword search, theme filtering, title sorting, clear controls, result counts and a no-results state.
-* Used textContent for generated text and supplied a non-JavaScript fallback.
-* Linked preview entries to existing destinations while dedicated exhibition pages remain in development.
-* Preserved lowercase images paths and the form-contrast/print corrections in museum.css.
+The direct Alexandra Stadium listing timed out during the earlier review; the official tourism directory was available. Mapcarta entries support approximate coordinates, not historical narrative. The publication years on the four initial background references (SAHO, South African Tourism, Wikipedia and City of Johannesburg) are carried forward from the earlier README and require verification.
 
-### Part 3 — Alexandra Through Time
+### Image references and AI assistance
 
-* Added timeline.html with five sourced historical milestones, era navigation and expandable context/source panels.
-* Identified witness testimony and commemorative speeches by source type, with paraphrased summaries and external references.
-* Added responsive timeline layouts and keyboard-accessible native disclosure controls.
-* Connected the Archive Directory timeline entry to the new page.
-* Reformatted the supplied HTML, CSS and archive JavaScript with explanatory comments for readability.
-* Updated shared timeline navigation links after applying the documented link replacement.
+Sowetan, 2019. Waiting to exhale: the story of Alexandra township. [online] Available at: <https://www.sowetan.co.za/news/south-africa/2019-10-18-waiting-to-exhale-the-story-of-alexandra-township/> [Accessed 26 October 2026].
 
-### Part 3 — Timeline Sources
+The Heritage Portal, n.d.. Alexandra Heritage Centre — Alexandra Johannesburg. [online] Available at: <https://www.theheritageportal.co.za/thread/alexandra-heritage-centre-alexandra-johannesburg> [Accessed 28 October 2026].
 
-* The Presidency. 2012. Address by President Jacob Zuma at the event to mark the Centenary of Alexandra Township. 22 September. Available at: https://www.thepresidency.gov.za/address-president-jacob-zuma-event-mark-centenary-alexandra-township \[Accessed 25 October 2026].
-* Phahle, R. 2019. The 1957 Alexandra Bus Boycott and its unsung heroes. June. South African History Online. Available at: https://sahistory.org.za/archive/1957-alexandra-bus-boycott-and-its-unsung-heroes-roseinnes-phahle-june-2019 \[Accessed 25 October 2026].
-* Truth and Reconciliation Commission. 1996. Human Rights Violations hearing: Bennet Lekalakala. Alexandra, 29 October. Available at: https://www.justice.gov.za/trc/hrvtrans/alex/lekalaka.htm \[Accessed 25 October 2026].
+OpenAI, 2026. Golden Road Through Alexandra Township. [AI-generated image] Available at: <https://chatgpt.com/share/6adf2764-30d4-83ea-a754-7bdf4fe1dd0c> [Access date not recorded].
 
-### Part 3 — Places and Landmarks
+The Sowetan photograph informed the hero atmosphere; The Heritage Portal photograph informed the generated Heritage Centre interpretation. These source photographs are separate from the generated outputs. Authorship and individual generation links for the remaining outputs must be completed in the media register. The supplied hero conversation URL is student-provided; its contents were not independently confirmed. The creator portrait is supplied as a personal project photograph.
 
-* Added places.html with three sourced place records, an interactive Leaflet map, marker popups and a shared detail panel.
-* Added search and category filters synchronising list entries and map markers, plus no-results and reset controls.
-* Bundled Leaflet 1.9.4 and its BSD licence in vendor/leaflet; retained visible OpenStreetMap attribution.
-* Provided native source disclosures and a text-list alternative if the map or street tiles are unavailable.
-* Identified coordinates as approximate feature centres, separate from historical descriptions.
-* Linked the archive place entry and shared navigation to places.html after applying the documented replacements.
+Google, 2026. Gemini: September 1 conversation (earlier README identifies the provider as Alphabet Inc.). [online] Available at: <https://share.gemini.google/d2NUPZtkqrWn> [Access date not recorded].
 
-### Part 3 — Gallery and Lightbox
+OpenAI, 2026. ChatGPT: September 1 conversation. [online] Available at: <https://chatgpt.com/share/6a9728af-56c8-83ea-84d2-4549ec4f6a8b> [Access date not recorded].
 
-- Added gallery.html with six captioned project images and explicit provenance labels.
-- Added category filters and an image lightbox using the native dialog element.
-- Implemented Previous/Next controls, arrow-key navigation, filtered-collection browsing, image-load error feedback and focus return after closing.
-- Kept static image links available without JavaScript.
-- Linked the archive image entry to the dedicated gallery. Shared navigation integration remains scheduled.
-- Corrected lightbox centring where the original CSS margin reset
-  overrode the dialog’s default positioning.
+The original README records these two conversations as language-model assistance. Their precise contribution should follow the student’s own AI declaration.
 
-### Part 3 — Enquiry and Contact Forms
+### Code, mapping and implementation sources
 
-- Redesigned enquiry.html and contact.html with consistent museum layouts and persistent field labels.
-- Added shared client-side validation with inline errors, error summaries and first-invalid-field focus.
-- Added six enquiry categories, category-specific guidance and tailored responses covering relevant availability, permission and cost limitations.
-- Compiled contact messages into reviewable text, with copy support and configurable email-draft links.
-- Added configurable JSON POST submission with loading, HTTP/validation-error, timeout and retry handling. Live AJAX endpoint integration remains pending.
-- Kept delivery states explicit: preparing a response or opening a draft does not mean an email was sent.
-- Preserved the gallery centring correction in the supplied stylesheet.
+Sookha, J., 2026. 01-html-tags-only.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/commits/main/code/html> [Accessed 04 September 2026].
 
-### Part 3 — Form Implementation References
+Sookha, J., 2026. 22-css-float-layout.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/22-css-float-layout.html> [Accessed 04 September 2026].
 
-- MDN Web Docs. n.d. Using the Fetch API. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch [Accessed 25 October 2026].
-- MDN Web Docs. n.d. HTMLInputElement: checkValidity() method. Available at: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity [Accessed 25 October 2026].
+Sookha, J., 2026. 21-css-visualize-box-model.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/21-css-visualize-box-model.html> [Accessed 04 September 2026].
 
-# About and Research update
+Sookha, J., 2026. 20-css-pseudo-classes1.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/20-css-pseudo-classes1.html> [Accessed 04 September 2026].
 
-Copy `about.html` and `research.html` into the project root. Copy `learning.css` into the existing `css` folder. The HTML files load it after `museum.css`.
+Sookha, J., 2026. 15-css-selector-matching.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html> [Accessed 04 September 2026].
 
-This package does not replace `museum.css`, JavaScript, the README or email configuration. Keep the tested form changes and configured recipient.
+MDN Web Docs, n.d.. Using the Fetch API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch> [Accessed 25 October 2026].
 
-About is reachable from existing navigation. Its header, footer and page content link to Research. Both new pages link back to the existing exhibitions. Full navigation across the remaining pages will be unified when those pages are complete.
+MDN Web Docs, n.d.. HTMLInputElement: checkValidity() method. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity> [Accessed 25 October 2026].
 
-## Local checks
+Leaflet, n.d.. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at: <https://leafletjs.com/> [Access date not recorded].
 
-* Open About and follow the Research links.
-* Check the artwork and creator photograph load.
-* Use the section links and expand the editorial/research notes with the keyboard.
-* Check both pages at desktop, tablet and mobile widths; check for horizontal scrolling.
-* Follow a source link and confirm it opens in a new tab.
-* Recheck Contact and Enquiry: this update should leave their layout unchanged.
+OpenStreetMap contributors, n.d.. Copyright and licence. [online] Available at: <https://www.openstreetmap.org/copyright> [Access date not recorded].
 
-## Changelog entry to add to README
+Formspree, n.d.. Formspree: form submission service. [online] Available at: <https://formspree.io/> [Access date not recorded].
 
-### 25 October 2026 — About and research reading room
+Google Search Central, n.d.. Get started with SEO: a developer’s guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/get-started-developers> [Accessed 8 November 2026].
 
-* Redesigned About with the archive purpose, mission, vision, community values and black-and-gold design rationale.
-* Added Research and Resources with four contextualised historical references, mapping credits and a research guide.
-* Added responsive layouts and keyboard-operable native disclosure controls.
-* Identified illustrative artwork and distinguished testimony, recollection and commemorative sources.
-* Preserved the existing form stylesheet and email configuration.
+Google Search Central, n.d.. Build and submit a sitemap. [online] Available at: <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap> [Accessed 8 November 2026].
 
-## Reference records
+Google, n.d.. Robots.txt specifications. [online] Available at: <https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec> [Accessed 8 November 2026].
 
-The research page contains links and source-use notes. Retain the corresponding records under the README's References section, merging any duplicates already recorded:
+Google Search Central, n.d.. Search Engine Optimization Starter Guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/seo-starter-guide> [Accessed 8 November 2026].
 
-* The Presidency (2012). Address by President Jacob Zuma at the event to mark the Centenary of Alexandra Township. 22 September. https://www.thepresidency.gov.za/address-president-jacob-zuma-event-mark-centenary-alexandra-township
-* Phahle, R. (2019). The 1957 Alexandra Bus Boycott and its unsung heroes. South African History Online. June. https://sahistory.org.za/archive/1957-alexandra-bus-boycott-and-its-unsung-heroes-roseinnes-phahle-june-2019
-* Truth and Reconciliation Commission (1996). Bennet Lekalakala: Alexandra hearing transcript. 29 October. https://www.justice.gov.za/trc/hrvtrans/alex/lekalaka.htm
-* Peter Rich Architects (2018). Alexandra Heritage Centre. https://www.peterricharchitects.com/alexandra-heritage-centre
-* Joburg Tourism Company (n.d.). Alexandra Stadium. https://visit.joburg/things-to-do/alexandra-stadium/ (directory fallback: https://visit.joburg/leisure/things-to-do/).
-* Mapcarta (n.d.). Alexandra Heritage Centre; Mandela's Alexandra home; Alexandra Stadium. https://mapcarta.com/W794712819 ; https://mapcarta.com/W794712820 ; https://mapcarta.com/W1233252354 . Coordinate records, not historical narrative sources.
-* OpenStreetMap contributors (n.d.). Copyright and licence. https://www.openstreetmap.org/copyright
-* Leaflet (n.d.). Leaflet: an open-source JavaScript library for interactive maps. https://leafletjs.com/
+Google Search Central, n.d.. Spam policies for Google web search. [online] Available at: <https://developers.google.com/search/docs/essentials/spam-policies> [Accessed 8 November 2026].
 
-Historical pages were consulted on 25 October 2026. The direct tourism listing timed out during this update; its official tourism directory was available. The coordinate and software links carry forward the existing Places page credits.
+MDN Web Docs, n.d.. Intersection Observer API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API> [Accessed 8 November 2026].
 
-## Verification performed
+MDN Web Docs, n.d.. prefers-reduced-motion. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion> [Accessed 8 November 2026].
 
-Static HTML checks cover unique IDs, internal fragments, local asset destinations, page titles, viewport metadata and source-link safety attributes. CSS brace balance was checked. Browser appearance, viewport behaviour and keyboard operation need the local checks above; no browser rendering is claimed.
+MDN Web Docs, n.d.. The image embed element. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img> [Accessed 8 November 2026].
 
+MDN Web Docs, n.d.. Multimedia: Images. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Performance/Multimedia> [Accessed 8 November 2026].
 
+The local Leaflet distribution is version 1.9.4; its BSD licence is included at `vendor/leaflet/LICENSE`. Map attribution remains visible on the website.

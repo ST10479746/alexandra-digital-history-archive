@@ -734,7 +734,7 @@ figcaption,
   display: block;
   width: 100%;
   height: 165px;
-  object-fit: contain;
+  object-fit: cover;
 }
 .archive-entry h3 {
   font-size: 30px;
@@ -1693,4 +1693,27 @@ figcaption,
         width: min(760px, calc(100% - 112px));
         margin-inline: auto;
     }
+}
+
+/* Shared menus identify the current exhibition group and keep long lists accessible. */
+.museum-nav .nav-current-group > summary {
+  color: var(--museum-gold);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+.nav-panel {
+  max-height: min(560px, 70vh);
+  overflow-y: auto;
+}
+@media (min-width: 901px) {
+  .museum-nav .nav-group:last-of-type .nav-panel {
+    left: auto;
+    right: 0;
+  }
+}
+@media (max-width: 900px) {
+  .nav-panel {
+    max-height: none;
+    overflow: visible;
+  }
 }

@@ -1,83 +1,83 @@
 "use strict";
-// Catalogue previews link to real existing destinations during the staged redesign.
+// Catalogue entries connect the searchable directory to the available exhibitions.
 const archiveEntries = [
   {
     id: "history",
     title: "Alexandra through time",
     category: "history",
-    type: "Exhibition preview",
+    type: "Exhibition",
     description:
       "Explore the origins, changes and memories that guide our historical exhibition.",
     keywords: "timeline past beginnings history",
     href: "timeline.html",
     image: "images/timeline.png",
-    alt: "Decorative gold timeline medallion",
-    provenance: "Illustrative artwork · not historical evidence",
+    alt: "An unpaved street blending into a paved road between homes, with muted tones on the left and golden evening light on the right",
+    provenance: "AI-generated interpretation of infrastructure changing over time · not a verified historical reconstruction (OpenAI, 2026).",
   },
   {
     id: "present",
-    title: "Past and present",
+    title: "Alexandra today: past and present",
     category: "history",
-    type: "Exhibition preview",
+    type: "Exhibition",
     description:
       "Consider the connections between Alexandra’s past and the community of today.",
     keywords: "today contemporary change continuity",
-    href: "index.html#past-present",
-    image: "images/historic-alexandra.jpg",
-    alt: "Urban view supplied with the original project",
-    provenance: "Project image · date and creator credit unverified",
+    href: "alexandra-today.html",
+    image: "images/past-and-present.png",
+    alt: "An open family album with a black-and-white portrait of parents and two children beside a colour portrait of the family in later life",
+    provenance: "AI-generated family album illustrating generations over time · not an authentic family record (OpenAI, 2026).",
   },
   {
     id: "people",
     title: "People of Alexandra",
     category: "people",
-    type: "Exhibition preview",
+    type: "Exhibition",
     description:
       "An introduction to the people and everyday contributions at the heart of the archive.",
     keywords: "figures residents biography lives",
-    href: "index.html#people",
-    image: "images/community.png",
-    alt: "Decorative gold community medallion",
-    provenance: "Illustrative artwork · not historical evidence",
+    href: "people.html",
+    image: "images/people.png",
+    alt: "Different generations dancing in a street, wearing a mix of traditional attire and modern clothing in warm evening light",
+    provenance: "AI-generated illustration · not documentary evidence (OpenAI, 2026).",
   },
   {
     id: "places",
     title: "Places that hold memory",
     category: "places",
-    type: "Exhibition preview",
+    type: "Exhibition",
     description:
       "Follow the connections between streets, homes, landmarks and the people who give them meaning.",
     keywords: "map heritage buildings locations",
     href: "places.html",
-    image: "images/Alexandra heritage map emblem.png",
-    alt: "Decorative gold heritage-map emblem",
-    provenance: "Illustrative artwork · not a geographic map",
+    image: "images/alexandra-centre.png",
+    alt: "An interpretation of the Alexandra Heritage Centre with red steel framing, pale brickwork and stone walls beside a sloping street",
+    provenance: "AI-generated interpretation based on a Heritage Portal reference photograph · not a documentary photograph (OpenAI, 2026; The Heritage Portal, n.d.).",
   },
   {
     id: "voices",
     title: "Community voices",
     category: "community",
-    type: "Exhibition preview",
+    type: "Exhibition",
     description:
       "Discover why personal memories and shared experiences belong in the archive.",
     keywords: "stories oral history audio memories people",
-    href: "index.html#people",
-    image: "images/community.png",
-    alt: "Decorative gold community illustration",
-    provenance: "Illustrative artwork · no recorded testimony supplied",
+    href: "community-voices.html",
+    image: "images/conversations.png",
+    alt: "An older woman and a younger man talking together at the doorway of a brick home",
+    provenance: "AI-generated conversation scene · not recorded testimony (OpenAI, 2026).",
   },
   {
     id: "view",
     title: "Alexandra in view",
     category: "images",
-    type: "Image preview",
+    type: "Visual collection",
     description:
-      "Look at the urban landscape image included in the original project. Its date and creator remain to be verified.",
+      "Browse the starter image collection, with a lightbox, captions and clear provenance notes.",
     keywords: "photograph gallery visual city landscape",
     href: "gallery.html",
-    image: "images/historic-alexandra.jpg",
-    alt: "Wide urban landscape from the project collection",
-    provenance: "Project image · date and creator credit unverified",
+    image: "images/viewpoint.png",
+    alt: "An elevated view of Alexandra-inspired rooftops and parked vehicles in golden evening light",
+    provenance: "AI-generated illustration · not documentary evidence (OpenAI, 2026).",
   },
   {
     id: "collections",
@@ -87,10 +87,10 @@ const archiveEntries = [
     description:
       "Explore the role of photographs, documents and personal memories in preserving a community’s story.",
     keywords: "collections documents books letters archive",
-    href: "index.html#people",
-    image: "images/collections.png",
-    alt: "Decorative gold archive collection medallion",
-    provenance: "Illustrative artwork · not an archival object",
+    href: "community-voices.html",
+    image: "images/the-archive.png",
+    alt: "Older and younger hands holding a family photograph above a wooden table with other prints",
+    provenance: "AI-generated memory-sharing scene · not an authenticated archival photograph (OpenAI, 2026).",
   },
   {
     id: "contribute",
@@ -101,9 +101,9 @@ const archiveEntries = [
       "Ask about research, partnerships or possible material you would like to contribute.",
     keywords: "enquiry volunteer sponsorship research contribution",
     href: "enquiry.html",
-    image: "images/Golden Handshake Heritage Medallion.png",
-    alt: "Decorative gold handshake illustration",
-    provenance: "Illustrative artwork · no partnership implied",
+    image: "images/documenting.png",
+    alt: "Three community members sorting photographs around a scanner and laptop at a shared table",
+    provenance: "AI-generated community archive scene · no actual partnership implied (OpenAI, 2026).",
   },
 ];
 function selectArchiveEntries(
@@ -182,7 +182,6 @@ if (typeof document !== "undefined") {
         body.append(
           heading,
           make("p", null, entry.description),
-          make("p", "archive-provenance", entry.provenance),
         );
         article.append(figure, body);
         fragment.append(article);
