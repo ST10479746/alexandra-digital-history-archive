@@ -504,19 +504,33 @@ figcaption,
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  /* The wide photograph and welcome text form separate rows on phones. */
   .museum-hero {
-    min-height: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
   }
-  .hero-copy {
-    padding-block: 60px;
+  .museum-hero .hero-photo {
+    position: static;
+    display: block;
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    z-index: auto;
   }
-  .hero-shade {
-    background:
-      linear-gradient(90deg, #0b0b0bdd, #0b0b0b70),
-      linear-gradient(0deg, #0b0b0b, transparent 70%);
+  .museum-hero .hero-shade {
+    display: none;
   }
-  .hero-photo {
-    object-position: 62% center;
+  .museum-hero .hero-copy {
+    min-width: 0;
+    padding-block: 32px 40px;
+  }
+  .museum-hero h1 {
+    font-size: clamp(40px, 10vw, 54px);
   }
   .museum-home h1 {
     font-size: 54px;
