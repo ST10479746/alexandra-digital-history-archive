@@ -8,14 +8,17 @@
     <meta name="description" content="Browse the Alexandra archive’s visual collection, open images in a larger lightbox and read the source and illustration notes alongside each item."/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/museum.css" rel="stylesheet"/>
+    <link href="vendor/glightbox/glightbox.min.css" rel="stylesheet"/>
+    <link href="css/gallery.css?v=gallery-position-20261109" rel="stylesheet"/>
     <!-- Navigation and gallery behaviours load after the page has been parsed. -->
     <script defer="" src="js/main.js">
     </script>
-    <script defer="" src="js/gallery-data.js">
+    <script defer src="vendor/glightbox/glightbox.min.js"></script>
+    <script defer="" src="js/gallery-data.js?v=gallery-position-20261109">
     </script>
-    <script defer="" src="js/gallery.js">
+    <script defer="" src="js/gallery.js?v=gallery-position-20261109">
     </script>
-    <!-- Public URL metadata uses the planned GitHub Pages deployment address. -->
+    <!-- Public URL metadata identifies the deployed gallery. -->
     <link rel="canonical" href="https://st10479746.github.io/alexandra-digital-history-archive/gallery.html"/>
     <meta name="robots" content="index, follow, max-image-preview:large"/>
     <meta property="og:type" content="website"/>
@@ -127,7 +130,7 @@
           <a href="content.html">
             Explore
           </a>
-          / Photographic gallery
+          / Visual gallery
         </p>
         <p class="eyebrow">
           The visual collection
@@ -144,181 +147,268 @@
           each caption alongside the image.
         </p>
         <p class="gallery-note">
-          This starter collection contains six AI-generated illustrations. It is not a collection of authenticated
-          historical photographs.
+          This collection contains 20 distinct AI-generated artworks: imagined scenes and symbolic heritage illustrations. They are not authenticated historical photographs.
         </p>
       </section>
       <section aria-labelledby="gallery-heading" class="museum-wrap gallery-collection">
         <h2 id="gallery-heading">
           A closer look.
         </h2>
-        <!-- Filters appear only when JavaScript can update the collection and its count. -->
-        <fieldset class="gallery-filters" hidden="" id="gallery-filters">
-          <legend>
-            Browse the collection
-          </legend>
-          <button aria-pressed="true" data-category="all" type="button">
-            All images
-          </button>
-          <button aria-pressed="false" data-category="art" type="button">
-            Illustrative artwork
-          </button>
-        </fieldset>
-        <p aria-live="polite" class="gallery-count" id="gallery-count" role="status">
-          6 images in this collection
-        </p>
-        <div class="gallery-grid">
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="urban-view">
-            <a aria-label="Enlarge: A view across the urban landscape" class="gallery-open" data-gallery-id="urban-view" href="images/optimised/alexandra-rooftop-view.webp">
-              <img decoding="async" alt="An elevated view of Alexandra-inspired rooftops and parked vehicles in golden evening light" height="480" loading="lazy" src="images/optimised/alexandra-rooftop-view.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+        <!-- Controls remain hidden until gallery.js can apply search and filters. -->
+        <div id="gallery-controls" class="gallery-controls" hidden>
+          <form id="gallery-search" role="search">
+            <label for="gallery-query">Search this gallery</label>
+            <div class="gallery-search-row">
+              <input id="gallery-query" name="q" type="search" maxlength="120" placeholder="Try family, transport or heritage…" aria-controls="gallery-grid">
+              <button class="museum-button" type="submit">Search</button>
+            </div>
+          </form>
+          <fieldset class="gallery-filters" id="gallery-filters">
+            <legend>Browse by theme</legend>
+            <button type="button" data-category="all" aria-pressed="true" aria-controls="gallery-grid">All images</button>
+            <button type="button" data-category="streets" aria-pressed="false" aria-controls="gallery-grid">Streets and change</button>
+            <button type="button" data-category="people" aria-pressed="false" aria-controls="gallery-grid">People and culture</button>
+            <button type="button" data-category="places" aria-pressed="false" aria-controls="gallery-grid">Places and landmarks</button>
+            <button type="button" data-category="memory" aria-pressed="false" aria-controls="gallery-grid">Family and memory</button>
+            <button type="button" data-category="archive" aria-pressed="false" aria-controls="gallery-grid">Archives and heritage</button>
+          </fieldset>
+          <div class="gallery-options">
+            <label for="gallery-sort">Sort images
+              <select id="gallery-sort"><option value="curated">Curated order</option><option value="az">Title: A–Z</option><option value="za">Title: Z–A</option></select>
+            </label>
+            <button id="gallery-reset" class="gallery-reset" type="button">Clear search and filters</button>
+          </div>
+        </div>
+        <p id="gallery-count" class="gallery-count" role="status" aria-live="polite" aria-atomic="true">20 images in this collection</p>
+        <p id="gallery-lightbox-status" class="gallery-status" hidden></p>
+        <div id="gallery-grid" class="gallery-grid">
+          <figure class="gallery-item" data-category="streets" data-gallery-id="golden-street">
+            <a class="gallery-open" data-gallery-id="golden-street" href="images/gallery/golden-street.webp" aria-label="Enlarge: Alexandra at golden hour">
+              <img src="images/gallery/golden-street-thumbnail.webp" alt="A sloping street with homes, pedestrians and a minibus taxi in golden evening light" width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                A view across the urban landscape
-              </h3>
-              <p>
-                An AI-generated interpretation of an elevated view across Alexandra,
-                with rooftops and parked vehicles in golden evening light.
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not documentary evidence
-              </p>
+              <p class="eyebrow">Streets and change</p>
+              <h3>Alexandra at golden hour</h3>
+              <p>An imagined street scene evokes everyday movement in Alexandra. It is not evidence of a specific street, event or date. (Mashimbye, 2026a; Sowetan, 2019).</p>
             </figcaption>
           </figure>
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="community">
-            <a aria-label="Enlarge: A community connected" class="gallery-open" data-gallery-id="community" href="images/optimised/gold-community-heritage-medallion.webp">
-              <img decoding="async" alt="Gold illustration representing people and community heritage" height="480" loading="lazy" src="images/optimised/gold-community-heritage-medallion.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+          <figure class="gallery-item" data-category="streets" data-gallery-id="changing-streets">
+            <a class="gallery-open" data-gallery-id="changing-streets" href="images/gallery/changing-streets.webp" aria-label="Enlarge: A road through changing times">
+              <img src="images/gallery/changing-streets-thumbnail.webp" alt="An unpaved street blending into a paved road between homes in evening light" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                A community connected
-              </h3>
-              <p>
-                An illustrative interpretation of community connection. It does
-                not depict identified historical residents.
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not documentary evidence
-              </p>
+              <p class="eyebrow">Streets and change</p>
+              <h3>A road through changing times</h3>
+              <p>This conceptual transition considers infrastructure and continuity. It is not a verified reconstruction of Alexandra at different dates. (Mashimbye, 2026b).</p>
             </figcaption>
           </figure>
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="collections">
-            <a aria-label="Enlarge: What we choose to keep" class="gallery-open" data-gallery-id="collections" href="images/optimised/gold-archive-folder.webp">
-              <img decoding="async" alt="Gold illustration of photographs inside an archive folder" height="480" loading="lazy" src="images/optimised/gold-archive-folder.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+          <figure class="gallery-item" data-category="streets" data-gallery-id="bus-and-taxi">
+            <a class="gallery-open" data-gallery-id="bus-and-taxi" href="images/gallery/bus-and-taxi.webp" aria-label="Enlarge: From bus stop to minibus">
+              <img src="images/gallery/bus-and-taxi-thumbnail.webp" alt="A black-and-white bus-stop scene blending into a golden street with a modern minibus taxi" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                What we choose to keep
-              </h3>
-              <p>
-                A decorative archive motif representing the preservation of
-                images and memories.
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not an archival object
-              </p>
+              <p class="eyebrow">Streets and change</p>
+              <h3>From bus stop to minibus</h3>
+              <p>An imagined transport comparison connects past and present. The depicted bus, street and passengers are illustrative. (Mashimbye, 2026c).</p>
             </figcaption>
           </figure>
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="timeline">
-            <a aria-label="Enlarge: Time and memory" class="gallery-open" data-gallery-id="timeline" href="images/optimised/alexandra-infrastructure-through-time.webp">
-              <img decoding="async" alt="An unpaved street blending into a paved road between homes, with muted tones on the left and golden evening light on the right" height="480" loading="lazy" src="images/optimised/alexandra-infrastructure-through-time.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+          <figure class="gallery-item" data-category="streets" data-gallery-id="rooftop-view">
+            <a class="gallery-open" data-gallery-id="rooftop-view" href="images/gallery/rooftop-view.webp" aria-label="Enlarge: Alexandra from above">
+              <img src="images/gallery/rooftop-view-thumbnail.webp" alt="An elevated view across rooftops with parked vehicles below a golden evening sky" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                Time and memory
-              </h3>
-              <p>
-                An imagined transition from an unpaved street to a paved road,
-                suggesting changes in infrastructure over time (OpenAI, 2026).
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not historical evidence
-              </p>
+              <p class="eyebrow">Streets and change</p>
+              <h3>Alexandra from above</h3>
+              <p>A generated interpretation of an elevated view invites visitors to consider the scale and texture of a neighbourhood. (Mashimbye, 2026d).</p>
             </figcaption>
           </figure>
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="places">
-            <a aria-label="Enlarge: Finding our place" class="gallery-open" data-gallery-id="places" href="images/optimised/gold-heritage-map-emblem.webp">
-              <img decoding="async" alt="Gold emblem combining a location pin and an illustrated map" height="480" loading="lazy" src="images/optimised/gold-heritage-map-emblem.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+          <figure class="gallery-item" data-category="people" data-gallery-id="street-dancing">
+            <a class="gallery-open" data-gallery-id="street-dancing" href="images/gallery/street-dancing.webp" aria-label="Enlarge: Generations in rhythm">
+              <img src="images/gallery/street-dancing-thumbnail.webp" alt="Different generations dancing in a street in traditional attire and modern clothing" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                Finding our place
-              </h3>
-              <p>
-                A visual symbol for exploring places and landmarks. The
-                illustrated map is not geographic data.
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not a geographic map
-              </p>
+              <p class="eyebrow">People and culture</p>
+              <h3>Generations in rhythm</h3>
+              <p>An imagined celebration brings different generations together. The dancers are not identified residents and this is not a record of a particular cultural event. (Mashimbye, 2026e).</p>
             </figcaption>
           </figure>
-          <!-- The image link opens the original file without JavaScript; gallery.js adds the lightbox. -->
-          <figure class="gallery-item" data-category="art" data-gallery-id="heritage">
-            <a aria-label="Enlarge: Heritage in caring hands" class="gallery-open" data-gallery-id="heritage" href="images/optimised/gold-heritage-caring-hands.webp">
-              <img decoding="async" alt="Gold illustration of hands holding a book and a stylised settlement" height="480" loading="lazy" src="images/optimised/gold-heritage-caring-hands.webp" width="640"/>
-              <span aria-hidden="true" class="gallery-enlarge">
-                View image ↗
-              </span>
+          <figure class="gallery-item" data-category="people" data-gallery-id="doorstep-conversation">
+            <a class="gallery-open" data-gallery-id="doorstep-conversation" href="images/gallery/doorstep-conversation.webp" aria-label="Enlarge: A conversation on the doorstep">
+              <img src="images/gallery/doorstep-conversation-thumbnail.webp" alt="An older woman and a younger man talking at the doorway of a brick home" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
             </a>
             <figcaption>
-              <p class="eyebrow">
-                Illustrative artwork
-              </p>
-              <h3>
-                Heritage in caring hands
-              </h3>
-              <p>
-                A symbolic image of caring for shared heritage. The buildings
-                are illustrative, not a verified reconstruction.
-              </p>
-              <p class="gallery-provenance">
-                AI-generated illustration · not documentary evidence
-              </p>
+              <p class="eyebrow">People and culture</p>
+              <h3>A conversation on the doorstep</h3>
+              <p>A fictional conversation represents intergenerational listening. It is not a recorded interview or resident testimony. (Mashimbye, 2026f).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="people" data-gallery-id="community-medallion">
+            <a class="gallery-open" data-gallery-id="community-medallion" href="images/gallery/community-medallion.webp" aria-label="Enlarge: The people at the centre">
+              <img src="images/gallery/community-medallion-thumbnail.webp" alt="A gold medallion with faces of different generations above a book and homes" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">People and culture</p>
+              <h3>The people at the centre</h3>
+              <p>A symbolic community motif places people at the centre of shared heritage. The faces do not identify historical residents. (Mashimbye, 2026g).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="places" data-gallery-id="heritage-centre">
+            <a class="gallery-open" data-gallery-id="heritage-centre" href="images/gallery/heritage-centre.webp" aria-label="Enlarge: Alexandra Heritage Centre: an interpretation">
+              <img src="images/gallery/heritage-centre-thumbnail.webp" alt="A building with red steel framing, pale brickwork and stone walls beside a sloping street" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Places and landmarks</p>
+              <h3>Alexandra Heritage Centre: an interpretation</h3>
+              <p>An AI interpretation based on the Heritage Portal reference photograph of the Alexandra Heritage Centre. Architectural details may differ from the real building. (Mashimbye, 2026h; The Heritage Portal, n.d.).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="places" data-gallery-id="memory-map">
+            <a class="gallery-open" data-gallery-id="memory-map" href="images/gallery/memory-map.webp" aria-label="Enlarge: Mapping memory">
+              <img src="images/gallery/memory-map-thumbnail.webp" alt="A gold location pin above a stylised street map inside a circular border" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Places and landmarks</p>
+              <h3>Mapping memory</h3>
+              <p>A symbol for exploring meaningful places. The lines are decorative and must not be used for navigation. (Mashimbye, 2026i).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="places" data-gallery-id="heritage-compass">
+            <a class="gallery-open" data-gallery-id="heritage-compass" href="images/gallery/heritage-compass.webp" aria-label="Enlarge: Finding a way into history">
+              <img src="images/gallery/heritage-compass-thumbnail.webp" alt="A gold compass above an open book surrounded by architectural illustrations" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Places and landmarks</p>
+              <h3>Finding a way into history</h3>
+              <p>The compass and book represent discovery through reading and place. The surrounding buildings are symbolic. (Mashimbye, 2026j).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="memory" data-gallery-id="family-album">
+            <a class="gallery-open" data-gallery-id="family-album" href="images/gallery/family-album.webp" aria-label="Enlarge: One family, two chapters">
+              <img src="images/gallery/family-album-thumbnail.webp" alt="An open album with a black-and-white family portrait beside a colour portrait showing later generations of the same family" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Family and memory</p>
+              <h3>One family, two chapters</h3>
+              <p>An imagined family album explores ageing and continuity. Neither portrait is an authentic family record. (Mashimbye, 2026k).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="memory" data-gallery-id="passing-photograph">
+            <a class="gallery-open" data-gallery-id="passing-photograph" href="images/gallery/passing-photograph.webp" aria-label="Enlarge: What one generation passes on">
+              <img src="images/gallery/passing-photograph-thumbnail.webp" alt="Older and younger hands holding a family photograph over a wooden table" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Family and memory</p>
+              <h3>What one generation passes on</h3>
+              <p>The exchange of a photograph represents passing memories between generations. The print inside this scene is also generated. (Mashimbye, 2026l).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="memory" data-gallery-id="photograph-folder">
+            <a class="gallery-open" data-gallery-id="photograph-folder" href="images/gallery/photograph-folder.webp" aria-label="Enlarge: What we choose to keep">
+              <img src="images/gallery/photograph-folder-thumbnail.webp" alt="A gold folder holding illustrated photographs of homes and a settlement" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Family and memory</p>
+              <h3>What we choose to keep</h3>
+              <p>A decorative folder suggests the choices involved in preserving visual memories. Its contents are not authentic archival objects. (Mashimbye, 2026m).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="memory" data-gallery-id="caring-hands">
+            <a class="gallery-open" data-gallery-id="caring-hands" href="images/gallery/caring-hands.webp" aria-label="Enlarge: Heritage in caring hands">
+              <img src="images/gallery/caring-hands-thumbnail.webp" alt="Gold hands supporting an open book, stylised homes and a heart-shaped light" width="640" height="612" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Family and memory</p>
+              <h3>Heritage in caring hands</h3>
+              <p>Hands and a book express care for shared memory. The image is a symbolic illustration, not a historical reconstruction. (Mashimbye, 2026n).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="community-digitising">
+            <a class="gallery-open" data-gallery-id="community-digitising" href="images/gallery/community-digitising.webp" aria-label="Enlarge: Building a neighbourhood archive">
+              <img src="images/gallery/community-digitising-thumbnail.webp" alt="Three community members sorting photographs beside a scanner and laptop" width="640" height="480" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>Building a neighbourhood archive</h3>
+              <p>An imagined archiving session shows how people might organise and digitise family material. It does not document a real archive programme. (Mashimbye, 2026o).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="shared-research">
+            <a class="gallery-open" data-gallery-id="shared-research" href="images/gallery/shared-research.webp" aria-label="Enlarge: History around a shared table">
+              <img src="images/gallery/shared-research-thumbnail.webp" alt="A group gathered around photographs, papers and a laptop at a table" width="640" height="320" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>History around a shared table</h3>
+              <p>A fictional collaborative research scene represents the project’s community-centred aims. It is not a photograph of the project team. (Mashimbye, 2026p).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="heritage-learning">
+            <a class="gallery-open" data-gallery-id="heritage-learning" href="images/gallery/heritage-learning.webp" aria-label="Enlarge: Learning through heritage">
+              <img src="images/gallery/heritage-learning-thumbnail.webp" alt="A gold graduation cap above books, photographs and illustrated buildings" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>Learning through heritage</h3>
+              <p>A symbolic connection between education and community history. It does not represent accreditation or a real teaching programme. (Mashimbye, 2026q).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="remembering-events">
+            <a class="gallery-open" data-gallery-id="remembering-events" href="images/gallery/remembering-events.webp" aria-label="Enlarge: Remembering collective action">
+              <img src="images/gallery/remembering-events-thumbnail.webp" alt="A raised fist beneath a calendar motif above a crowd in a gold emblem" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>Remembering collective action</h3>
+              <p>This symbolic artwork suggests collective memory and public action. It does not record a specific protest, meeting or date. (Mashimbye, 2026r).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="archive-medallion">
+            <a class="gallery-open" data-gallery-id="archive-medallion" href="images/gallery/archive-medallion.webp" aria-label="Enlarge: Traces worth preserving">
+              <img src="images/gallery/archive-medallion-thumbnail.webp" alt="A gold medallion containing layered images of homes, a book and a rolled document" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>Traces worth preserving</h3>
+              <p>Illustrated prints and documents suggest the different materials an archive might preserve. They are not authenticated historical records. (Mashimbye, 2026s).</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="archive" data-gallery-id="working-together">
+            <a class="gallery-open" data-gallery-id="working-together" href="images/gallery/working-together.webp" aria-label="Enlarge: Keeping the story alive together">
+              <img src="images/gallery/working-together-thumbnail.webp" alt="Two hands shaking above a gold illustration of homes and a bridge" width="640" height="640" loading="lazy" decoding="async">
+              <span class="gallery-enlarge" aria-hidden="true">View image ↗</span>
+            </a>
+            <figcaption>
+              <p class="eyebrow">Archives and heritage</p>
+              <h3>Keeping the story alive together</h3>
+              <p>A symbolic invitation to work together in caring for heritage. No actual sponsor, agreement or partnership is implied. (Mashimbye, 2026t).</p>
             </figcaption>
           </figure>
         </div>
-        <noscript>
-          <p>
-            Image links open their original files. Enable JavaScript for filters
-            and the gallery lightbox.
-          </p>
-        </noscript>
+        <div id="gallery-empty" class="gallery-empty" hidden>
+          <h3>No matching images.</h3>
+          <p>Try a different word, another theme or clear your search and filters.</p>
+        </div>
+        <p class="gallery-reference-link"><a class="text-link" href="#gallery-sources">Image and library references ↓</a></p>
+        <noscript><p>All 20 images are available above. Image links open the larger files; JavaScript enables search, category filters and the lightbox.</p></noscript>
       </section>
       <section class="museum-section gallery-context">
         <div class="museum-wrap editorial-grid">
@@ -355,53 +445,40 @@
           </div>
         </div>
       </section>
+      <section id="gallery-sources" class="museum-section museum-wrap gallery-sources" aria-labelledby="gallery-sources-title">
+        <p class="eyebrow">Credits and source records</p>
+        <h2 id="gallery-sources-title">Behind the images.</h2>
+        <p>These records identify the project artworks, not authenticated archive holdings. Individual generation-platform records and conversation links remain to be completed in the project media register. No online generation URL or access date is invented.</p>
+        <details><summary>Image references: 20 project artworks</summary><ol>
+          <li>Mashimbye, M., 2026a. Alexandra at golden hour. [AI-generated project artwork] Local project file: <code>images/hero-image.png</code>.</li>
+          <li>Mashimbye, M., 2026b. A road through changing times. [AI-generated project artwork] Local project file: <code>images/timeline.png</code>.</li>
+          <li>Mashimbye, M., 2026c. From bus stop to minibus. [AI-generated project artwork] Local project file: <code>images/timelapse.png</code>.</li>
+          <li>Mashimbye, M., 2026d. Alexandra from above. [AI-generated project artwork] Local project file: <code>images/viewpoint.png</code>.</li>
+          <li>Mashimbye, M., 2026e. Generations in rhythm. [AI-generated project artwork] Local project file: <code>images/people.png</code>.</li>
+          <li>Mashimbye, M., 2026f. A conversation on the doorstep. [AI-generated project artwork] Local project file: <code>images/conversations.png</code>.</li>
+          <li>Mashimbye, M., 2026g. The people at the centre. [AI-generated project artwork] Local project file: <code>images/Alexandra community heritage medallion.png</code>.</li>
+          <li>Mashimbye, M., 2026h. Alexandra Heritage Centre: an interpretation. [AI-generated project artwork] Local project file: <code>images/alexandra-centre.png</code>.</li>
+          <li>Mashimbye, M., 2026i. Mapping memory. [AI-generated project artwork] Local project file: <code>images/Alexandra heritage map emblem.png</code>.</li>
+          <li>Mashimbye, M., 2026j. Finding a way into history. [AI-generated project artwork] Local project file: <code>images/Golden Compass Over Alexandra Heritage Book.png</code>.</li>
+          <li>Mashimbye, M., 2026k. One family, two chapters. [AI-generated project artwork] Local project file: <code>images/past-and-present.png</code>.</li>
+          <li>Mashimbye, M., 2026l. What one generation passes on. [AI-generated project artwork] Local project file: <code>images/the-archive.png</code>.</li>
+          <li>Mashimbye, M., 2026m. What we choose to keep. [AI-generated project artwork] Local project file: <code>images/collections.png</code>.</li>
+          <li>Mashimbye, M., 2026n. Heritage in caring hands. [AI-generated project artwork] Local project file: <code>images/Alexandra heritage in caring hands.png</code>.</li>
+          <li>Mashimbye, M., 2026o. Building a neighbourhood archive. [AI-generated project artwork] Local project file: <code>images/documenting.png</code>.</li>
+          <li>Mashimbye, M., 2026p. History around a shared table. [AI-generated project artwork] Local project file: <code>images/who-we-are.png</code>.</li>
+          <li>Mashimbye, M., 2026q. Learning through heritage. [AI-generated project artwork] Local project file: <code>images/Alexandra heritage learning medallion.png</code>.</li>
+          <li>Mashimbye, M., 2026r. Remembering collective action. [AI-generated project artwork] Local project file: <code>images/Alexandra Heritage Events Emblem.png</code>.</li>
+          <li>Mashimbye, M., 2026s. Traces worth preserving. [AI-generated project artwork] Local project file: <code>images/Alexandra Heritage Archive Medallion.png</code>.</li>
+          <li>Mashimbye, M., 2026t. Keeping the story alive together. [AI-generated project artwork] Local project file: <code>images/Golden Handshake Heritage Medallion.png</code>.</li>
+        </ol></details>
+        <details><summary>Reference photographs and lightbox library</summary>
+          <p>Sowetan, 2019. Waiting to exhale: the story of Alexandra township. [online] Available at: &lt;<a href="https://www.sowetan.co.za/news/south-africa/2019-10-18-waiting-to-exhale-the-story-of-alexandra-township/" target="_blank" rel="noopener noreferrer">https://www.sowetan.co.za/news/south-africa/2019-10-18-waiting-to-exhale-the-story-of-alexandra-township/</a>&gt; [Accessed 26 October 2026]. Used as an atmosphere reference for the generated street scene.</p>
+          <p>The Heritage Portal, n.d. Alexandra Heritage Centre — Alexandra Johannesburg. [online] Available at: &lt;<a href="https://www.theheritageportal.co.za/thread/alexandra-heritage-centre-alexandra-johannesburg" target="_blank" rel="noopener noreferrer">https://www.theheritageportal.co.za/thread/alexandra-heritage-centre-alexandra-johannesburg</a>&gt; [Accessed 28 October 2026]. Used as a building reference for the generated Heritage Centre interpretation.</p>
+          <p>Biati Digital, n.d. GLightbox, version 3.3.1. [Source code] Available at: &lt;<a href="https://github.com/biati-digital/glightbox/tree/v3.3.1" target="_blank" rel="noopener noreferrer">https://github.com/biati-digital/glightbox/tree/v3.3.1</a>&gt; [Accessed 9 November 2026]. Distributed locally under the MIT licence.</p>
+        </details>
+        <p>The enlarged image viewer uses GLightbox (Biati Digital, n.d.). <a class="text-link" href="research.html">Read the research and source-use guide ↗</a></p>
+      </section>
     </main>
-    <!-- A native modal dialog provides focus containment and Escape-key dismissal. -->
-    <dialog aria-describedby="lightbox-caption lightbox-provenance" aria-labelledby="lightbox-title" class="gallery-lightbox" id="gallery-lightbox">
-      <div class="lightbox-shell">
-        <div class="lightbox-toolbar">
-          <p aria-live="polite" id="lightbox-count" role="status">
-          </p>
-          <button autofocus="" class="lightbox-control" id="lightbox-close" type="button">
-            Close
-            <span aria-hidden="true">
-              ×
-            </span>
-          </button>
-        </div>
-        <div class="lightbox-image-wrap">
-          <img alt="" id="lightbox-image"/>
-          <p hidden="" id="lightbox-error">
-            This image could not load. Try opening the original file below.
-          </p>
-        </div>
-        <div class="lightbox-navigation">
-          <button class="lightbox-control" id="lightbox-previous" type="button">
-            ← Previous
-          </button>
-          <button class="lightbox-control" id="lightbox-next" type="button">
-            Next →
-          </button>
-        </div>
-        <div class="lightbox-caption">
-          <h2 id="lightbox-title">
-          </h2>
-          <p id="lightbox-caption">
-          </p>
-          <p id="lightbox-provenance">
-          </p>
-          <p id="lightbox-credit">
-          </p>
-          <a id="lightbox-original" rel="noopener noreferrer" target="_blank">
-            Open original image ↗
-          </a>
-          <p class="lightbox-help">
-            Use Left and Right arrow keys to browse. Press Escape to close.
-            Original-image links open in a new tab.
-          </p>
-        </div>
-      </div>
-    </dialog>
     <!-- The footer provides direct routes to all twelve pages without opening a menu. -->
     <footer class="museum-footer">
       <div class="museum-wrap">

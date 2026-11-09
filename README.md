@@ -14,10 +14,12 @@ The mission is to share carefully referenced historical context. The long-term v
 
 ## Repository and publishing status
 
-- Repository: <https://github.com/EMGPSD/wede5020-2026-part-3-st10479746>
-- Development branch last confirmed in the supplied workflow: `redesign/museum-foundation`.
-- Planned GitHub Pages address: <https://st10479746.github.io/alexandra-digital-history-archive/>. This address has not yet been verified as live.
-- The November updates were prepared as replacement-file packages. Installation, final local verification, committing, pushing and deployment must be confirmed against the current repository before submission.
+- Official submission: <https://github.com/EMGPSD/wede5020-2026-part-3-st10479746>
+- Publishing repository: <https://github.com/ST10479746/alexandra-digital-history-archive>
+- Live website: <https://st10479746.github.io/alexandra-digital-history-archive/>
+- The redesign branch was merged into `main`.
+- Both repositories contain the confirmed mobile hero correction. The official correction is commit `4845bdf`; the publishing correction is commit `5072014`.
+- The EMGPSD repository remains the official submission. The personal repository supplies the live website.
 
 ## Pages and information architecture
 
@@ -71,13 +73,13 @@ Accessibility provisions include skip links, visible focus indicators, semantic 
 
 ## SEO, performance and security
 
-Each page has a distinct title, description, canonical URL, viewport and robots metadata, plus Open Graph metadata. `sitemap.xml` lists the twelve planned public URLs. `robots.txt` is included, but a GitHub Pages project-path robots file is not authoritative for the entire `emgpsd.github.io` host; see `docs/SEO.md`. Verify the final host and update absolute URLs if the publishing location changes.
+Each page has a distinct title, description, canonical URL, viewport and robots metadata, plus Open Graph metadata. `sitemap.xml` lists the twelve public page URLs. `robots.txt` is included, but a GitHub Pages project-path robots file is not authoritative for the entire `st10479746.github.io` host; see `docs/SEO.md`. Absolute publishing URLs use the verified personal GitHub Pages address. Update them if the publishing location changes.
 
-Keyword choices and page mapping are qualitative and documented in `docs/SEO.md`; no search-volume research or ranking results are claimed. Off-page SEO strategy, draft posts and an evidence register are prepared in `docs/OFF-PAGE-SEO.md`, `docs/PROMOTION-DRAFTS.md` and `docs/off-page-evidence.csv`. Actual public promotion and earned backlinks remain pending verification after deployment.
+Keyword choices and page mapping are qualitative and documented in `docs/SEO.md`; no search-volume research or ranking results are claimed. Off-page SEO strategy, draft posts and an evidence register are prepared in `docs/OFF-PAGE-SEO.md`, `docs/PROMOTION-DRAFTS.md` and `docs/off-page-evidence.csv`.
 
 Fifteen referenced source images have WebP copies in `images/optimised`, with descriptive lowercase names. The distinct full-size set decreased from 37.71 MB to 4.60 MB (87.8%). Eight dedicated archive thumbnails total about 0.40 MB rather than 22.12 MB (98.2% less). These are asset-size comparisons, not measured page speeds. The originals are retained. The hero keeps high fetch priority; existing lazy loading is preserved and decoding hints are added. See `docs/IMAGE-OPTIMISATION.md` and `docs/image-sizes.csv`.
 
-Generated catalogue text uses DOM text properties rather than interpreting source text as HTML. Form endpoints and map tiles use HTTPS; no private API key is required in the supplied configuration. Leaflet’s licence and OpenStreetMap attribution are retained. Production HTTPS and hosting behaviour must be checked after deployment; no penetration test or security certification is claimed.
+Generated catalogue text uses DOM text properties rather than interpreting source text as HTML. Form endpoints and map tiles use HTTPS; no private API key is required in the supplied configuration. Leaflet’s licence and OpenStreetMap attribution are retained. The published website was verified as accessible over HTTPS. No penetration test or security certification is claimed.
 
 ## Running and checking locally
 
@@ -115,7 +117,7 @@ Final local checks: open all twelve pages at desktop and mobile widths; check na
 - Added About, Research, Alexandra Today, People and Community Voices; unified navigation across twelve pages.
 - Connected the two Formspree endpoints and corrected sending/submitted button states. The student confirmed dashboard receipt and Gmail notifications for both forms on 26 October.
 
-Previously reported pushed milestones include `70a3cd4` (foundation), `e6afaf3` (timeline), `d76dc8e` (map), `c5aa179` (gallery) and `1f80578` (forms). These describe the earlier workflow; they do not prove the later packages have been pushed.
+Previously reported pushed milestones include `70a3cd4` (foundation), `e6afaf3` (timeline), `d76dc8e` (map), `c5aa179` (gallery) and `1f80578` (forms). The later completion updates were merged into main; the verified publishing status appears above.
 
 ### Part 3 — generated media development
 
@@ -133,14 +135,22 @@ Previously reported pushed milestones include `70a3cd4` (foundation), `e6afaf3` 
 - Generated compressed WebP copies and dedicated archive thumbnails, updated references and retained originals and existing layout rules.
 - Consolidated the README into current project information, a single changelog and a reference list. Preserved the earlier README in `docs/README-HISTORY.md` for traceability.
 
-These November changes are prepared deliverables. The final Git commit, push, deployed URL, browser acceptance and promotion evidence must still be recorded from actual results.
+The completion updates have been committed, pushed and published. Deployment verification is recorded below. Reference completion and off-page promotion evidence remain outstanding.
+
+### 9 November 2026 — Deployment verification
+
+- Confirmed the twelve-page website is accessible through GitHub Pages.
+- Verified published page responses, image and stylesheet availability,
+  canonical URLs, sitemap and custom 404 response.
+- Confirmed the corrected mobile hero displays properly on the live website.
+- Saved the mobile correction in both the official and publishing repositories.
 
 ## Remaining submission work
 
-- Confirm all prepared files are installed and pass final browser checks.
+- Retain final browser-check evidence for the deployed site. The student confirmed that the other live features worked and that the corrected mobile hero displayed correctly; this does not independently confirm a new Gmail notification test.
 - Complete missing generated-media reference details in `docs/MEDIA-REGISTER.csv` using actual generation links and access dates; do not invent bibliographic details.
-- Commit and push the final website to the Part 3 repository, then deploy and verify the public address and HTTPS.
-- Verify the live forms, map, images, metadata, sitemap and responsive layouts; record performance results if measured.
+- Commit and push final documentation and reference changes to the official repository, then synchronise those specific files with the publishing copy without copying `.git`.
+- Retain form-submission and email-notification evidence separately; record performance results if measured. Live page responses, image and stylesheet availability, canonical URLs, sitemap and custom 404 response have been checked.
 - Publish approved promotion material and record genuine external links/evidence if required for the off-page criteria.
 - Submit the repository link to the learning management system and retain the verified live URL in this README.
 
@@ -158,15 +168,15 @@ Truth and Reconciliation Commission, 1996. Human Rights Violations hearing: Benn
 
 Peter Rich Architects, 2018. Alexandra Heritage Centre. [online] Available at: <https://www.peterricharchitects.com/alexandra-heritage-centre> [Accessed 25 October 2026].
 
-Joburg Tourism Company, n.d.. Alexandra Stadium. [online] Available at: <https://visit.joburg/things-to-do/alexandra-stadium/> [Accessed 25 October 2026].
+Joburg Tourism Company, n.d. Alexandra Stadium. [online] Available at: <https://visit.joburg/things-to-do/alexandra-stadium/> [Accessed 25 October 2026].
 
-Joburg Tourism Company, n.d.. Things to do: official tourism directory. [online] Available at: <https://visit.joburg/leisure/things-to-do/> [Accessed 25 October 2026].
+Joburg Tourism Company, n.d. Things to do: official tourism directory. [online] Available at: <https://visit.joburg/leisure/things-to-do/> [Accessed 25 October 2026].
 
-Mapcarta, n.d.. Alexandra Heritage Centre: coordinate record. [online] Available at: <https://mapcarta.com/W794712819> [Access date not recorded].
+Mapcarta, n.d. Alexandra Heritage Centre: coordinate record. [online] Available at: <https://mapcarta.com/W794712819> [Access date not recorded].
 
-Mapcarta, n.d.. Mandela’s Alexandra home: coordinate record. [online] Available at: <https://mapcarta.com/W794712820> [Access date not recorded].
+Mapcarta, n.d. Mandela’s Alexandra home: coordinate record. [online] Available at: <https://mapcarta.com/W794712820> [Access date not recorded].
 
-Mapcarta, n.d.. Alexandra Stadium: coordinate record. [online] Available at: <https://mapcarta.com/W1233252354> [Access date not recorded].
+Mapcarta, n.d. Alexandra Stadium: coordinate record. [online] Available at: <https://mapcarta.com/W1233252354> [Access date not recorded].
 
 South African History Online, 2025. Alexandra, Township in Johannesburg. [online] Available at: <https://sahistory.org.za/place/alexandra-township-johannesburg> [Access date not recorded].
 
@@ -182,7 +192,7 @@ The direct Alexandra Stadium listing timed out during the earlier review; the of
 
 Sowetan, 2019. Waiting to exhale: the story of Alexandra township. [online] Available at: <https://www.sowetan.co.za/news/south-africa/2019-10-18-waiting-to-exhale-the-story-of-alexandra-township/> [Accessed 26 October 2026].
 
-The Heritage Portal, n.d.. Alexandra Heritage Centre — Alexandra Johannesburg. [online] Available at: <https://www.theheritageportal.co.za/thread/alexandra-heritage-centre-alexandra-johannesburg> [Accessed 28 October 2026].
+The Heritage Portal, n.d. Alexandra Heritage Centre — Alexandra Johannesburg. [online] Available at: <https://www.theheritageportal.co.za/thread/alexandra-heritage-centre-alexandra-johannesburg> [Accessed 28 October 2026].
 
 OpenAI, 2026. Golden Road Through Alexandra Township. [AI-generated image] Available at: <https://chatgpt.com/share/6adf2764-30d4-83ea-a754-7bdf4fe1dd0c> [Access date not recorded].
 
@@ -206,32 +216,32 @@ Sookha, J., 2026. 20-css-pseudo-classes1.html [Source code; version 955dfb5b951f
 
 Sookha, J., 2026. 15-css-selector-matching.html [Source code; version 955dfb5b951fcb479b0b4899f41052fe95cedbb3 recorded in the earlier README]. [online] Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html> [Accessed 04 September 2026].
 
-MDN Web Docs, n.d.. Using the Fetch API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch> [Accessed 25 October 2026].
+MDN Web Docs, n.d. Using the Fetch API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch> [Accessed 25 October 2026].
 
-MDN Web Docs, n.d.. HTMLInputElement: checkValidity() method. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity> [Accessed 25 October 2026].
+MDN Web Docs, n.d. HTMLInputElement: checkValidity() method. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity> [Accessed 25 October 2026].
 
-Leaflet, n.d.. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at: <https://leafletjs.com/> [Access date not recorded].
+Leaflet, n.d. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at: <https://leafletjs.com/> [Access date not recorded].
 
-OpenStreetMap contributors, n.d.. Copyright and licence. [online] Available at: <https://www.openstreetmap.org/copyright> [Access date not recorded].
+OpenStreetMap contributors, n.d. Copyright and licence. [online] Available at: <https://www.openstreetmap.org/copyright> [Access date not recorded].
 
-Formspree, n.d.. Formspree: form submission service. [online] Available at: <https://formspree.io/> [Access date not recorded].
+Formspree, n.d. Formspree: form submission service. [online] Available at: <https://formspree.io/> [Access date not recorded].
 
-Google Search Central, n.d.. Get started with SEO: a developer’s guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/get-started-developers> [Accessed 8 November 2026].
+Google Search Central, n.d. Get started with SEO: a developer’s guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/get-started-developers> [Accessed 8 November 2026].
 
-Google Search Central, n.d.. Build and submit a sitemap. [online] Available at: <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap> [Accessed 8 November 2026].
+Google Search Central, n.d. Build and submit a sitemap. [online] Available at: <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap> [Accessed 8 November 2026].
 
-Google, n.d.. Robots.txt specifications. [online] Available at: <https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec> [Accessed 8 November 2026].
+Google, n.d. Robots.txt specifications. [online] Available at: <https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec> [Accessed 8 November 2026].
 
-Google Search Central, n.d.. Search Engine Optimization Starter Guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/seo-starter-guide> [Accessed 8 November 2026].
+Google Search Central, n.d. Search Engine Optimization Starter Guide. [online] Available at: <https://developers.google.com/search/docs/fundamentals/seo-starter-guide> [Accessed 8 November 2026].
 
-Google Search Central, n.d.. Spam policies for Google web search. [online] Available at: <https://developers.google.com/search/docs/essentials/spam-policies> [Accessed 8 November 2026].
+Google Search Central, n.d. Spam policies for Google web search. [online] Available at: <https://developers.google.com/search/docs/essentials/spam-policies> [Accessed 8 November 2026].
 
-MDN Web Docs, n.d.. Intersection Observer API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API> [Accessed 8 November 2026].
+MDN Web Docs, n.d. Intersection Observer API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API> [Accessed 8 November 2026].
 
-MDN Web Docs, n.d.. prefers-reduced-motion. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion> [Accessed 8 November 2026].
+MDN Web Docs, n.d. prefers-reduced-motion. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion> [Accessed 8 November 2026].
 
-MDN Web Docs, n.d.. The image embed element. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img> [Accessed 8 November 2026].
+MDN Web Docs, n.d. The image embed element. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img> [Accessed 8 November 2026].
 
-MDN Web Docs, n.d.. Multimedia: Images. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Performance/Multimedia> [Accessed 8 November 2026].
+MDN Web Docs, n.d. Multimedia: Images. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Performance/Multimedia> [Accessed 8 November 2026].
 
 The local Leaflet distribution is version 1.9.4; its BSD licence is included at `vendor/leaflet/LICENSE`. Map attribution remains visible on the website.

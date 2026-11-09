@@ -1,0 +1,152 @@
+/* Gallery controls and the library viewer share the museum's visual language. */
+.gallery-controls { margin: 28px 0 20px; }
+.gallery-controls[hidden], .gallery-empty[hidden], .gallery-status[hidden] { display: none; }
+.gallery-controls label { display: block; margin-bottom: 10px; color: var(--museum-ivory); }
+.gallery-search-row { display: flex; gap: 12px; }
+.gallery-search-row input, .gallery-options select {
+  min-width: 0; min-height: 48px; padding: 12px 14px;
+  color: var(--museum-ivory); background: var(--museum-surface);
+  border: 1px solid var(--museum-border); border-radius: 0; font: inherit;
+}
+.gallery-search-row input { flex: 1; width: 100%; }
+.gallery-controls .gallery-filters { margin-block: 28px; }
+.gallery-controls .gallery-filters button { min-height: 44px; margin: 0 8px 10px 0; cursor: pointer; }
+.gallery-options { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.gallery-options label { margin: 0; }
+.gallery-options select { display: block; margin-top: 8px; }
+.gallery-reset { min-height: 48px; padding: 10px 16px; border: 1px solid var(--museum-border); background: transparent; color: var(--museum-gold); cursor: pointer; }
+.gallery-count { margin: 24px 0; }
+.gallery-empty, .gallery-status { padding: 24px; border: 1px solid var(--museum-border); background: var(--museum-surface); margin-block: 24px; }
+.gallery-load-error { color: #ffb4a8 !important; font-size: 14px !important; }
+.gallery-page .gallery-open img { object-fit: cover; background: var(--museum-black); }
+.gallery-page .gallery-item[data-category="archive"] img,
+.gallery-page .gallery-item[data-category="memory"] img[src*="photograph-folder"],
+.gallery-page .gallery-item[data-category="memory"] img[src*="caring-hands"],
+.gallery-page .gallery-item img[src*="medallion"],
+.gallery-page .gallery-item img[src*="community-medallion"],
+.gallery-page .gallery-item img[src*="memory-map"],
+.gallery-page .gallery-item img[src*="heritage-compass"] { object-fit: contain; }
+/* The two archive scenes retain their photographic composition. */
+.gallery-page .gallery-item img[src*="community-digitising"],
+.gallery-page .gallery-item img[src*="shared-research"] { object-fit: cover; }
+.gallery-sources p, .gallery-sources li { font-size: 15px; overflow-wrap: anywhere; }
+.gallery-sources details { margin-top: 24px; padding: 20px; background: var(--museum-surface); border: 1px solid var(--museum-border); }
+.gallery-sources summary { cursor: pointer; color: var(--museum-gold); min-height: 44px; }
+.gallery-sources ol { padding-left: 24px; }
+.gallery-sources li { margin-bottom: 16px; }
+.gallery-reference-link { margin-top: 32px; }
+
+.glightbox-museum .gslide-description { background: #161513; }
+.glightbox-museum .gdesc-inner { padding: 22px; color: #f4efe5; }
+.glightbox-museum .gslide-title { color: #f4efe5; font: 28px/1.2 Georgia, serif; margin: 0 0 16px; }
+.glightbox-museum .gslide-desc { color: #c5bdaf; font: 15px/1.65 "Segoe UI", Arial, sans-serif; }
+.glightbox-museum .gslide-desc p { margin: 0 0 12px; }
+.glightbox-museum .gslide-desc a { color: #c9a45c; display: inline-block; padding-block: 8px; }
+.glightbox-museum .gclose, .glightbox-museum .gnext, .glightbox-museum .gprev { min-width: 44px; min-height: 44px; }
+.glightbox-museum button:focus-visible, .glightbox-museum a:focus-visible { outline: 3px solid #e6ce98; outline-offset: 3px; }
+.glightbox-museum .gslide-image img { object-fit: contain; }
+@media (max-width: 600px) {
+  .gallery-search-row { flex-direction: column; }
+  .gallery-search-row .museum-button { align-self: flex-start; }
+  .gallery-options { align-items: stretch; flex-direction: column; }
+  .gallery-options select { width: 100%; }
+  .gallery-sources details { padding: 16px; }
+  .glightbox-museum .gdesc-inner { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glightbox-container *, .glightbox-container *::before, .glightbox-container *::after {
+    animation: none !important; transition: none !important;
+  }
+}
+
+/* The viewer sits below the top edge and keeps image plus caption within the viewport. */
+.glightbox-museum .gslide {
+  top: 8vh;
+  bottom: 24px;
+  align-items: flex-start;
+}
+.glightbox-museum .gslide-inner-content {
+  width: min(1100px, calc(100vw - 128px));
+  max-height: calc(92vh - 24px);
+  max-height: calc(92dvh - 24px);
+}
+.glightbox-museum .ginner-container {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 auto;
+}
+.glightbox-museum .gslide-image {
+  max-width: 100%;
+  margin-inline: auto;
+}
+.glightbox-museum .gslide-image img {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 48vh !important;
+  max-height: 48dvh !important;
+  object-fit: contain;
+}
+.glightbox-museum .gslide-description {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 30vh;
+  max-height: 30dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.glightbox-museum .gclose {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  opacity: 1;
+}
+.glightbox-museum .gprev,
+.glightbox-museum .gnext {
+  position: fixed;
+  top: 40%;
+}
+.glightbox-museum .gprev { left: 12px; }
+.glightbox-museum .gnext { right: 12px; }
+@media (max-width: 768px) {
+  .glightbox-museum .gslide { top: 64px; bottom: 20px; }
+  .glightbox-museum .gslide-inner-content {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 84px);
+    max-height: calc(100dvh - 84px);
+  }
+  .glightbox-museum .gslide-image img {
+    max-height: 42vh !important;
+    max-height: 42dvh !important;
+  }
+  .glightbox-museum .gslide-description {
+    max-height: 28vh;
+    max-height: 28dvh;
+  }
+  .glightbox-museum .gprev,
+  .glightbox-museum .gnext { top: 16px; }
+  .glightbox-museum .gprev { left: 12px; }
+  .glightbox-museum .gnext { left: 64px; right: auto; }
+}
+/* Space separates the enlarged image from its caption panel. */
+.glightbox-museum .gslide-description {
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .glightbox-museum .gslide-description {
+    margin-top: 16px;
+  }
+}/* A larger desktop image retains space for the caption. */
+@media (min-width: 769px) {
+  .glightbox-museum .gslide-image img {
+    max-height: 56vh !important;
+    max-height: 56dvh !important;
+  }
+
+  .glightbox-museum .gslide-description {
+    max-height: 24vh;
+    max-height: 24dvh;
+  }
+}
