@@ -3,11 +3,78 @@ exhibitions.css — Alexandra Digital History Archive
 
 REFERENCE LIST
 
+LECTURER SOURCE CODE
+
+Sookha, J., 2026. 01-html-tags-only.html
+(Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/955dfb5b951fcb479b0b4899f41052fe95cedbb3/code/html/01-html-tags-only.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 01-html-tags-only.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/html/01-html-tags-only.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 20-css-pseudo-classes1.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/20-css-pseudo-classes1.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 22-css-float-layout.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/22-css-float-layout.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 19-css-compound-selectors.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/19-css-compound-selectors.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 21-css-visualize-box-model.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/21-css-visualize-box-model.html>
+[Accessed 09 November 2026].
+
+Sookha, J., 2026. 15-css-selector-matching.html
+(Version fb4641a087038d398595eb046150b4ccb56421b0)
+[Source code]
+Available at:
+<https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/15-css-selector-matching.html>
+[Accessed 09 November 2026].
+
+OTHER REFERENCES
+
 MDN Web Docs, 2026. Basic concepts of grid layout. Updated Aug 27, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts> [Accessed 9 November 2026].
 
 MDN Web Docs, 2026. Using media queries. Updated Sep 8, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using> [Accessed 9 November 2026].
 
 Documentation explains the techniques used here; no fixed version applies to a living documentation page. Source-code libraries are identified with their actual versions. Comments and whitespace organise the existing stylesheet; rule and declaration order are preserved. Missing publication dates use s.a.
+
+PROJECT NOTES
+
+Sookha (2026) demonstrates semantic HTML, selector matching, compound selectors,
+pseudo-classes, the box model and float layout in the named teaching examples.
+The references record teaching guidance; they do not imply that every technique
+is used in every stylesheet.
+
+- Semantic HTML structure was informed by lecturer examples and MDN guidance.
+- Visual layout, branding, content hierarchy and high-fidelity presentation
+  were implemented for the Alexandra Digital History Archive project.
+- The lecturer access date is 09 November 2026, as supplied by the student.
+  File titles and version-specific URLs were rechecked on 10 November 2026.
+- MDN and library access dates retain their separately recorded dates.
 */
 
 /* 1. Exhibition introduction and paired panels
