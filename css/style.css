@@ -1,571 +1,693 @@
-/* ==================== REFERENCES ==================== */
 /*
-    SOURCE:
-    Chatgpt., 2026. Draw African Cartoons (GPT-6.1 Sol) [Artificial Intelligence]
-    Available at: <https://chatgpt.com/share/6ac43037-cc6c-83ea-9ecd-24056a4a94d4>
-    [Accessed 06 October 2026]
+style.css — Alexandra Digital History Archive
 
-    Sookha, J., 2026. 01-html-tags-only.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] 
-    Available at: <https://github.com/jesselsookha/WEDE2026/commits/main/code/html> 
-    [Accessed 06 October 2026].
+REFERENCE LIST
 
-    Sookha, J., 2026. 22-css-float-layout.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] 
-    Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/22-css-float-layout.html> 
-    [Accessed 06 October 2026].
+MDN Web Docs, 2025. The box model. Updated Nov 7, 2025. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model> [Accessed 9 November 2026].
 
-    Sookha, J., 2026. css-visualize-box-model.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] 
-    Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/21-css-visualize-box-model.html> 
-    [Accessed 06 October 2026].
+MDN Web Docs, 2026. Using media queries. Updated Sep 8, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using> [Accessed 9 November 2026].
 
-    Sookha, J., 2026. css-pseudo-classes1.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] 
-    Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/20-css-pseudo-classes1.html> 
-    [Accessed 06 October 2026].
+MDN Web Docs, 2026. object-fit CSS property. Updated Jul 21, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit> [Accessed 9 November 2026].
 
-    Sookha, J., 2026. 15-css-selector-matching.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3) [Source code] 
-    Available at: <https://github.com/jesselsookha/WEDE2026/blob/main/code/css/15-css-selector-matching.html> 
-    [Accessed 06 October 2026].
+Sookha, J., 2026. 22-css-float-layout.html (Version fb4641a087038d398595eb046150b4ccb56421b0). [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/22-css-float-layout.html> [Accessed 9 November 2026].
+
+Sookha, J., 2026. 21-css-visualize-box-model.html (Version fb4641a087038d398595eb046150b4ccb56421b0). [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/21-css-visualize-box-model.html> [Accessed 9 November 2026].
+
+Sookha, J., 2026. 20-css-pseudo-classes1.html (Version fb4641a087038d398595eb046150b4ccb56421b0). [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/20-css-pseudo-classes1.html> [Accessed 9 November 2026].
+
+Sookha, J., 2026. 15-css-selector-matching.html (Version fb4641a087038d398595eb046150b4ccb56421b0). [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/fb4641a087038d398595eb046150b4ccb56421b0/code/css/15-css-selector-matching.html> [Accessed 9 November 2026].
+
+Sookha, J., 2026. 01-html-tags-only.html (Version 955dfb5b951fcb479b0b4899f41052fe95cedbb3). [Source code] Available at: <https://github.com/jesselsookha/WEDE2026/blob/955dfb5b951fcb479b0b4899f41052fe95cedbb3/code/html/01-html-tags-only.html> [Accessed 9 November 2026].
+
+The earlier record associated all teaching files with one August revision. The HTML example exists at that revision; the four CSS examples are cited at their checked September revision. These are teaching examples, not proof that the present layouts use float positioning.
+
+Documentation explains the techniques used here; no fixed version applies to a living documentation page. Source-code libraries are identified with their actual versions. Comments and whitespace organise the existing stylesheet; rule and declaration order are preserved. Missing publication dates use s.a.
 */
 
-/* ==================== GLOBAL BASE STYLES ==================== */
 body {
-    font-family: "Aptos", Arial, sans-serif;
-    font-size: 16px;
-    color: #333333;
-    background-color: #ffffff;
-    line-height: 1.5;
+  font-family: "Aptos", Arial, sans-serif;
+  font-size: 16px;
+  color: #333333;
+  background-color: #ffffff;
+  line-height: 1.5;
 }
 
-/* ==================== RESPONSIVE DESIGN (MEDIA QUERIES) ==================== */
+/* 1. RESPONSIVE DESIGN (MEDIA QUERIES)
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* Tablet & Mobile Breakpoint */
+
+/* 2. Responsive condition: (max-width: 768px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 768px) {
-    
-    /* Navigation Adjustment: Stacks the logo and links vertically */
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    nav ul {
-        flex-direction: column; /* Switches from a row to a stacked column */
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* Typography Adjustment: Scales down large headings for small screens */
-    .page-banner h1, 
-    .hero-section h2 {
-        font-size: 1.8rem;
-    }
-
-    /* Layout Adjustment: Reduces massive padding on mobile devices */
-    .hero-section, 
-    .intro-section, 
-    .featured-content, 
-    .contact-form-section {
-        padding: 30px 5%;
-    }
-
-    /* Adjusts grids to ensure they stack perfectly */
-    .card-grid, 
-    .contact-grid, 
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  /* Navigation Adjustment: Stacks the logo and links vertically */
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  nav ul {
+    flex-direction: column;
+    /* Switches from a row to a stacked column */
+    gap: 15px;
+    text-align: center;
+  }
+  /* Typography Adjustment: Scales down large headings for small screens */
+  .page-banner h1,
+  .hero-section h2 {
+    font-size: 1.8rem;
+  }
+  /* Layout Adjustment: Reduces massive padding on mobile devices */
+  .hero-section,
+  .intro-section,
+  .featured-content,
+  .contact-form-section {
+    padding: 30px 5%;
+  }
+  /* Adjusts grids to ensure they stack perfectly */
+  .card-grid,
+  .contact-grid,
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
-/* ==================== BASE STYLES & RESET ==================== */
+/* 3. BASE STYLES & RESET
+   Project rules for this page or component; later overrides remain in their original order. */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ==================== HEADER & NAVIGATION ==================== */
+/* 4. HEADER & NAVIGATION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 header {
-    display: flex;
-    background-color: #070707; /* Dark background for the header */
-    justify-content: center; /* Pushes logo left, nav right */
-    align-items: center; /* Vertically centers them */
-    padding: 20px 5%; /* Adds breathing room around the edges */
+  display: flex;
+  background-color: #070707;
+  /* Dark background for the header */
+  justify-content: center;
+  /* Centres the header children along the main axis */
+  align-items: center;
+  /* Vertically centers them */
+  padding: 20px 5%;
+  /* Adds breathing room around the edges */
 }
 
 header nav a {
-    color: #d4af37;
-    text-decoration: none; /* Removes the default blue underline */
-    font-weight: bold; /* Optional: makes the gold stand out more */
+  color: #d4af37;
+  text-decoration: none;
+  /* Removes the default blue underline */
+  font-weight: bold;
+  /* Optional: makes the gold stand out more */
 }
 
 /* Adds an interactive color change when a user hovers over the link */
+
 header nav a:hover {
-    color: #efefef;
+  color: #efefef;
 }
 
 /* Add this new rule for the nav to center the links */
+
 nav {
-    flex-grow: 1; /* Tells the nav box to fill all remaining horizontal space */
-    display: flex;
-    justify-content: center; /* Pushes the links to the middle of that space */
+  flex-grow: 1;
+  /* Tells the nav box to fill all remaining horizontal space */
+  display: flex;
+  justify-content: center;
+  /* Pushes the links to the middle of that space */
 }
 
 /* Restricts the logo size */
+
 .logo-container img {
-    height: 80px; /* Changed the size of the logo */
-    width: auto;
+  height: 80px;
+  /* Changed the size of the logo */
+  width: auto;
 }
 
 /* Makes the navigation links horizontal */
+
 nav ul {
-    display: flex; 
-    justify-content: center;  /* Centers the links in the middle of the screen */
-    list-style: none; /* Removes bullet points */
-    gap: 30px; /* Space between the links */
+  display: flex;
+  justify-content: center;
+  /* Centers the links in the middle of the screen */
+  list-style: none;
+  /* Removes bullet points */
+  gap: 30px;
+  /* Space between the links */
 }
 
-/* ==================== SEARCH BUTTON ==================== */
+/* 5. SEARCH BUTTON
+   Project rules for this page or component; later overrides remain in their original order. */
+
 .search-btn {
-    background: transparent; /* Removes default button background */
-    border: none; /* Removes default button outline */
-    cursor: pointer;
-    color: white; /* The 'currentColor' in the SVG inherits this */
-    display: flex;
-    align-items: center;
-    padding: 5px; /* Gives a slightly larger clickable area */
+  background: transparent;
+  /* Removes default button background */
+  border: none;
+  /* Removes default button outline */
+  cursor: pointer;
+  color: white;
+  /* The 'currentColor' in the SVG inherits this */
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  /* Gives a slightly larger clickable area */
 }
 
 /* Structural hover indicator */
+
 .search-btn:hover {
-    opacity: 0.6; 
+  opacity: 0.6;
 }
 
-/* ==================== HERO SECTION ==================== */
+/* 6. HERO SECTION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 .hero-section {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 40px 5%; /* 40px padding on the top and bottom to frame the section */
-    gap: 15px; /* A moderate 15px gap keeps the elements distinct but clearly grouped together */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 5%;
+  /* 40px padding on the top and bottom to frame the section */
+  gap: 15px;
+  /* A moderate 15px gap keeps the elements distinct but clearly grouped together */
 }
 
 /* Ensures the hero heading and paragraph text are centered and not pushed apart by default margins */
-.hero-section h2, 
+
+.hero-section h2,
 .hero-section p {
-    text-align: center;
-    margin: 0; /* Removes default browser spacing so the 15px gap is the only space between them */
+  text-align: center;
+  margin: 0;
+  /* Removes default browser spacing so the 15px gap is the only space between them */
 }
 
-/* ==================== BRIEF INTRODUCTION SECTION ==================== */
+/* 7. BRIEF INTRODUCTION SECTION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 /* 1. Adds generous space to the top and bottom of the entire section */
+
 .intro-section {
-    padding: 60px 0; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 40px 5%; /* 40px padding on the top and bottom to frame the section */
-    gap: 15px;    
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 5%;
+  /* 40px padding on the top and bottom to frame the section */
+  gap: 15px;
 }
 
 /* Sizes and frames the Hero and Intro images identically */
+
 .hero-section img,
 .intro-content img {
-    max-width: 80%;
-    height: auto;
-    margin-bottom: 20px;
-    object-fit: cover;
-    justify-content: center;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  object-fit: cover;
+  justify-content: center;
 }
 
 /* 2. Turns the text container into a Flexbox column to space out the h2, p, and button */
+
 .intro-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Creates consistent space between the heading, paragraph, and button */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /* Creates consistent space between the heading, paragraph, and button */
 }
 
 /* 3. Adds breathing room between the lines of text in the paragraph */
+
 .intro-text p {
-    line-height: 1.6; /* Spaces out the lines of text */
-    max-width: 800px; /* Prevents the paragraph from stretching too wide on large screens */
-    margin: 0; /* Removes default margins since our Flexbox gap handles the spacing */
+  line-height: 1.6;
+  /* Spaces out the lines of text */
+  max-width: 800px;
+  /* Prevents the paragraph from stretching too wide on large screens */
+  margin: 0;
+  /* Removes default margins since our Flexbox gap handles the spacing */
 }
 
-/* ==================== FEATURED CONTENT SECTION ==================== */
+/* 8. FEATURED CONTENT SECTION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 .featured-content {
-    text-align: center; /* Centers the main FEATURED CONTENT heading */
-    padding: 40px 5%;
+  text-align: center;
+  /* Centers the main FEATURED CONTENT heading */
+  padding: 40px 5%;
 }
 
 /* 1. Aligns the cards in a horizontal row */
+
 .card-container {
-    display: flex;
-    flex-direction: row; /* Forces the cards into a horizontal line */
-    justify-content: center; /* Centers the row on the page */
-    flex-wrap: wrap; /* Ensures the cards drop to the next line safely if the screen gets too small */
-    gap: 30px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  /* Forces the cards into a horizontal line */
+  justify-content: center;
+  /* Centers the row on the page */
+  flex-wrap: wrap;
+  /* Ensures the cards drop to the next line safely if the screen gets too small */
+  gap: 30px;
+  margin-top: 20px;
 }
 
-/* ==================== FEATURED CONTENT CARDS ==================== */
+/* 9. FEATURED CONTENT CARDS
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 1. The Card Container (Black background) */
+
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #000000; /* Makes the card container black */
-    padding: 15px 20px; /* Gives the content some breathing room */
-    border-radius: 12px; /* Smooth rounded corners */
-    width: 100%;
-    max-width: 300px; /* Keeps the cards uniform in size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000000;
+  /* Makes the card container black */
+  padding: 15px 20px;
+  /* Gives the content some breathing room */
+  border-radius: 12px;
+  /* Smooth rounded corners */
+  width: 100%;
+  max-width: 300px;
+  /* Keeps the cards uniform in size */
 }
 
 /* 2. The Titles (White text) */
+
 .card h3 {
-    color: #ffffff; /* Makes the heading white */
-    margin-bottom: 20px;
-    text-align: center;
+  color: #ffffff;
+  /* Makes the heading white */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .card img {
-    width: 100px; 
-    height: 100px;
-    object-fit: cover; 
-    margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
-/* ==================== GLOBAL BUTTON STYLING ==================== */
+/* 10. GLOBAL BUTTON STYLING
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 4. The Hyperlinks (Gold background, black text) */
+
 .btn {
-    background-color: #d4af37; /* Gold background */
-    color: #000000; /* Black text */
-    padding: 10px 25px; /* Creates the structural button shape around the text */
-    text-decoration: none; /* Removes the default hyperlink underline */
-    font-weight: bold;
-    border-radius: 5px; /* Slightly rounded button edges */
-    display: inline-block; /* Allows padding and margins to work correctly on an inline link */
-    text-align: center;
-    transition: background-color 0.3s ease; /* Makes the hover effect smooth */
+  background-color: #d4af37;
+  /* Gold background */
+  color: #000000;
+  /* Black text */
+  padding: 10px 25px;
+  /* Creates the structural button shape around the text */
+  text-decoration: none;
+  /* Removes the default hyperlink underline */
+  font-weight: bold;
+  border-radius: 5px;
+  /* Slightly rounded button edges */
+  display: inline-block;
+  /* Allows padding and margins to work correctly on an inline link */
+  text-align: center;
+  transition: background-color 0.3s ease;
+  /* Makes the hover effect smooth */
 }
 
 /* Hover effect for the buttons */
+
 .btn:hover {
-    background-color: #b8962c; /* Slightly darker gold when hovered */
-    color: #000000;
+  background-color: #b8962c;
+  /* Slightly darker gold when hovered */
+  color: #000000;
 }
 
-/* ==================== CALL TO ACTION SECTION ==================== */
+/* 11. CALL TO ACTION SECTION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 .cta-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 5%;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 5%;
+  gap: 15px;
 }
 
-/* ==================== FOOTER SECTION ==================== */
+/* 12. FOOTER SECTION
+   Project rules for this page or component; later overrides remain in their original order. */
+
 footer {
-    background-color: #0f0f0f; /* Dark terracotta background */
-    color: #e0e0e0; /* Silver/light grey text */
-    padding: 40px 5% 20px 5%;
-    font-family: sans-serif;
-    margin-top: 50px; /* Pushes the footer away from the main content */
+  background-color: #0f0f0f;
+  /* Near-black footer background */
+  color: #e0e0e0;
+  /* Silver/light grey text */
+  padding: 40px 5% 20px 5%;
+  font-family: sans-serif;
+  margin-top: 50px;
+  /* Pushes the footer away from the main content */
 }
 
 /* Structuring the columns horizontally and centering them */
+
 .footer-container {
-    display: flex;
-    justify-content: center; /* Pushes the remaining columns to the exact center */
-    align-items: flex-start; 
-    flex-wrap: wrap; 
-    gap: 60px; /* Adds generous spacing between the columns */
-    text-align: center; /* Centers the text inside each column for a balanced look */
+  display: flex;
+  justify-content: center;
+  /* Pushes the remaining columns to the exact center */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 60px;
+  /* Adds generous spacing between the columns */
+  text-align: center;
+  /* Centers the text inside each column for a balanced look */
 }
 
 /* Logo sizing */
+
 .footer-logo img {
-    height: 80px;
-    width: auto;
+  height: 80px;
+  width: auto;
 }
 
 /* Styling the headings with metallic accents */
+
 footer h4 {
-    color: #d4af37; /* Gold accent for section titles */
-    margin-bottom: 15px;
-    font-size: 1.1em;
+  color: #d4af37;
+  /* Gold accent for section titles */
+  margin-bottom: 15px;
+  font-size: 1.1em;
 }
 
 /* Removing default list styles for the quick links */
+
 .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Styling all footer links */
+
 footer a {
-    color: #e0e0e0; /* Silver text to match paragraphs */
-    text-decoration: none;
+  color: #e0e0e0;
+  /* Silver text to match paragraphs */
+  text-decoration: none;
 }
 
 footer a:hover {
-    color: #d4af37; /* Links turn gold on hover */
+  color: #d4af37;
+  /* Links turn gold on hover */
 }
 
 /* Structuring the copyright notice */
+
 footer > p {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #d4af37; /* Gold separator line above copyright */
-    font-size: 0.9em;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #d4af37;
+  /* Gold separator line above copyright */
+  font-size: 0.9em;
 }
 
-/* ==================== ABOUT US PAGE ==================== */
+/* 13. ABOUT US PAGE
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 1. Page Banner & H1 Centering */
+
 .page-banner {
-    text-align: center;
-    padding: 20px 5%;
+  text-align: center;
+  padding: 20px 5%;
 }
 
 .page-banner h1 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* 2. Our Purpose Section Centering */
+
 .our-history {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .history-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .history-image img {
-    width: 100%;
-    max-width: 400px; /* Restricts the image to a clean medium size */
-    height: auto;
-    border: 3px solid #7b2c2a;
-    object-fit: cover;
+  width: 100%;
+  max-width: 400px;
+  /* Restricts the image to a clean medium size */
+  height: auto;
+  border: 3px solid #7b2c2a;
+  object-fit: cover;
 }
 
 /* 3. Mission, Vision, and Values Centering */
+
 .mvg-section {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .mvg-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .mvg-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 80%;
-    border: 1px solid #333;
-    padding: 20px;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .mvg-card img.icon {
-    width: 120px; /* Scales the icons up to a medium size */
-    height: 120px; 
-    object-fit: contain; /* Prevents the icons from getting cropped */
-    margin-bottom: 15px;
+  width: 120px;
+  /* Scales the icons up to a medium size */
+  height: 120px;
+  object-fit: contain;
+  /* Prevents the icons from getting cropped */
+  margin-bottom: 15px;
 }
 
 /* 4. Team Leaders Section Centering */
+
 .team-section {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .team-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .team-member img {
-    width: 150px; 
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; /* Prevents the faces from squishing if the image isn't perfectly square */
-    margin-bottom: 15px;
-    border: 3px solid #7b2c2a; /* Adds a terracotta ring around the photos */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Prevents the faces from squishing if the image isn't perfectly square */
+  margin-bottom: 15px;
+  border: 3px solid #7b2c2a;
+  /* Adds a terracotta ring around the photos */
 }
 
-/* ==================== CONTENT PAGE ==================== */
+/* 14. CONTENT PAGE
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 1. Search Section */
+
 .search-section {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .search-form {
-    display: flex;
-    justify-content: center; /* Centers the search bar and button */
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  /* Centers the search bar and button */
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .search-form input {
-    padding: 10px 15px;
-    width: 100%;
-    max-width: 400px; /* Prevents the search bar from becoming massively wide */
-    border: 2px solid #333;
-    border-radius: 5px;
-    font-family: sans-serif;
+  padding: 10px 15px;
+  width: 100%;
+  max-width: 400px;
+  /* Prevents the search bar from becoming massively wide */
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-family: sans-serif;
 }
 
 /* 2. Explore Content Grid */
+
 .explore-content {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .card-grid {
-    display: flex;
-    flex-wrap: wrap; /* Forces cards to drop to the next line if they run out of space */
-    justify-content: center; /* Centers the wrapped rows of cards */
-    gap: 30px;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  /* Forces cards to drop to the next line if they run out of space */
+  justify-content: center;
+  /* Centers the wrapped rows of cards */
+  gap: 30px;
+  margin-top: 30px;
 }
 
 /* Specific sizing for content page cards to keep the grid uniform */
+
 .card-grid .card {
-    width: 300px; /* Gives all cards an identical structural width */
+  width: 300px;
+  /* Gives all cards an identical structural width */
 }
 
 /* 3. Featured Historical Content Section */
+
 .featured-historical-content {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .featured-article-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid #7b2c2a; /* Terracotta structural border */
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    margin: 0 auto; /* Forces the entire article container to the exact center */
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #7b2c2a;
+  /* Terracotta structural border */
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  /* Forces the entire article container to the exact center */
+  gap: 20px;
 }
 
 .featured-article-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .featured-article-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-/* ==================== ENQUIRY PAGE ==================== */
+/* 15. ENQUIRY PAGE
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 1. Partnerships Section Centering */
+
 .partnerships-section {
-    text-align: center;
-    padding: 40px 5%;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .partnerships-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .partnerships-image img {
-    max-width: 120px; /* Keeps the partnership icon proportionally sized */
-    height: auto;
+  max-width: 120px;
+  /* Keeps the partnership icon proportionally sized */
+  height: auto;
 }
 
 /* 2. Form Section & Border Structure */
+
 .enquiry-form-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 5%;
 }
 
 .enquiry-form {
-    border: 3px solid #000000; /* Terracotta border framing the entire form */
-    border-radius: 8px;
-    padding: 30px;
-    width: 100%;
-    max-width: 500px; /* Keeps the form from stretching too wide on desktop */
-    background-color: #fafafa; /* Slight off-white background to make the form pop */
-    margin-top: 20px;
+  border: 3px solid #000000;
+  /* Black border framing the entire form */
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  /* Keeps the form from stretching too wide on desktop */
+  background-color: #fafafa;
+  /* Slight off-white background to make the form pop */
+  margin-top: 20px;
 }
 
 /* 3. Input Fields & Layout */
+
 .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligns labels and text boxes neatly to the left inside the centered form */
-    margin-bottom: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Aligns labels and text boxes neatly to the left inside the centered form */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .enquiry-form label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: left; /* Forces the text to the left */
-    width: 100%; /* Ensures the label container matches the input width */
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+  /* Forces the text to the left */
+  width: 100%;
+  /* Ensures the label container matches the input width */
 }
 
 /* Specific centering for the Type of Enquiry header */
+
 .enquiry-form .type-of-enquiry {
-    align-items: center; 
+  align-items: center;
 }
 
 .enquiry-form .centered-label {
-    text-align: center;
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #7b2c2a;
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #7b2c2a;
 }
 
 .enquiry-form input[type="text"],
@@ -573,137 +695,153 @@ footer > p {
 .enquiry-form input[type="tel"],
 .enquiry-form select,
 .enquiry-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: sans-serif;
-    font-size: 1rem;
-    box-sizing: border-box; /* Prevents the padding from pushing the box out of alignment */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  /* Prevents the padding from pushing the box out of alignment */
 }
 
 /* 4. Checkbox List Alignment */
+
 .checkbox-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .checkbox-list label {
-    font-weight: normal; /* Removes bolding so checkboxes contrast nicely with main labels */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+  font-weight: normal;
+  /* Removes bolding so checkboxes contrast nicely with main labels */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
 
 /* 5. Button Sizing */
+
 .send-btn {
-    width: 100%; /* Stretches the button across the bottom of the form */
-    padding: 15px;
-    font-size: 1.1em;
-    margin-top: 10px;
+  width: 100%;
+  /* Stretches the button across the bottom of the form */
+  padding: 15px;
+  font-size: 1.1em;
+  margin-top: 10px;
 }
 
-/* ==================== CONTACT PAGE ==================== */
+/* 16. CONTACT PAGE
+   Project rules for this page or component; later overrides remain in their original order. */
 
 /* 1. Add side padding to keep content off the margins */
+
 .get-in-touch-section,
 .contact-form-section {
-    padding: 40px 5%; /* Adds 40px top/bottom and 5% left/right padding */
-    text-align: center;
+  padding: 40px 5%;
+  /* Adds 40px top/bottom and 5% left/right padding */
+  text-align: center;
 }
 
 /* 2. Map and Info Grid Alignment */
+
 .contact-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allows the map and text to stack on smaller screens */
-    gap: 40px;
-    justify-content: center;
-    margin-top: 30px;
-    text-align: left; /* Keeps the address text readable from left-to-right */
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows the map and text to stack on smaller screens */
+  gap: 40px;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: left;
+  /* Keeps the address text readable from left-to-right */
 }
 
 .map-box {
-    flex: 1;
-    min-width: 300px;
-    border: 2px solid #7b2c2a;
-    border-radius: 8px;
-    padding: 10px;
+  flex: 1;
+  min-width: 300px;
+  border: 2px solid #7b2c2a;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .map-placeholder {
-    background: #e0e0e0;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
+  background: #e0e0e0;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 }
 
 .contact-info-box {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
 }
 
 .contact-info-box h3 {
-    color: #7b2c2a;
-    margin: 0;
+  color: #7b2c2a;
+  margin: 0;
 }
 
 .contact-info-box p {
-    margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 
 /* 3. Contact Form (Matches the Enquiry Form structure) */
+
 .contact-form {
-    border: 3px solid #7b2c2a;
-    border-radius: 8px;
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
-    background-color: #fafafa;
-    margin: 20px auto 0 auto; /* Centers the bordered form block itself */
+  border: 3px solid #7b2c2a;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #fafafa;
+  margin: 20px auto 0 auto;
+  /* Centers the bordered form block itself */
 }
 
 .contact-form .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .contact-form label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: left;
-    width: 100%;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+  width: 100%;
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: sans-serif;
-    font-size: 1rem;
-    box-sizing: border-box; /* Keeps the input boxes perfectly flush with the labels */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  /* Keeps the input boxes perfectly flush with the labels */
 }
 
 .featured-article-card img {
-    width: 100%;
-    max-width: 350px; /* Restricts the image to a medium size on large screens */
-    height: auto;
-    object-fit: cover; /* Prevents the image from distorting */
+  width: 100%;
+  max-width: 350px;
+  /* Restricts the image to a medium size on large screens */
+  height: auto;
+  object-fit: cover;
+  /* Prevents the image from distorting */
 }

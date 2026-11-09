@@ -1,5 +1,25 @@
+/*
+forms.js — Alexandra Digital History Archive
+
+REFERENCE LIST
+
+MDN Web Docs, 2026. EventTarget: addEventListener() method. Updated Sep 30, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. Client-side form validation. Updated Oct 9, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation> [Accessed 9 November 2026].
+
+MDN Web Docs, 2025. encodeURIComponent(). Updated Oct 30, 2025. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent> [Accessed 9 November 2026].
+
+MDN Web Docs, 2025. Using the Fetch API. Updated Aug 20, 2025. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch> [Accessed 9 November 2026].
+
+Documentation supports the explanations, rather than claiming that project code was copied. Documentation has no fixed source-code version. Actual library versions are stated separately. Missing publication dates use s.a.; year suffix letters are omitted to follow the supplied course guide. Each citation names one source. Titles and nearby links identify individual works by the same author and year.
+*/
+
 "use strict";
 
+// -----------------------------------------------------------------------------
+// 1. Enquiry guidance and message categories
+// -----------------------------------------------------------------------------
+// These project-written responses explain the context and limits of each enquiry.
 const enquiryGuidance = {
   research: {
     title: "Research access",
@@ -17,8 +37,7 @@ const enquiryGuidance = {
   },
   volunteer: {
     title: "Volunteering",
-    context:
-      "Mention relevant interests, skills and the time you would like to offer.",
+    context: "Mention relevant interests, skills and the time you would like to offer.",
     response:
       "Include your interests, relevant skills and possible availability. There are no confirmed volunteer positions or start dates in this prototype; any opportunity would need a separate discussion.",
   },
@@ -38,8 +57,7 @@ const enquiryGuidance = {
   },
   other: {
     title: "Other enquiry",
-    context:
-      "Explain the question and the kind of information you are looking for.",
+    context: "Explain the question and the kind of information you are looking for.",
     response:
       "Your summary is ready for review. Explain the question, the relevant context and what response would help. No availability, cost or outcome has been confirmed.",
   },
@@ -51,6 +69,11 @@ const contactCategories = {
   other: "Other",
 };
 
+// -----------------------------------------------------------------------------
+// 2. Shared email and form validation
+// -----------------------------------------------------------------------------
+// MDN Web Docs (2026) explains that client-side validation checks input before
+// submission. Client-side validation provides field feedback before submission.
 function validEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value);
 }
@@ -64,11 +87,7 @@ function validateArchiveForm(data, mode) {
     errors.email = "Enter a valid email address, such as name@example.com.";
   if (data.phone) {
     const digits = data.phone.replace(/\D/g, "");
-    if (
-      !/^\+?[0-9 ()-]+$/.test(data.phone) ||
-      digits.length < 7 ||
-      digits.length > 15
-    ) {
+    if (!/^\+?[0-9 ()-]+$/.test(data.phone) || digits.length < 7 || digits.length > 15) {
       errors.phone =
         "Use 7–15 digits, with optional leading +, spaces, brackets or hyphens.";
     }
@@ -86,18 +105,20 @@ function validateArchiveForm(data, mode) {
   if (!data.message || data.message.length < 20 || data.message.length > 2500)
     errors.message = "Write a message using 20–2,500 characters.";
   if (!data.consent)
-    errors.consent =
-      "Confirm that your contact details may be used to respond.";
+    errors.consent = "Confirm that your contact details may be used to respond.";
   return errors;
 }
 
+// -----------------------------------------------------------------------------
+// 3. Message compilation
+// -----------------------------------------------------------------------------
+// The validated fields become a subject and readable message body.
 function compileArchiveMessage(data, mode) {
   const category =
     mode === "enquiry"
       ? enquiryGuidance[data.category].title
       : contactCategories[data.category];
-  const subject =
-    mode === "enquiry" ? `Archive enquiry: ${category}` : data.subject;
+  const subject = mode === "enquiry" ? `Archive enquiry: ${category}` : data.subject;
   const body = [
     `Name: ${data.fullname}`,
     `Email: ${data.email}`,
@@ -114,6 +135,10 @@ function compileArchiveMessage(data, mode) {
   return { subject, body };
 }
 
+// -----------------------------------------------------------------------------
+// 4. Optional Node exports
+// -----------------------------------------------------------------------------
+// Pure helpers are available for checks without a browser or network request.
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     validateArchiveForm,
@@ -123,18 +148,19 @@ if (typeof module !== "undefined" && module.exports) {
   };
 }
 
+// -----------------------------------------------------------------------------
+// 5. Form setup and delivery configuration
+// -----------------------------------------------------------------------------
+// Each form chooses the endpoint for its contact or enquiry mode.
 if (typeof document !== "undefined") {
   const form = document.getElementById("museum-form");
   if (form) {
     const mode = form.dataset.mode;
-    const config =
-      typeof archiveFormConfig === "undefined" ? {} : archiveFormConfig;
+    const config = typeof archiveFormConfig === "undefined" ? {} : archiveFormConfig;
     const recipient = String(config.recipientEmail || "").trim();
     const configuredEndpoint = String(config[mode + "Endpoint"] || "").trim();
     // Only explicit HTTPS delivery endpoints can receive form data.
-    const endpoint = /^https:\/\//i.test(configuredEndpoint)
-      ? configuredEndpoint
-      : "";
+    const endpoint = /^https:\/\//i.test(configuredEndpoint) ? configuredEndpoint : "";
     const fields = document.getElementById("form-fields");
     const response = document.getElementById("form-response");
     const title = document.getElementById("response-title");
@@ -148,6 +174,11 @@ if (typeof document !== "undefined") {
     let submitted = false;
 
     // Loading lasts only while a request is pending; a completed button has a normal cursor.
+
+    // -----------------------------------------------------------------------------
+    // 6. Send-button state
+    // -----------------------------------------------------------------------------
+    // The label, disabled state and cursor describe the current request state.
     function setSendState(state) {
       const sending = state === "sending";
       send.disabled = sending || state === "submitted";
@@ -156,7 +187,11 @@ if (typeof document !== "undefined") {
         : state === "submitted"
           ? "Submitted to Formspree"
           : "Send online";
-      send.style.cursor = sending ? "wait" : state === "submitted" ? "default" : "pointer";
+      send.style.cursor = sending
+        ? "wait"
+        : state === "submitted"
+          ? "default"
+          : "pointer";
       if (sending) send.setAttribute("aria-busy", "true");
       else send.removeAttribute("aria-busy");
     }
@@ -165,6 +200,10 @@ if (typeof document !== "undefined") {
     if (endpoint) form.action = endpoint;
     else if (validEmail(recipient)) form.action = "mailto:" + recipient;
 
+    // -----------------------------------------------------------------------------
+    // 7. Reading input and displaying errors
+    // -----------------------------------------------------------------------------
+    // Text values are trimmed; consent is read as a Boolean.
     function readValues() {
       const data = {};
       form.querySelectorAll("input, select, textarea").forEach((control) => {
@@ -199,20 +238,27 @@ if (typeof document !== "undefined") {
       return count === 0;
     }
 
+    // -----------------------------------------------------------------------------
+    // 8. Category-specific context
+    // -----------------------------------------------------------------------------
+    // The selected enquiry type determines the explanatory text.
     function updateGuidance() {
       if (mode !== "enquiry") return;
       const guidance = enquiryGuidance[form.elements.category.value];
       const panel = document.getElementById("category-context");
       panel.hidden = !guidance;
       if (guidance) {
-        document.getElementById("category-context-title").textContent =
-          guidance.title;
-        document.getElementById("category-context-copy").textContent =
-          guidance.context;
+        document.getElementById("category-context-title").textContent = guidance.title;
+        document.getElementById("category-context-copy").textContent = guidance.context;
       }
     }
 
     // Prepared messages remain on the page until the visitor chooses a delivery action.
+
+    // -----------------------------------------------------------------------------
+    // 9. Review and email draft preparation
+    // -----------------------------------------------------------------------------
+    // The submit listener prepares a review before either delivery action.
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       if (pending) return;
@@ -234,15 +280,19 @@ if (typeof document !== "undefined") {
           : "Check the details below. Opening an email draft does not send it; send the message from your email application.";
       preview.value = `Subject: ${message.subject}\n\n${message.body}`;
       draft.hidden = !validEmail(recipient);
+
+      // -----------------------------------------------------------------------------
+      // 9.1 Email URL encoding
+      // -----------------------------------------------------------------------------
+      // MDN Web Docs (2025) explains that encodeURIComponent() escapes URL parameter
+      // values. Encoding keeps subject and body text inside their URL parameter values.
       if (!draft.hidden)
         draft.href = `mailto:${recipient}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`;
       send.hidden = !endpoint;
       submitted = false;
       setSendState("ready");
       status.textContent = "";
-      document.getElementById("delivery-note").textContent = validEmail(
-        recipient,
-      )
+      document.getElementById("delivery-note").textContent = validEmail(recipient)
         ? `No message has been sent. Email drafts are addressed to ${recipient}.`
         : "No message has been sent. Email delivery is not available yet; you can copy the prepared message.";
       response.hidden = false;
@@ -250,6 +300,11 @@ if (typeof document !== "undefined") {
     });
 
     // Editing invalidates the previous review, avoiding accidental delivery of stale details.
+
+    // -----------------------------------------------------------------------------
+    // 10. Editing and reset behaviour
+    // -----------------------------------------------------------------------------
+    // Changes discard the previous prepared message so it cannot be sent as current.
     form.addEventListener("input", () => {
       if (pending) return;
       response.hidden = true;
@@ -266,39 +321,44 @@ if (typeof document !== "undefined") {
       form
         .querySelectorAll("[aria-invalid]")
         .forEach((control) => control.removeAttribute("aria-invalid"));
-      form
-        .querySelectorAll(".field-error, .form-error-summary")
-        .forEach((element) => {
-          element.hidden = true;
-          element.textContent = "";
-        });
-      if (mode === "enquiry")
-        document.getElementById("category-context").hidden = true;
+      form.querySelectorAll(".field-error, .form-error-summary").forEach((element) => {
+        element.hidden = true;
+        element.textContent = "";
+      });
+      if (mode === "enquiry") document.getElementById("category-context").hidden = true;
     });
 
-    document
-      .getElementById("copy-message")
-      .addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(preview.value);
-          status.textContent = submitted
-            ? "Message copied. This message was already accepted by Formspree."
-            : "Message copied. No message has been sent.";
-        } catch (error) {
-          preview.focus();
-          preview.select();
-          status.textContent =
-            submitted
-              ? "Select and copy the prepared text. This message was already accepted by Formspree."
-              : "Select and copy the prepared text using your device’s copy command. No message has been sent.";
-        }
-      });
+    // -----------------------------------------------------------------------------
+    // 11. Copy and email-draft feedback
+    // -----------------------------------------------------------------------------
+    // Clipboard failure falls back to selecting the text for manual copying.
+    document.getElementById("copy-message").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(preview.value);
+        status.textContent = submitted
+          ? "Message copied. This message was already accepted by Formspree."
+          : "Message copied. No message has been sent.";
+      } catch (error) {
+        preview.focus();
+        preview.select();
+        status.textContent = submitted
+          ? "Select and copy the prepared text. This message was already accepted by Formspree."
+          : "Select and copy the prepared text using your device’s copy command. No message has been sent.";
+      }
+    });
     draft.addEventListener("click", () => {
       status.textContent =
         "An email draft has been requested. Complete sending in your email application; this website cannot confirm whether it was sent.";
     });
 
     // AJAX uses an explicit configured endpoint; success means service acceptance, not email delivery.
+
+    // -----------------------------------------------------------------------------
+    // 12. Asynchronous submission and cleanup
+    // -----------------------------------------------------------------------------
+    // MDN Web Docs (2025) explains that Fetch sends requests and exposes HTTP response
+    // status. Fetch sends JSON; response.ok is checked and AbortController limits
+    // waiting.
     send.addEventListener("click", async () => {
       if (!endpoint || !prepared || pending || submitted) return;
       if (!showErrors(readValues(), true)) return;

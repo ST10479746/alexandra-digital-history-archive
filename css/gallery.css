@@ -1,84 +1,279 @@
-/* Gallery controls and the library viewer share the museum's visual language. */
-.gallery-controls { margin: 28px 0 20px; }
-.gallery-controls[hidden], .gallery-empty[hidden], .gallery-status[hidden] { display: none; }
-.gallery-controls label { display: block; margin-bottom: 10px; color: var(--museum-ivory); }
-.gallery-search-row { display: flex; gap: 12px; }
-.gallery-search-row input, .gallery-options select {
-  min-width: 0; min-height: 48px; padding: 12px 14px;
-  color: var(--museum-ivory); background: var(--museum-surface);
-  border: 1px solid var(--museum-border); border-radius: 0; font: inherit;
+/*
+gallery.css — Alexandra Digital History Archive
+
+REFERENCE LIST
+
+MDN Web Docs, 2025. The box model. Updated Nov 7, 2025. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. Using media queries. Updated Sep 8, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. object-fit CSS property. Updated Jul 21, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. :focus-visible CSS pseudo-class. Updated Oct 16, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible> [Accessed 9 November 2026].
+
+Biati Digital, 2025. GLightbox (Version 3.3.1). [Source code] Available at: <https://github.com/biati-digital/glightbox/tree/v3.3.1> [Accessed 9 November 2026].
+
+Documentation explains the techniques used here; no fixed version applies to a living documentation page. Source-code libraries are identified with their actual versions. Comments and whitespace organise the existing stylesheet; rule and declaration order are preserved. Missing publication dates use s.a.
+*/
+
+/* 1. Search, filters and result feedback
+   Controls expose their selected and hidden states through attributes managed by gallery.js. Wrapping layouts retain space for search and sorting. */
+
+.gallery-controls {
+  margin: 28px 0 20px;
 }
-.gallery-search-row input { flex: 1; width: 100%; }
-.gallery-controls .gallery-filters { margin-block: 28px; }
-.gallery-controls .gallery-filters button { min-height: 44px; margin: 0 8px 10px 0; cursor: pointer; }
-.gallery-options { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-.gallery-options label { margin: 0; }
-.gallery-options select { display: block; margin-top: 8px; }
-.gallery-reset { min-height: 48px; padding: 10px 16px; border: 1px solid var(--museum-border); background: transparent; color: var(--museum-gold); cursor: pointer; }
-.gallery-count { margin: 24px 0; }
-.gallery-empty, .gallery-status { padding: 24px; border: 1px solid var(--museum-border); background: var(--museum-surface); margin-block: 24px; }
-.gallery-load-error { color: #ffb4a8 !important; font-size: 14px !important; }
-.gallery-page .gallery-open img { object-fit: cover; background: var(--museum-black); }
+
+.gallery-controls[hidden], .gallery-empty[hidden], .gallery-status[hidden] {
+  display: none;
+}
+
+.gallery-controls label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--museum-ivory);
+}
+
+.gallery-search-row {
+  display: flex;
+  gap: 12px;
+}
+
+.gallery-search-row input, .gallery-options select {
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: var(--museum-ivory);
+  background: var(--museum-surface);
+  border: 1px solid var(--museum-border);
+  border-radius: 0;
+  font: inherit;
+}
+
+.gallery-search-row input {
+  flex: 1;
+  width: 100%;
+}
+
+.gallery-controls .gallery-filters {
+  margin-block: 28px;
+}
+
+.gallery-controls .gallery-filters button {
+  min-height: 44px;
+  margin: 0 8px 10px 0;
+  cursor: pointer;
+}
+
+.gallery-options {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-options label {
+  margin: 0;
+}
+
+.gallery-options select {
+  display: block;
+  margin-top: 8px;
+}
+
+.gallery-reset {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid var(--museum-border);
+  background: transparent;
+  color: var(--museum-gold);
+  cursor: pointer;
+}
+
+.gallery-count {
+  margin: 24px 0;
+}
+
+.gallery-empty, .gallery-status {
+  padding: 24px;
+  border: 1px solid var(--museum-border);
+  background: var(--museum-surface);
+  margin-block: 24px;
+}
+
+.gallery-load-error {
+  color: #ffb4a8 !important;
+  font-size: 14px !important;
+}
+
+/* 2. Thumbnail image treatment
+   MDN Web Docs (2026) explains object-fit. Cover fills photographic thumbnails; contain preserves the full outline of the existing illustrative emblems. */
+
+.gallery-page .gallery-open img {
+  object-fit: cover;
+  background: var(--museum-black);
+}
+
 .gallery-page .gallery-item[data-category="archive"] img,
 .gallery-page .gallery-item[data-category="memory"] img[src*="photograph-folder"],
 .gallery-page .gallery-item[data-category="memory"] img[src*="caring-hands"],
 .gallery-page .gallery-item img[src*="medallion"],
 .gallery-page .gallery-item img[src*="community-medallion"],
 .gallery-page .gallery-item img[src*="memory-map"],
-.gallery-page .gallery-item img[src*="heritage-compass"] { object-fit: contain; }
-/* The two archive scenes retain their photographic composition. */
-.gallery-page .gallery-item img[src*="community-digitising"],
-.gallery-page .gallery-item img[src*="shared-research"] { object-fit: cover; }
-.gallery-sources p, .gallery-sources li { font-size: 15px; overflow-wrap: anywhere; }
-.gallery-sources details { margin-top: 24px; padding: 20px; background: var(--museum-surface); border: 1px solid var(--museum-border); }
-.gallery-sources summary { cursor: pointer; color: var(--museum-gold); min-height: 44px; }
-.gallery-sources ol { padding-left: 24px; }
-.gallery-sources li { margin-bottom: 16px; }
-.gallery-reference-link { margin-top: 32px; }
-
-.glightbox-museum .gslide-description { background: #161513; }
-.glightbox-museum .gdesc-inner { padding: 22px; color: #f4efe5; }
-.glightbox-museum .gslide-title { color: #f4efe5; font: 28px/1.2 Georgia, serif; margin: 0 0 16px; }
-.glightbox-museum .gslide-desc { color: #c5bdaf; font: 15px/1.65 "Segoe UI", Arial, sans-serif; }
-.glightbox-museum .gslide-desc p { margin: 0 0 12px; }
-.glightbox-museum .gslide-desc a { color: #c9a45c; display: inline-block; padding-block: 8px; }
-.glightbox-museum .gclose, .glightbox-museum .gnext, .glightbox-museum .gprev { min-width: 44px; min-height: 44px; }
-.glightbox-museum button:focus-visible, .glightbox-museum a:focus-visible { outline: 3px solid #e6ce98; outline-offset: 3px; }
-.glightbox-museum .gslide-image img { object-fit: contain; }
-@media (max-width: 600px) {
-  .gallery-search-row { flex-direction: column; }
-  .gallery-search-row .museum-button { align-self: flex-start; }
-  .gallery-options { align-items: stretch; flex-direction: column; }
-  .gallery-options select { width: 100%; }
-  .gallery-sources details { padding: 16px; }
-  .glightbox-museum .gdesc-inner { padding: 18px; }
+.gallery-page .gallery-item img[src*="heritage-compass"] {
+  object-fit: contain;
 }
+
+/* The two archive scenes retain their photographic composition. */
+
+.gallery-page .gallery-item img[src*="community-digitising"],
+.gallery-page .gallery-item img[src*="shared-research"] {
+  object-fit: cover;
+}
+
+/* 3. Reference lists
+   References remain readable and their long URLs can wrap inside the available column. */
+
+.gallery-sources p, .gallery-sources li {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.gallery-sources details {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--museum-surface);
+  border: 1px solid var(--museum-border);
+}
+
+.gallery-sources summary {
+  cursor: pointer;
+  color: var(--museum-gold);
+  min-height: 44px;
+}
+
+.gallery-sources ol {
+  padding-left: 24px;
+}
+
+.gallery-sources li {
+  margin-bottom: 16px;
+}
+
+.gallery-reference-link {
+  margin-top: 32px;
+}
+
+/* 4. GLightbox captions and controls
+   Biati Digital (2025) supplies GLightbox 3.3.1. These project-specific overrides style its caption, image and navigation classes; the vendor stylesheet remains separate. */
+
+.glightbox-museum .gslide-description {
+  background: #161513;
+}
+
+.glightbox-museum .gdesc-inner {
+  padding: 22px;
+  color: #f4efe5;
+}
+
+.glightbox-museum .gslide-title {
+  color: #f4efe5;
+  font: 28px/1.2 Georgia, serif;
+  margin: 0 0 16px;
+}
+
+.glightbox-museum .gslide-desc {
+  color: #c5bdaf;
+  font: 15px/1.65 "Segoe UI", Arial, sans-serif;
+}
+
+.glightbox-museum .gslide-desc p {
+  margin: 0 0 12px;
+}
+
+.glightbox-museum .gslide-desc a {
+  color: #c9a45c;
+  display: inline-block;
+  padding-block: 8px;
+}
+
+.glightbox-museum .gclose, .glightbox-museum .gnext, .glightbox-museum .gprev {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.glightbox-museum button:focus-visible, .glightbox-museum a:focus-visible {
+  outline: 3px solid #e6ce98;
+  outline-offset: 3px;
+}
+
+.glightbox-museum .gslide-image img {
+  object-fit: contain;
+}
+
+/* 5. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
+@media (max-width: 600px) {
+  .gallery-search-row {
+    flex-direction: column;
+  }
+  .gallery-search-row .museum-button {
+    align-self: flex-start;
+  }
+  .gallery-options {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .gallery-options select {
+    width: 100%;
+  }
+  .gallery-sources details {
+    padding: 16px;
+  }
+  .glightbox-museum .gdesc-inner {
+    padding: 18px;
+  }
+}
+
+/* 6. Responsive condition: (prefers-reduced-motion: reduce)
+   MDN Web Docs (2026) explains media queries. This preference removes motion while retaining the content and controls. */
+
 @media (prefers-reduced-motion: reduce) {
   .glightbox-container *, .glightbox-container *::before, .glightbox-container *::after {
-    animation: none !important; transition: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 
 /* The viewer sits below the top edge and keeps image plus caption within the viewport. */
+
+/* 7. Viewer placement and available height
+   The enlarged image and caption share the viewport. Existing height limits and scrolling preserve access to long descriptions. */
+
 .glightbox-museum .gslide {
   top: 8vh;
   bottom: 24px;
   align-items: flex-start;
 }
+
 .glightbox-museum .gslide-inner-content {
   width: min(1100px, calc(100vw - 128px));
   max-height: calc(92vh - 24px);
   max-height: calc(92dvh - 24px);
 }
+
 .glightbox-museum .ginner-container {
   width: 100% !important;
   height: auto !important;
   margin: 0 auto;
 }
+
 .glightbox-museum .gslide-image {
   max-width: 100%;
   margin-inline: auto;
 }
+
 .glightbox-museum .gslide-image img {
   width: auto;
   height: auto;
@@ -88,6 +283,7 @@
   max-height: 48dvh !important;
   object-fit: contain;
 }
+
 .glightbox-museum .gslide-description {
   width: 100% !important;
   max-width: 100% !important;
@@ -96,21 +292,36 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+
 .glightbox-museum .gclose {
   position: fixed;
   top: 16px;
   right: 16px;
   opacity: 1;
 }
+
 .glightbox-museum .gprev,
 .glightbox-museum .gnext {
   position: fixed;
   top: 40%;
 }
-.glightbox-museum .gprev { left: 12px; }
-.glightbox-museum .gnext { right: 12px; }
+
+.glightbox-museum .gprev {
+  left: 12px;
+}
+
+.glightbox-museum .gnext {
+  right: 12px;
+}
+
+/* 8. Responsive condition: (max-width: 768px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 768px) {
-  .glightbox-museum .gslide { top: 64px; bottom: 20px; }
+  .glightbox-museum .gslide {
+    top: 64px;
+    bottom: 20px;
+  }
   .glightbox-museum .gslide-inner-content {
     width: calc(100vw - 24px);
     max-height: calc(100vh - 84px);
@@ -125,26 +336,46 @@
     max-height: 28dvh;
   }
   .glightbox-museum .gprev,
-  .glightbox-museum .gnext { top: 16px; }
-  .glightbox-museum .gprev { left: 12px; }
-  .glightbox-museum .gnext { left: 64px; right: auto; }
+  .glightbox-museum .gnext {
+    top: 16px;
+  }
+  .glightbox-museum .gprev {
+    left: 12px;
+  }
+  .glightbox-museum .gnext {
+    left: 64px;
+    right: auto;
+  }
 }
+
 /* Space separates the enlarged image from its caption panel. */
+
+/* 9. Image-to-caption spacing
+   The final overrides retain the approved gap between the enlarged image and its description, with separate desktop and phone spacing. */
+
 .glightbox-museum .gslide-description {
   margin-top: 24px;
 }
+
+/* 10. Responsive condition: (max-width: 768px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
 
 @media (max-width: 768px) {
   .glightbox-museum .gslide-description {
     margin-top: 16px;
   }
-}/* A larger desktop image retains space for the caption. */
+}
+
+/* A larger desktop image retains space for the caption. */
+
+/* 11. Responsive condition: (min-width: 769px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (min-width: 769px) {
   .glightbox-museum .gslide-image img {
     max-height: 56vh !important;
     max-height: 56dvh !important;
   }
-
   .glightbox-museum .gslide-description {
     max-height: 24vh;
     max-height: 24dvh;

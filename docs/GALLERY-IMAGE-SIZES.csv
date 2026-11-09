@@ -1,21 +1,21 @@
-id,source_file,original_bytes,large_webp_bytes,thumbnail_webp_bytes
-golden-street,hero-image.png,3777678,311278,68294
-changing-streets,timeline.png,3240252,435912,91802
-bus-and-taxi,timelapse.png,2905776,328328,78706
-rooftop-view,viewpoint.png,2911223,382346,82736
-street-dancing,people.png,2632235,306630,85426
-doorstep-conversation,conversations.png,2953032,340110,82806
-community-medallion,Alexandra community heritage medallion.png,2733577,443314,134958
-heritage-centre,alexandra-centre.png,2957027,376426,83710
-memory-map,Alexandra heritage map emblem.png,2344768,294278,98136
-heritage-compass,Golden Compass Over Alexandra Heritage Book.png,2595064,369106,113792
-family-album,past-and-present.png,2681962,266344,70884
-passing-photograph,the-archive.png,2391974,222886,58080
-photograph-folder,collections.png,1485405,189802,62900
-caring-hands,Alexandra heritage in caring hands.png,2321045,345762,101414
-community-digitising,documenting.png,2349579,225320,64012
-shared-research,who-we-are.png,2719503,270498,68202
-heritage-learning,Alexandra heritage learning medallion.png,2444392,375170,116404
-remembering-events,Alexandra Heritage Events Emblem.png,2410071,361270,111608
-archive-medallion,Alexandra Heritage Archive Medallion.png,2517826,371118,112424
-working-together,Golden Handshake Heritage Medallion.png,2497009,380026,108764
+id,title,gallery_file,width,height,thumbnail,thumbnail_width,thumbnail_height
+land-purchase,Land before the township,images/gallery/selected-land-purchase.webp,1448,1086,images/gallery/selected-land-purchase-thumbnail.webp,640,480
+community-beginnings,"Arriving to build a home, 1912",images/gallery/selected-community-beginnings.webp,1448,1086,images/gallery/selected-community-beginnings-thumbnail.webp,640,480
+freehold-ownership,"Ownership and belonging, 1912",images/gallery/selected-freehold-ownership.webp,1448,1086,images/gallery/selected-freehold-ownership-thumbnail.webp,640,480
+street-inspection,"A neighbourhood’s needs, early years",images/gallery/selected-street-inspection.webp,1448,1086,images/gallery/selected-street-inspection-thumbnail.webp,640,480
+bus-boycott,"Walking together, 1940",images/gallery/selected-bus-boycott.webp,1448,1086,images/gallery/selected-bus-boycott-thumbnail.webp,640,480
+mandela-yard,"A room and a beginning, early 1940s",images/gallery/alexandra-mandela-backyard-room-1940s.webp,1448,1086,images/gallery/alexandra-mandela-backyard-room-1940s-thumbnail.webp,640,480
+families-returning,"Returning with what remains, mid-1940s",images/gallery/selected-families-returning.webp,1448,1086,images/gallery/selected-families-returning-thumbnail.webp,640,480
+apartheid-shadows,"A shadow across home, 1948",images/gallery/selected-apartheid-shadows.webp,1448,1086,images/gallery/selected-apartheid-shadows-thumbnail.webp,640,480
+education-boycott,"Learning beyond the classroom, 1950s",images/gallery/selected-education-boycott.webp,1448,1086,images/gallery/selected-education-boycott-thumbnail.webp,640,480
+student-march,"Students finding their voice, June 1976",images/gallery/selected-student-march.webp,1448,1086,images/gallery/selected-student-march-thumbnail.webp,640,480
+save-alex,"Keeping a place called home, 1979",images/gallery/alexandra-save-alex-community-rally-1979.webp,1448,1086,images/gallery/alexandra-save-alex-community-rally-1979-thumbnail.webp,640,480
+six-days-war,"A street in resistance, February 1986",images/gallery/alexandra-six-days-war-street-1986.webp,1448,1086,images/gallery/alexandra-six-days-war-street-1986-thumbnail.webp,640,480
+divided-neighbourhood,"A neighbourhood divided, 1991–1992",images/gallery/alexandra-hostels-family-homes-1990s.webp,1448,1086,images/gallery/alexandra-hostels-family-homes-1990s-thumbnail.webp,640,480
+democratic-elections,"Waiting to vote, April 1994",images/gallery/alexandra-democratic-election-queue-1994.webp,1448,1086,images/gallery/alexandra-democratic-election-queue-1994-thumbnail.webp,640,480
+renewal-housing,"Building towards better housing, 2001",images/gallery/alexandra-renewal-housing-construction-2001.webp,1448,1086,images/gallery/alexandra-renewal-housing-construction-2001-thumbnail.webp,640,480
+centenary,"A century shared in celebration, 2012",images/gallery/alexandra-centenary-street-celebration-2012.webp,1448,1086,images/gallery/alexandra-centenary-street-celebration-2012-thumbnail.webp,640,480
+community-kitchen,"Neighbours nourishing neighbours, 2020",images/gallery/alexandra-lockdown-community-kitchen-2020.webp,1448,1086,images/gallery/alexandra-lockdown-community-kitchen-2020-thumbnail.webp,640,480
+jazz-life,"The sound of a neighbourhood, 1950s",images/gallery/alexandra-neighbourhood-jazz-1950s.webp,1448,1086,images/gallery/alexandra-neighbourhood-jazz-1950s-thumbnail.webp,640,480
+street-trading,Livelihoods across a market stall,images/gallery/alexandra-street-trading-vegetables.webp,1448,1086,images/gallery/alexandra-street-trading-vegetables-thumbnail.webp,640,480
+community-football,Football and shared momentum,images/gallery/alexandra-neighbourhood-football.webp,1448,1086,images/gallery/alexandra-neighbourhood-football-thumbnail.webp,640,480

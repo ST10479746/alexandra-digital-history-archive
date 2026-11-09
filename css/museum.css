@@ -1,4 +1,28 @@
-/* Museum foundation: shared tokens and components; legacy page layouts stay in style.css. */
+/*
+museum.css — Alexandra Digital History Archive
+
+REFERENCE LIST
+
+MDN Web Docs, 2025. The box model. Updated Nov 7, 2025. [online] Available at: <https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. Using CSS custom properties (variables). Updated Aug 27, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. Basic concepts of grid layout. Updated Aug 27, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. Using media queries. Updated Sep 8, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. object-fit CSS property. Updated Jul 21, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit> [Accessed 9 November 2026].
+
+MDN Web Docs, 2026. :focus-visible CSS pseudo-class. Updated Oct 16, 2026. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible> [Accessed 9 November 2026].
+
+Leaflet, s.a. Leaflet API reference (Version 1.9.4). [online] Available at: <https://leafletjs.com/reference-1.9.4.html> [Accessed 9 November 2026].
+
+Documentation explains the techniques used here; no fixed version applies to a living documentation page. Source-code libraries are identified with their actual versions. Comments and whitespace organise the existing stylesheet; rule and declaration order are preserved. Missing publication dates use s.a.
+*/
+
+/* 1. Design tokens
+   MDN Web Docs (2026) explains custom properties. Shared colours, typefaces and widths keep components consistent. */
+
 :root {
   --museum-black: #0b0b0b;
   --museum-surface: #161513;
@@ -11,10 +35,15 @@
   --museum-sans: "Segoe UI", Arial, sans-serif;
   --museum-width: 1280px;
 }
+
+/* 2. Document defaults and keyboard access
+   MDN Web Docs (2025) explains the box model. Border-box sizing includes padding and borders within declared dimensions. MDN Web Docs (2026) explains focus-visible; the outline helps keyboard users locate focus. */
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
+
 body {
   margin: 0;
   background: var(--museum-black);
@@ -22,35 +51,43 @@ body {
   font-family: var(--museum-sans);
   line-height: 1.65;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 a {
   color: var(--museum-gold);
 }
+
 button,
 input,
 textarea,
 select {
   font: inherit;
 }
+
 :focus-visible {
   outline: 3px solid #e6ce98;
   outline-offset: 5px;
 }
+
 section[id] {
   scroll-margin-top: 100px;
 }
+
 .museum-wrap {
   width: min(var(--museum-width), calc(100% - 112px));
   margin-inline: auto;
 }
+
 .skip-link {
   position: fixed;
   left: 16px;
@@ -60,9 +97,14 @@ section[id] {
   color: #0b0b0b;
   padding: 12px 20px;
 }
+
 .skip-link:focus {
   top: 12px;
 }
+
+/* 3. Header and navigation
+   Flex layout aligns the wordmark and navigation. Native disclosure menus use their open state, while the mobile button is revealed by JavaScript. */
+
 .museum-header {
   display: block;
   position: relative;
@@ -71,6 +113,7 @@ section[id] {
   border-bottom: 1px solid var(--museum-border);
   padding: 0;
 }
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -78,6 +121,7 @@ section[id] {
   gap: 24px;
   min-height: 88px;
 }
+
 .wordmark {
   display: flex;
   align-items: center;
@@ -85,19 +129,23 @@ section[id] {
   text-decoration: none;
   color: var(--museum-gold);
 }
+
 .wordmark span {
   font: 32px var(--museum-serif);
   letter-spacing: 0.04em;
 }
+
 .wordmark small {
   font: 11px/1.4 var(--museum-sans);
   color: var(--museum-ivory);
 }
+
 .museum-header .museum-nav {
   display: flex;
   align-items: center;
   gap: 28px;
 }
+
 .museum-nav a,
 .museum-nav summary {
   font: 15px/1.5 var(--museum-sans);
@@ -106,29 +154,36 @@ section[id] {
   padding: 12px 0;
   display: block;
 }
+
 .museum-nav a:hover,
 .museum-nav summary:hover,
 .museum-nav a[aria-current] {
   color: var(--museum-gold);
 }
+
 .museum-nav a[aria-current] {
   text-decoration: underline;
   text-underline-offset: 8px;
 }
+
 .nav-group {
   position: relative;
 }
+
 .nav-group summary {
   cursor: pointer;
   list-style: none;
 }
+
 .nav-group summary::-webkit-details-marker {
   display: none;
 }
+
 .nav-group summary::after {
   content: " ⌄";
   color: var(--museum-gold);
 }
+
 .nav-panel {
   position: absolute;
   top: 100%;
@@ -139,11 +194,13 @@ section[id] {
   border: 1px solid var(--museum-border);
   box-shadow: 0 12px 30px #0008;
 }
+
 .museum-nav .nav-archive {
   border: 1px solid var(--museum-border);
   padding: 10px 16px;
   color: var(--museum-gold);
 }
+
 .menu-toggle {
   background: transparent;
   color: var(--museum-ivory);
@@ -151,9 +208,14 @@ section[id] {
   padding: 10px 14px;
   cursor: pointer;
 }
+
 .menu-toggle[hidden] {
   display: none;
 }
+
+/* 4. Shared headings and introductory text
+   Serif headings, gold labels and readable text widths establish the exhibition hierarchy. */
+
 .museum-home h1,
 .museum-home h2,
 .museum-home h3,
@@ -163,27 +225,33 @@ section[id] {
   line-height: 1.12;
   letter-spacing: -0.025em;
 }
+
 .museum-home h1 {
   font-size: clamp(52px, 6.8vw, 98px);
   margin: 20px 0 26px;
 }
+
 .museum-home h1 em {
   font-weight: 400;
   color: var(--museum-gold);
 }
+
 .museum-home h2 {
   font-size: clamp(32px, 3.6vw, 52px);
   margin: 0 0 24px;
 }
+
 .museum-home h3 {
   font-size: 28px;
   margin: 10px 0 14px;
 }
+
 .museum-home p {
   font-size: 18px;
   color: var(--museum-muted);
   margin: 0 0 22px;
 }
+
 .museum-home .eyebrow,
 .eyebrow {
   font: 12px/1.6 var(--museum-sans);
@@ -192,6 +260,10 @@ section[id] {
   color: var(--museum-gold);
   margin: 0 0 24px;
 }
+
+/* 5. Home hero photograph and welcome
+   The photo and shade layers sit behind the welcome on larger screens. Later phone rules place the image and text on separate rows. */
+
 .museum-hero {
   position: relative;
   min-height: 720px;
@@ -200,6 +272,7 @@ section[id] {
   isolation: isolate;
   overflow: hidden;
 }
+
 .hero-photo {
   position: absolute;
   inset: 0;
@@ -209,27 +282,34 @@ section[id] {
   object-position: center 68%;
   z-index: -2;
 }
+
 .hero-shade {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, #0b0b0bf5 0%, #0b0b0bb8 45%, #0b0b0b28 100%),
+  background: linear-gradient(90deg, #0b0b0bf5 0%, #0b0b0bb8 45%, #0b0b0b28 100%),
     linear-gradient(0deg, #0b0b0b, transparent 40%);
   z-index: -1;
 }
+
 .hero-copy {
   padding-block: 80px;
 }
+
 .hero-intro {
   max-width: 520px;
   color: var(--museum-ivory) !important;
 }
+
+/* 6. Buttons and text routes
+   Primary and secondary actions share spacing and hover feedback; text links remain identifiable. */
+
 .action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 30px;
 }
+
 .museum-button {
   display: inline-flex;
   align-items: center;
@@ -243,26 +323,30 @@ section[id] {
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  transition:
-    background 0.2s,
+  transition: background 0.2s,
     color 0.2s;
 }
+
 .museum-button:hover {
   background: #e6ce98;
   color: #0b0b0b;
 }
+
 .museum-button.secondary {
   background: transparent;
   color: var(--museum-ivory);
 }
+
 .museum-button.secondary:hover {
   background: var(--museum-raised);
 }
+
 .museum-home .hero-credit {
   font-size: 12px;
   margin-top: 44px;
   color: var(--museum-muted);
 }
+
 .scroll-cue,
 .text-link {
   display: inline-block;
@@ -272,23 +356,31 @@ section[id] {
   min-height: 44px;
   font-size: 15px;
 }
+
 .text-link:hover,
 .scroll-cue:hover {
   color: #e6ce98;
   border-color: var(--museum-gold);
 }
+
+/* 7. Home exhibition sections
+   Grid and flex layouts arrange photographs, timelines and exhibition links without changing document order. MDN Web Docs (2026) explains grid tracks and gaps. */
+
 .museum-section {
   padding-block: 96px;
 }
+
 .editorial-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   align-items: center;
 }
+
 .exhibit-photo {
   margin: 0;
 }
+
 .exhibit-photo img {
   display: block;
   width: 100%;
@@ -296,6 +388,7 @@ section[id] {
   object-fit: cover;
   object-position: center 70%;
 }
+
 figcaption,
 .media-note {
   font-size: 13px !important;
@@ -303,36 +396,44 @@ figcaption,
   color: var(--museum-muted);
   margin-top: 14px !important;
 }
+
 .timeline-section,
 .place-section {
   background: var(--museum-surface);
 }
+
 .home-timeline article {
   border-left: 1px solid var(--museum-border);
   padding: 0 0 24px 32px;
   margin-bottom: 24px;
 }
+
 .home-timeline article:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
 .home-timeline .timeline-date {
   font: 30px/1.2 var(--museum-serif);
   color: var(--museum-gold);
   margin-bottom: 12px;
 }
+
 .home-timeline p {
   font-size: 16px;
 }
+
 .section-intro {
   max-width: 720px;
 }
+
 .exhibition-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin-top: 40px;
 }
+
 .exhibition-card {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -341,35 +442,46 @@ figcaption,
   border-top: 1px solid var(--museum-border);
   padding-top: 28px;
 }
+
 .exhibition-card img {
   width: 140px;
   aspect-ratio: 1;
   object-fit: contain;
 }
+
 .exhibition-card p {
   font-size: 16px;
 }
+
 .exhibition-card .eyebrow {
   font-size: 11px;
   margin-bottom: 14px;
 }
+
 .museum-quote {
   padding: 40px;
   background: var(--museum-raised);
   border: 1px solid var(--museum-border);
 }
+
 .museum-quote > p {
   font: 36px/1.15 var(--museum-serif);
   color: var(--museum-ivory);
   margin-top: 24px;
 }
+
 .museum-quote .small-copy {
   font: 15px/1.7 var(--museum-sans);
   color: var(--museum-muted);
 }
+
 .invitation > p:not(.eyebrow) {
   max-width: 650px;
 }
+
+/* 8. Shared footer
+   Footer columns group navigation and project notes, then stack at the later responsive breakpoints. */
+
 .museum-footer {
   background: var(--museum-surface);
   padding: 60px 0 24px;
@@ -378,6 +490,7 @@ figcaption,
   font-family: var(--museum-sans);
   text-align: left;
 }
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
@@ -385,11 +498,13 @@ figcaption,
   padding-block: 24px 40px;
   border-top: 1px solid var(--museum-border);
 }
+
 .museum-footer h2 {
   font-size: 27px;
   color: var(--museum-ivory);
   margin-block: 20px;
 }
+
 .museum-footer h3 {
   font: 12px var(--museum-sans);
   text-transform: uppercase;
@@ -397,6 +512,7 @@ figcaption,
   color: var(--museum-gold);
   margin: 8px 0 20px;
 }
+
 .museum-footer a:not(.wordmark) {
   display: block;
   font-size: 14px;
@@ -405,9 +521,11 @@ figcaption,
   color: var(--museum-muted);
   text-decoration: none;
 }
+
 .museum-footer a:hover {
   color: var(--museum-gold);
 }
+
 .museum-footer .footer-note {
   font-size: 12px;
   border-top: 1px solid var(--museum-border);
@@ -415,17 +533,27 @@ figcaption,
   margin-top: 0;
   text-align: left;
 }
+
 .museum-footer .footer-note:last-child {
   border: 0;
 }
+
 .museum-footer p {
   font-size: 14px;
 }
+
+/* 9. Responsive condition: (min-width: 901px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (min-width: 901px) {
   .menu-toggle {
     display: none;
   }
 }
+
+/* 10. Responsive condition: (max-width: 1000px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 1000px) {
   .museum-wrap {
     width: calc(100% - 64px);
@@ -449,6 +577,10 @@ figcaption,
     gap: 32px;
   }
 }
+
+/* 11. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .header-inner {
     min-height: 76px;
@@ -467,8 +599,8 @@ figcaption,
     display: none;
   }
   .nav-enhanced
-    .header-inner:has(.menu-toggle[aria-expanded="true"])
-    .museum-nav {
+  .header-inner:has(.menu-toggle[aria-expanded="true"])
+  .museum-nav {
     display: flex;
   }
   .nav-panel {
@@ -491,6 +623,10 @@ figcaption,
     grid-template-columns: 1.3fr 1fr;
   }
 }
+
+/* 12. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .museum-wrap {
     width: calc(100% - 40px);
@@ -577,6 +713,10 @@ figcaption,
     font-size: 11px;
   }
 }
+
+/* 13. Responsive condition: (prefers-reduced-motion: reduce)
+   MDN Web Docs (2026) explains media queries. This preference removes motion while retaining the content and controls. */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -590,12 +730,17 @@ figcaption,
 }
 
 /* Readable legacy light forms. */
+
+/* 14. Legacy form contrast
+   These selectors keep light legacy controls readable alongside the darker museum theme. */
+
 .enquiry-form,
 .contact-form,
 .enquiry-form label,
 .contact-form label {
   color: #171513;
 }
+
 .enquiry-form input,
 .enquiry-form select,
 .enquiry-form textarea,
@@ -605,6 +750,10 @@ figcaption,
   color: #171513;
   background-color: #fff;
 }
+
+/* 15. Responsive condition: print
+   Print rules simplify navigation for paper output. */
+
 @media print {
   .skip-link,
   .menu-toggle {
@@ -613,32 +762,43 @@ figcaption,
 }
 
 /* Archive directory: staged museum exhibition layout. */
+
+/* 16. Archive introduction and search
+   Search controls and category states match the script-generated result list. Hidden feedback stays out of the layout. */
+
 .archive-intro {
   padding-block: 40px 56px;
 }
+
 .archive-page .archive-breadcrumb {
   font-size: 14px;
   margin-bottom: 38px;
 }
+
 .archive-breadcrumb a {
   text-underline-offset: 4px;
 }
+
 .archive-page h1 {
   font-size: clamp(44px, 5vw, 72px);
   margin: 0 0 24px;
 }
+
 .archive-page .archive-status {
   font-size: 14px;
   max-width: 740px;
   border-left: 2px solid var(--museum-gold);
   padding-left: 18px;
 }
+
 .archive-catalogue {
   padding-bottom: 80px;
 }
+
 .archive-catalogue h2 {
   font-size: clamp(28px, 3vw, 40px);
 }
+
 .archive-search label,
 .archive-sort label {
   display: block;
@@ -646,10 +806,12 @@ figcaption,
   color: var(--museum-ivory);
   font-size: 15px;
 }
+
 .archive-search-row {
   display: flex;
   gap: 12px;
 }
+
 .archive-search-row input {
   min-width: 0;
   flex: 1;
@@ -659,9 +821,11 @@ figcaption,
   border: 1px solid var(--museum-border);
   border-radius: 0;
 }
+
 .archive-search-row input::placeholder {
   color: var(--museum-muted);
 }
+
 .archive-toolbar {
   display: flex;
   justify-content: space-between;
@@ -669,21 +833,25 @@ figcaption,
   gap: 24px;
   margin-top: 28px;
 }
+
 .archive-categories {
   border: 0;
   margin: 0;
   padding: 0;
   min-width: 0;
 }
+
 .archive-categories legend {
   font-size: 14px;
   margin-bottom: 12px;
 }
+
 .archive-categories > div {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
+
 .archive-categories button {
   background: transparent;
   color: var(--museum-ivory);
@@ -693,14 +861,17 @@ figcaption,
   padding: 8px 18px;
   cursor: pointer;
 }
+
 .archive-categories button[aria-pressed="true"] {
   background: var(--museum-gold);
   color: var(--museum-black);
   border-color: var(--museum-gold);
 }
+
 .archive-categories button:hover {
   border-color: var(--museum-gold);
 }
+
 .archive-sort select {
   background: var(--museum-surface);
   color: var(--museum-ivory);
@@ -709,6 +880,7 @@ figcaption,
   min-height: 44px;
   max-width: 100%;
 }
+
 .archive-result-bar {
   display: flex;
   gap: 20px;
@@ -718,10 +890,12 @@ figcaption,
   padding-bottom: 16px;
   border-bottom: 1px solid var(--museum-border);
 }
+
 .archive-page #archive-count {
   font-size: 15px;
   margin: 0;
 }
+
 .archive-reset {
   color: var(--museum-gold);
   background: none;
@@ -732,6 +906,10 @@ figcaption,
   min-height: 44px;
   padding: 8px 0;
 }
+
+/* 17. Archive cards and thumbnail sizing
+   MDN Web Docs (2026) explains object-fit. Cover fills the existing thumbnail frame while preserving the image ratio; edge cropping is expected. */
+
 .archive-entry {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -739,52 +917,67 @@ figcaption,
   padding-block: 28px;
   border-bottom: 1px solid var(--museum-border);
 }
+
 .archive-thumbnail {
   margin: 0;
   background: var(--museum-surface);
   align-self: start;
 }
+
 .archive-thumbnail img {
   display: block;
   width: 100%;
   height: 165px;
   object-fit: cover;
 }
+
 .archive-entry h3 {
   font-size: 30px;
   margin: 8px 0 14px;
 }
+
 .archive-entry h3 a {
   color: var(--museum-ivory);
   text-decoration: none;
 }
+
 .archive-entry h3 a:hover {
   color: var(--museum-gold);
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+
 .archive-entry .eyebrow {
   margin-bottom: 4px;
   font-size: 11px;
 }
+
 .archive-entry p {
   font-size: 17px;
   max-width: 760px;
   margin-bottom: 12px;
 }
+
 .archive-entry .archive-provenance {
   font-size: 12px;
   margin-bottom: 0;
 }
+
 .archive-empty {
   padding: 40px 0;
 }
+
 .archive-empty[hidden] {
   display: none;
 }
+
 .archive-reading {
   background: var(--museum-surface);
 }
+
+/* 18. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .archive-toolbar {
     align-items: stretch;
@@ -801,6 +994,10 @@ figcaption,
     height: 140px;
   }
 }
+
+/* 19. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .archive-intro {
     padding-block: 28px 32px;
@@ -839,6 +1036,10 @@ figcaption,
 }
 
 /* Timeline: chronological layout, native disclosures and source references. */
+
+/* 20. Screen-reader text and timeline
+   The hidden-text utility retains accessible labels. Timeline columns separate dates from stories and native context disclosures. */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -850,26 +1051,32 @@ figcaption,
   white-space: nowrap;
   border: 0;
 }
+
 .timeline-intro {
   padding-block: 40px 48px;
 }
+
 .timeline-page .timeline-breadcrumb {
   font-size: 14px;
   margin-bottom: 38px;
 }
+
 .timeline-breadcrumb a {
   text-underline-offset: 4px;
 }
+
 .timeline-page h1 {
   font-size: clamp(44px, 5.5vw, 78px);
   margin-bottom: 28px;
 }
+
 .timeline-page .timeline-note {
   font-size: 14px;
   max-width: 760px;
   border-left: 2px solid var(--museum-gold);
   padding-left: 18px;
 }
+
 .timeline-era-nav {
   display: flex;
   flex-wrap: wrap;
@@ -877,6 +1084,7 @@ figcaption,
   border-block: 1px solid var(--museum-border);
   padding-block: 20px;
 }
+
 .timeline-era-nav a {
   border: 1px solid var(--museum-border);
   text-decoration: none;
@@ -884,13 +1092,16 @@ figcaption,
   padding: 10px 18px;
   font-size: 14px;
 }
+
 .timeline-era-nav a:hover {
   background: var(--museum-raised);
   border-color: var(--museum-gold);
 }
+
 .timeline-events {
   padding-block: 32px 80px;
 }
+
 .timeline-event {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -899,25 +1110,31 @@ figcaption,
   border-bottom: 1px solid var(--museum-border);
   scroll-margin-top: 32px;
 }
+
 .timeline-year {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .timeline-year time {
   font: 64px/1 var(--museum-serif);
   color: var(--museum-gold);
 }
+
 .timeline-story {
   max-width: 780px;
 }
+
 .timeline-story h2 {
   font-size: clamp(30px, 3vw, 42px);
 }
+
 .timeline-context {
   border: 1px solid var(--museum-border);
   margin-top: 28px;
 }
+
 .timeline-context summary {
   cursor: pointer;
   min-height: 48px;
@@ -925,43 +1142,57 @@ figcaption,
   color: var(--museum-gold);
   font-size: 16px;
 }
+
 .timeline-context[open] summary {
   border-bottom: 1px solid var(--museum-border);
   background: var(--museum-raised);
 }
+
 .timeline-context > div {
   padding: 20px;
 }
+
 .timeline-context > div p {
   font-size: 16px;
 }
+
 .timeline-context > div p:last-child {
   margin-bottom: 0;
 }
+
 .timeline-source a {
   overflow-wrap: anywhere;
   text-underline-offset: 4px;
 }
+
 .timeline-present {
   background: var(--museum-surface);
 }
+
 .timeline-present .text-link {
   display: block;
   width: fit-content;
   margin-top: 14px;
 }
+
 .timeline-references ol {
   max-width: 900px;
   padding-left: 24px;
 }
+
 .timeline-references li {
   padding: 0 0 20px 10px;
   color: var(--museum-muted);
   overflow-wrap: anywhere;
 }
+
 .timeline-references a {
   text-underline-offset: 4px;
 }
+
+/* 21. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .timeline-event {
     grid-template-columns: 150px minmax(0, 1fr);
@@ -971,6 +1202,10 @@ figcaption,
     font-size: 52px;
   }
 }
+
+/* 22. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .timeline-intro {
     padding-block: 28px 32px;
@@ -1010,28 +1245,38 @@ figcaption,
 }
 
 /* Places exhibition: the location list remains independent of map availability. */
+
+/* 23. Places introduction and map controls
+   The place directory remains usable independently of map loading. Responsive map/list dimensions are applied below. */
+
 .places-intro {
   padding-block: 40px 48px;
 }
+
 .places-page .places-breadcrumb {
   font-size: 14px;
   margin-bottom: 38px;
 }
+
 .places-page h1 {
   font-size: clamp(44px, 5.5vw, 78px);
 }
+
 .places-page .places-note {
   font-size: 14px;
   max-width: 760px;
   border-left: 2px solid var(--museum-gold);
   padding-left: 18px;
 }
+
 .places-exhibition {
   padding-bottom: 80px;
 }
+
 .places-exhibition > h2 {
   font-size: clamp(28px, 3vw, 42px);
 }
+
 #places-controls[hidden],
 .select-place[hidden],
 #places-reset[hidden],
@@ -1040,14 +1285,17 @@ figcaption,
 .place-detail[hidden] {
   display: none;
 }
+
 #places-search label {
   display: block;
   margin-bottom: 10px;
 }
+
 .places-search-row {
   display: flex;
   gap: 12px;
 }
+
 .places-search-row input {
   min-width: 0;
   flex: 1;
@@ -1057,18 +1305,22 @@ figcaption,
   border: 1px solid var(--museum-border);
   border-radius: 0;
 }
+
 .places-search-row input::placeholder {
   color: var(--museum-muted);
 }
+
 .place-filters {
   padding: 0;
   border: 0;
   margin: 24px 0;
 }
+
 .place-filters legend {
   margin-bottom: 12px;
   font-size: 14px;
 }
+
 .place-filters button {
   background: transparent;
   color: var(--museum-ivory);
@@ -1079,16 +1331,19 @@ figcaption,
   margin: 0 8px 8px 0;
   cursor: pointer;
 }
+
 .place-filters button[aria-pressed="true"] {
   background: var(--museum-gold);
   color: var(--museum-black);
 }
+
 .places-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 36px;
   align-items: start;
 }
+
 #places-map {
   height: 520px;
   width: 100%;
@@ -1096,49 +1351,64 @@ figcaption,
   color: #171513;
   z-index: 0;
 }
+
 .places-map-column > .text-link {
   margin-bottom: 16px;
 }
+
 .places-page #map-status,
 .places-page #map-help {
   font-size: 14px;
   margin-top: 14px;
 }
+
 .places-page .places-count {
   font-size: 15px;
 }
+
+/* 24. Place cards and expanded details
+   Selected-place buttons expose their state, while source links distinguish narrative and geographic evidence. */
+
 .place-card {
   border: 1px solid var(--museum-border);
   padding: 24px;
   margin-bottom: 20px;
 }
+
 .place-card h3 {
   font-size: 28px;
 }
+
 .place-card p,
 .place-static-details {
   font-size: 16px;
 }
+
 .place-card .eyebrow {
   font-size: 11px;
 }
+
 .place-static-details {
   margin-top: 18px;
 }
+
 .place-static-details summary {
   min-height: 44px;
   cursor: pointer;
   color: var(--museum-gold);
 }
+
 .place-static-details a,
 .place-detail-links a {
   overflow-wrap: anywhere;
   text-underline-offset: 4px;
 }
+
 .place-card .museum-button[aria-pressed="true"] {
   background: var(--museum-gold);
   color: var(--museum-black);
 }
+
 .place-detail {
   margin-top: 40px;
   padding: 36px;
@@ -1146,39 +1416,54 @@ figcaption,
   border: 1px solid var(--museum-border);
   scroll-margin-top: 24px;
 }
+
 .place-detail-links {
   display: flex;
   flex-wrap: wrap;
   gap: 16px 28px;
   margin-bottom: 20px;
 }
+
 .place-detail-links a {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
 }
+
 .places-source-section {
   background: var(--museum-surface);
 }
+
 .places-source-section li {
   color: var(--museum-muted);
   padding-bottom: 16px;
 }
+
 /* Leaflet popups use a light surface with dark text for reliable contrast. */
+
+/* 25. Leaflet popup contrast
+   The popup surface and link colours are project overrides for Leaflet 1.9.4. Leaflet (s.a.) documents the popup and attribution controls. */
+
 .places-page .leaflet-popup-content {
   font-family: var(--museum-sans);
   font-size: 15px;
   line-height: 1.5;
   color: #171513;
 }
+
 .places-page .leaflet-popup-content p {
   font-size: 14px;
   color: #171513;
   margin: 12px 0;
 }
+
 .places-page .leaflet-control-attribution a {
   color: #174e74;
 }
+
+/* 26. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .places-layout {
     grid-template-columns: 1fr;
@@ -1187,6 +1472,10 @@ figcaption,
     height: 420px;
   }
 }
+
+/* 27. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .places-intro {
     padding-block: 28px 32px;
@@ -1214,37 +1503,49 @@ figcaption,
 }
 
 /* Gallery: captions remain visible without hover or JavaScript. */
+
+/* 28. Gallery cards and source captions
+   The gallery grid preserves readable captions and links. Images fill their frames according to the existing per-category rules. */
+
 .gallery-intro {
   padding-block: 40px 48px;
 }
+
 .gallery-page .gallery-breadcrumb {
   font-size: 14px;
   margin-bottom: 38px;
 }
+
 .gallery-page h1 {
   font-size: clamp(44px, 5.5vw, 78px);
 }
+
 .gallery-page .gallery-note {
   font-size: 14px;
   max-width: 760px;
   border-left: 2px solid var(--museum-gold);
   padding-left: 18px;
 }
+
 .gallery-collection {
   padding-bottom: 80px;
 }
+
 .gallery-collection > h2 {
   font-size: clamp(28px, 3vw, 42px);
 }
+
 .gallery-filters {
   border: 0;
   padding: 0;
   margin: 24px 0 16px;
 }
+
 .gallery-filters legend {
   font-size: 14px;
   margin-bottom: 12px;
 }
+
 .gallery-filters button {
   min-height: 44px;
   border: 1px solid var(--museum-border);
@@ -1255,33 +1556,40 @@ figcaption,
   margin: 0 8px 8px 0;
   cursor: pointer;
 }
+
 .gallery-filters button[aria-pressed="true"] {
   background: var(--museum-gold);
   color: var(--museum-black);
 }
+
 .gallery-page .gallery-count {
   font-size: 15px;
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px 28px;
 }
+
 .gallery-item {
   margin: 0;
   border-top: 1px solid var(--museum-border);
   padding-top: 18px;
   min-width: 0;
 }
+
 .gallery-item[hidden],
 #gallery-filters[hidden] {
   display: none;
 }
+
 .gallery-open {
   display: block;
   position: relative;
   background: var(--museum-surface);
 }
+
 .gallery-open img {
   display: block;
   width: 100%;
@@ -1289,10 +1597,12 @@ figcaption,
   object-fit: contain;
   padding: 12px;
 }
+
 .gallery-item[data-category="photo"] img {
   object-fit: cover;
   padding: 0;
 }
+
 .gallery-enlarge {
   display: block;
   border-top: 1px solid var(--museum-border);
@@ -1300,30 +1610,38 @@ figcaption,
   font-size: 14px;
   min-height: 44px;
 }
+
 .gallery-open:hover .gallery-enlarge {
   background: var(--museum-raised);
 }
+
 .gallery-item figcaption {
   margin-top: 20px !important;
 }
+
 .gallery-item h3 {
   font-size: 28px;
   margin: 10px 0 14px;
 }
+
 .gallery-item figcaption p {
   font-size: 16px;
 }
+
 .gallery-item figcaption .eyebrow {
   font-size: 11px;
 }
+
 .gallery-item figcaption .gallery-provenance {
   font-size: 12px;
   border-left: 1px solid var(--museum-gold);
   padding-left: 12px;
 }
+
 .gallery-context {
   background: var(--museum-surface);
 }
+
 .gallery-context .text-link {
   display: block;
   width: fit-content;
@@ -1331,9 +1649,14 @@ figcaption,
 }
 
 /* Native dialog supplies modal focus containment; its caption area can scroll. */
+
+/* 29. Retained native-dialog styles
+   These rules belong to the earlier native-dialog viewer. The current gallery uses GLightbox with additional overrides in gallery.css. */
+
 .lightbox-active {
   overflow: hidden;
 }
+
 .gallery-lightbox {
   width: min(1100px, calc(100% - 40px));
   max-height: 92vh;
@@ -1344,15 +1667,19 @@ figcaption,
   color: var(--museum-ivory);
   overflow: auto;
 }
+
 .gallery-lightbox:not([open]) {
   display: none;
 }
+
 .gallery-lightbox::backdrop {
   background: rgba(0, 0, 0, 0.88);
 }
+
 .lightbox-shell {
   padding: 24px;
 }
+
 .lightbox-toolbar,
 .lightbox-navigation {
   display: flex;
@@ -1360,10 +1687,12 @@ figcaption,
   align-items: center;
   gap: 16px;
 }
+
 .lightbox-toolbar p {
   margin: 0;
   color: var(--museum-muted);
 }
+
 .lightbox-control {
   min-height: 44px;
   padding: 10px 16px;
@@ -1372,13 +1701,16 @@ figcaption,
   border: 1px solid var(--museum-border);
   cursor: pointer;
 }
+
 .lightbox-control:hover {
   border-color: var(--museum-gold);
 }
+
 .lightbox-control:disabled {
   opacity: 0.5;
   cursor: default;
 }
+
 .lightbox-image-wrap {
   min-height: 180px;
   display: flex;
@@ -1387,6 +1719,7 @@ figcaption,
   margin-block: 20px;
   background: var(--museum-surface);
 }
+
 #lightbox-image {
   display: block;
   width: 100%;
@@ -1394,41 +1727,57 @@ figcaption,
   max-height: 56dvh;
   object-fit: contain;
 }
+
 #lightbox-image[hidden],
 #lightbox-error[hidden] {
   display: none;
 }
+
 #lightbox-error {
   padding: 24px;
 }
+
 .lightbox-caption {
   padding-top: 24px;
 }
+
 .lightbox-caption h2 {
   font: 32px/1.2 var(--museum-serif);
   margin: 0 0 16px;
 }
+
 .lightbox-caption p {
   color: var(--museum-muted);
 }
+
 #lightbox-provenance {
   border-left: 2px solid var(--museum-gold);
   padding-left: 14px;
 }
+
 #lightbox-credit,
 .lightbox-help {
   font-size: 13px;
 }
+
 #lightbox-original {
   display: inline-block;
   min-height: 44px;
   padding-block: 10px;
 }
+
+/* 30. Responsive condition: (max-width: 1000px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 1000px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* 31. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .gallery-intro {
     padding-block: 28px 32px;
@@ -1455,6 +1804,10 @@ figcaption,
 }
 
 /* Explicit centring overrides the original universal margin reset for modal dialogs. */
+
+/* 32. Retained dialog centring overrides
+   These later rules correct the old universal margin reset; their position is retained to preserve the cascade. */
+
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -1466,6 +1819,10 @@ figcaption,
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+/* 33. Responsive condition: (max-width: 600px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 600px) {
   .gallery-lightbox {
     width: calc(100vw - 20px);
@@ -1476,17 +1833,24 @@ figcaption,
 }
 
 /* Forms use their own class names, avoiding legacy light-form colour rules. */
+
+/* 34. Forms and validation feedback
+   Fields, consent controls, invalid states and delivery responses share accessible spacing and contrast. */
+
 .forms-intro {
   padding-block: 40px 48px;
 }
+
 .forms-page .forms-breadcrumb {
   font-size: 14px;
   margin-bottom: 38px;
 }
+
 .forms-page h1 {
   font-size: clamp(44px, 5.5vw, 78px);
   max-width: 950px;
 }
+
 .forms-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1494,35 +1858,43 @@ figcaption,
   padding-bottom: 80px;
   align-items: start;
 }
+
 .forms-layout h2 {
   font-size: clamp(30px, 3vw, 42px);
 }
+
 .forms-editorial h3 {
   margin-top: 36px;
   font-size: 28px;
 }
+
 .forms-editorial .forms-privacy {
   font-size: 14px;
   border-top: 1px solid var(--museum-border);
   padding-top: 24px;
   margin-top: 32px;
 }
+
 .museum-form {
   margin-top: 28px;
   color: var(--museum-ivory);
 }
+
 .museum-form fieldset {
   padding: 0;
   margin: 0;
   border: 0;
   min-width: 0;
 }
+
 .forms-page .form-required {
   font-size: 14px;
 }
+
 .museum-field {
   margin-bottom: 24px;
 }
+
 .museum-field label,
 .form-response > label {
   display: block;
@@ -1530,6 +1902,7 @@ figcaption,
   margin-bottom: 10px;
   color: var(--museum-ivory);
 }
+
 .museum-field input,
 .museum-field select,
 .museum-field textarea,
@@ -1544,37 +1917,44 @@ figcaption,
   padding: 12px 14px;
   font: 16px/1.6 var(--museum-sans);
 }
+
 .museum-field textarea,
 #message-preview {
   resize: vertical;
 }
+
 .museum-field [aria-invalid="true"],
 .museum-consent [aria-invalid="true"] {
   border-color: #f5a397;
   outline: 1px solid #f5a397;
 }
+
 .forms-page .field-help {
   font-size: 13px;
   color: var(--museum-muted);
   margin: 8px 0 0;
 }
+
 .forms-page .field-error,
 .forms-page .form-error-summary {
   color: #ffb4a8;
   font-size: 14px;
   margin: 8px 0 12px;
 }
+
 .form-error-summary {
   border-left: 2px solid #ffb4a8;
   padding: 12px 16px;
   background: var(--museum-raised);
 }
+
 .museum-consent {
   display: flex;
   gap: 14px;
   align-items: flex-start;
   margin-block: 28px 8px;
 }
+
 .museum-consent input {
   width: 22px;
   height: 22px;
@@ -1582,25 +1962,30 @@ figcaption,
   margin-top: 4px;
   accent-color: var(--museum-gold);
 }
+
 .museum-consent label {
   min-height: 44px;
   font-size: 15px;
   cursor: pointer;
 }
+
 .category-context {
   padding: 24px;
   background: var(--museum-raised);
   border-left: 2px solid var(--museum-gold);
   margin-bottom: 24px;
 }
+
 .category-context h3 {
   font-size: 26px;
   margin-top: 0;
 }
+
 .category-context p {
   font-size: 15px;
   margin-bottom: 0;
 }
+
 .form-response {
   padding: 36px;
   background: var(--museum-raised);
@@ -1608,37 +1993,52 @@ figcaption,
   margin-bottom: 80px;
   scroll-margin-top: 24px;
 }
+
 .form-response h2 {
   font-size: clamp(28px, 3vw, 42px);
 }
+
 .forms-page #delivery-note,
 .forms-page #delivery-status {
   font-size: 14px;
   margin-top: 20px;
 }
+
 .form-response .action-row {
   margin-bottom: 20px;
 }
+
 .forms-closing {
   background: var(--museum-surface);
 }
+
 .forms-closing p {
   max-width: 650px;
 }
+
 .forms-page [hidden],
 .museum-form [hidden],
 .form-response [hidden] {
   display: none !important;
 }
+
 .museum-button:disabled {
   opacity: 0.55;
   cursor: wait;
 }
+
+/* 35. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .forms-layout {
     gap: 40px;
   }
 }
+
+/* 36. Responsive condition: (max-width: 700px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 700px) {
   .forms-layout {
     grid-template-columns: 1fr;
@@ -1656,75 +2056,85 @@ figcaption,
 
 /* Desktop forms use one centred column instead of leaving
    an empty column beside the longer form. */
+
+/* 37. Responsive condition: (min-width: 901px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (min-width: 901px) {
-    .forms-page .forms-layout {
-        grid-template-columns: minmax(0, 1fr);
-        width: min(760px, calc(100% - 112px));
-        margin-inline: auto;
-        gap: 32px;
-        padding-bottom: 80px;
-    }
-
-    /* Short guidance sits directly above the form. */
-    .forms-page .forms-editorial {
-        width: 100%;
-        max-width: 640px;
-        margin-inline: auto;
-        text-align: center;
-    }
-
-    .forms-page .forms-editorial > p {
-        margin-bottom: 20px;
-    }
-
-    /* Internal padding separates the fields from the panel border. */
-    .forms-page .forms-panel {
-        width: 100%;
-        min-width: 0;
-        padding: 44px;
-        background: var(--museum-surface);
-        border: 1px solid var(--museum-border);
-    }
-
-    .forms-page #form-heading {
-        text-align: center;
-        margin-bottom: 16px;
-    }
-
-    .forms-page .form-required,
-    .forms-page .form-panel-note {
-        text-align: center;
-        margin-bottom: 14px;
-    }
-
-    .forms-page .museum-form {
-        width: 100%;
-        margin-top: 32px;
-    }
-
-    /* The prepared response follows the same centred width. */
-    .forms-page .form-response {
-        width: min(760px, calc(100% - 112px));
-        margin-inline: auto;
-    }
+  .forms-page .forms-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(760px, calc(100% - 112px));
+    margin-inline: auto;
+    gap: 32px;
+    padding-bottom: 80px;
+  }
+  /* Short guidance sits directly above the form. */
+  .forms-page .forms-editorial {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .forms-page .forms-editorial > p {
+    margin-bottom: 20px;
+  }
+  /* Internal padding separates the fields from the panel border. */
+  .forms-page .forms-panel {
+    width: 100%;
+    min-width: 0;
+    padding: 44px;
+    background: var(--museum-surface);
+    border: 1px solid var(--museum-border);
+  }
+  .forms-page #form-heading {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .forms-page .form-required,
+  .forms-page .form-panel-note {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .forms-page .museum-form {
+    width: 100%;
+    margin-top: 32px;
+  }
+  /* The prepared response follows the same centred width. */
+  .forms-page .form-response {
+    width: min(760px, calc(100% - 112px));
+    margin-inline: auto;
+  }
 }
 
 /* Shared menus identify the current exhibition group and keep long lists accessible. */
+
+/* 38. Current navigation group and final menu overrides
+   These final rules identify the active section and bound long menu panels. They remain last to preserve their precedence. */
+
 .museum-nav .nav-current-group > summary {
   color: var(--museum-gold);
   text-decoration: underline;
   text-underline-offset: 8px;
 }
+
 .nav-panel {
   max-height: min(560px, 70vh);
   overflow-y: auto;
 }
+
+/* 39. Responsive condition: (min-width: 901px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (min-width: 901px) {
   .museum-nav .nav-group:last-of-type .nav-panel {
     left: auto;
     right: 0;
   }
 }
+
+/* 40. Responsive condition: (max-width: 900px)
+   MDN Web Docs (2026) explains media queries. These rules adapt the preceding components only when this condition matches; their position preserves the original cascade. */
+
 @media (max-width: 900px) {
   .nav-panel {
     max-height: none;
